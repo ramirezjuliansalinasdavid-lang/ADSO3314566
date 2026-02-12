@@ -7,7 +7,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gluten:slnt,wght@2,166&family=Mansalva&family=The+Girl+Next+Door&display=swap');
         body {
-            background: linear-gradient(rgb(20, 102, 44), white);
+            background: linear-gradient(rgb(235, 245, 237), rgb(39, 102, 53));
             color: black;
             font-family: mansalva;
             display: flex;
@@ -33,6 +33,36 @@
                     font-size: 1.4rem;
                 }
             }
+            menu {
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+                a:link, a:visited {
+                    background-color: rgb(240, 228, 225);
+                    color: #100603;
+                    border-radius: 12rem;
+                    padding: 0.4rem;
+                    display: flex;
+                    align-items: center;
+                    text-decoration: none;
+                    span{
+                        background-color: #100603;
+                        color: rgb(83, 145, 97);
+                        border-radius: 50%;
+                        front-size: 2rem;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        height: 80px;
+                        width: 80px;
+                    }
+                    h4{
+                        margin: 0;
+                    }
+                    small {
+
+                    }
+            }
         }
     </style>
 </head>
@@ -40,8 +70,37 @@
     <main>
         <h1>ADSO 3314566</h1>
         <img src="caricatura.png" alt="">
-        <h4>Julian David Ramirez</h4>   
-
+        <h4>Julian David Ramirez</h4> 
+        <menu>
+            <a href="01-emmet/">
+                <span>01</span>
+                <aside>
+                    <h4>Emmet</h4>
+                    <small>Work Flow - Markup & Stylling</small>
+                </aside>
+            </a>
+            <a href="02-html/">
+                <span>02</span>
+                <aside>
+                    <h4>Html</h4>
+                    <small>Structure - Hypertext Markup Language</small>
+                </aside>
+                <a href="03-css">
+                    <span>03</span>
+                    <aside>
+                        <h4>Css</h4>
+                        <small>Look & Fell - Cascading Style Sheets</small>
+                    </aside>
+                </a>
+                <a href="04-js/">
+                    <span>04</span>
+                    <aside>
+                        <h4>JavaScript</h4>
+                        <small>Behavior - Programing Language</small>
+                    </aside>
+                </a>
+            </a>
+        </menu>
     </main>
 </body>
 </html>
