@@ -15,7 +15,7 @@
 |03  | Css        |Look & Fell - Cascading Style Sheets  |
 |04  | Javascript |Behavior - Programing Language        |
 
-![Julian Ramirez](https://adso-3314566-omega.vercel.app/caricatura.jpg)
+![Julian Ramirez](https://adso-3314566-omega.vercel.app/caricatura.png)
 
 [ADSO Files DRIVE](https://tinyurl.com/wnkk334u)
 
