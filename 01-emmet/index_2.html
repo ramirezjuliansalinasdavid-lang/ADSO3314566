@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmet</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans+Thai:wght@100..800&display=swap');
+        body{
+            background: linear-gradient(rgb(15,74,26), rgb(255,255,255));
+            color: rgb(243,245,240);
+            font-family: "Playpen Sans Thai", cursive;
+            display: flex;
+            justify-content: center;
+            min-height: 300dvh;
+            main{
+                h1{
+                    font-size: 1.4rem;
+                    margin: 0; 
+                    text-align: center; 
+                }
+                img{
+                    border:1px solid rgb(243, 245, 240);
+                    border-radius: 50%;
+                    height: 150px;
+                    display: flex;
+                    margin: .4rem auto;
+                    object-fit: cover;
+                    width: 150px;
+                }
+                h4{
+                    text-align: center;
+                    font-size: .8rem;
+                }
+            }
+            .home{
+                    position:absolute;
+                    top:20px;
+                    left:20px;
+                    width:45px;
+                    height:45px;
+                    border:2px solid #ffffff80;
+                    border-radius:50%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    text-decoration:none;
+                    color:white;
+                    font-size:20px;
+            }
+            .card{
+                width: 300px;
+                background:rgb(243, 245, 240);
+                padding:20px;
+                margin-bottom: 5px;
+                border-radius:15px;
+                box-shadow:0 10px 25px rgba(0,0,0,0.4);
+            }
+            .line{
+                height:2px;
+                background:#1abc9c;
+                margin:10px 0 20px 0;
+            }
+            h2{
+                font-size: 1rem;
+                text-align: center;
+                color: rgb(15,74,26);
+            }
+            .example{
+                font-size: .9rem;
+                color: rgb(15,74,26)
+            }
+            .code{
+                background:rgb(15,74,26);
+                padding:15px;
+                border-radius:8px;
+                font-family: "Playpen Sans Thai";
+                color:rgb(243, 245, 240);
+                font-size:12px;
+            }                      
+        }
+    </style>
+</head>
+<body>
+    <a href="../index.html" class="home">🏠</a>
+    <main>
+        <h1> 01-EMMET </h1>        
+        <h4>Work Flow - Marckup & Stillyng</h4>
+        <img src="logo-emmet.svg" alt=""> 
+        <div class="card">
+            <h2>EMMET - ANIDAR ELEMENTOS > </h2>
+            <div class="line"></div>
+            <p class="example"><strong>Ejemplo:</strong></p>
+            <p class="example">ul>li>a</p>
+
+            <p class="example"><strong>RESULTADO</strong></p>
+
+            <div class="code">
+                &lt;ul&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;&lt;a href=""&gt;&lt;/a&gt;&lt;/li&gt;<br>
+                &lt;/ul&gt;
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>EMMET - ELEMENTOS HERMANOS + </h2>
+            <div class="line"></div>
+            <p class="example"><strong>Ejemplo:</strong></p>
+            <p class="example">section+header+nav</p>
+
+            <p class="example"><strong>RESULTADO</strong></p>
+
+            <div class="code">
+                &lt;section&gt;&lt;/section&gt;<br>
+                &lt;header&gt;&lt;/header&gt;<br>
+                &lt;nav&gt;&lt;/nav&gt;
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>EMMET - REPETIR ELEMENTOS * </h2>
+            <div class="line"></div>
+            <p class="example"><strong>Ejemplo:</strong></p>
+            <p class="example">ul>li*3</p>
+
+            <p class="example"><strong>RESULTADO</strong></p>
+
+            <div class="code">
+                &lt;ul&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;&lt;li&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;&lt;li&gt;<br>
+                &nbsp;&nbsp;&lt;li&gt;&lt;li&gt;<br>
+                &lt;ul&gt;
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>EMMET - ATRIBUTO CLASE ⏺️ </h2>
+            <div class="line"></div>
+            <p class="example"><strong>Ejemplo:</strong></p>
+            <p class="example">div.contenedor</p>
+            <p class="example">contenedor2</p>
+
+            <p class="example"><strong>RESULTADO</strong></p>
+
+            <div class="code">
+                &lt;div class="contenedor"&gt;&lt;/div&gt;<br>
+            </div>
+        </div>
+
+    </main>    
+</body>
+</html>
