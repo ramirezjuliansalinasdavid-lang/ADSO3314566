@@ -216,106 +216,140 @@
                 &lt;ul&gt;<br>
                 &nbsp;&nbsp;&lt;li class="num1"&gt;&lt;li&gt;<br>
                 &nbsp;&nbsp;&lt;li class="num2"&gt;&lt;li&gt;<br>
-                &nbsp;&nbsp;&lt;li class="num3"gt;&lt;li&gt;<br>
+                &nbsp;&nbsp;&lt;li class="num3"&gt;&lt;li&gt;<br>
                 &lt;/ul&gt;
             </div>
         </div>
 
         <div class="card">
-            <h2>EMMET - ATRIBUTO CLASE ⏺️ </h2>
+            <h2>EMMET - DIRRECION NUMEROS CONSECUTIVOS @- </h2>
             <div class="line"></div>
             <p class="example"><strong>Ejemplo:</strong></p>
-            <p class="example">div.contenedor</p>
-            <p class="example">contenedor2</p>
+            <p class="example">ul>li.num$@-*3</p>
 
             <p class="example"><strong>RESULTADO</strong></p>
 
             <div class="code">
-                &lt;div class="contenedor"&gt;&lt;/div&gt;<br>
+                &lt;ul&gt;<br>
+                &nbsp;&nbsp;&lt;li class="num3"&gt;&lt;li&gt;<br>
+                &nbsp;&nbsp;&lt;li class="num2"&gt;&lt;li&gt;<br>
+                &nbsp;&nbsp;&lt;li class="num1"&gt;&lt;li&gt;<br>
+                &lt;/ul&gt;
             </div>
         </div>
 
         <div class="card">
-            <h2>EMMET - ATRIBUTO CLASE ⏺️ </h2>
+            <h2>EMMET - BASE NUMEROS CONSECUTIVOS @n </h2>
             <div class="line"></div>
             <p class="example"><strong>Ejemplo:</strong></p>
-            <p class="example">div.contenedor</p>
-            <p class="example">contenedor2</p>
+            <p class="example">ul>li.num$@3*4</p>
 
             <p class="example"><strong>RESULTADO</strong></p>
 
             <div class="code">
-                &lt;div class="contenedor"&gt;&lt;/div&gt;<br>
+                &lt;ul&gt;<br>
+                &nbsp;&nbsp;&lt;li class="num3"&gt;&lt;li&gt;<br>
+                &nbsp;&nbsp;&lt;li class="num4"&gt;&lt;li&gt;<br>
+                &nbsp;&nbsp;&lt;li class="num5"&gt;&lt;li&gt;<br>
+                &nbsp;&nbsp;&lt;li class="num6"&gt;&lt;li&gt;<br>
+                &lt;/ul&gt;
             </div>
         </div>
 
         <div class="card">
-            <h2>EMMET - ATRIBUTO CLASE ⏺️ </h2>
+            <h2>EMMET - SUBIR NIVEL ^ </h2>
             <div class="line"></div>
             <p class="example"><strong>Ejemplo:</strong></p>
-            <p class="example">div.contenedor</p>
-            <p class="example">contenedor2</p>
+            <p class="example">section>article>div^p</p>
 
             <p class="example"><strong>RESULTADO</strong></p>
 
             <div class="code">
-                &lt;div class="contenedor"&gt;&lt;/div&gt;<br>
+                &lt;section&gt;<br>
+                &nbsp;&nbsp;&nbsp;&lt;article&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&gt;&lt;/div&gt;<br>
+                &nbsp;&nbsp;&nbsp;&lt;/article&gt;<br>
+                &nbsp;&nbsp;&nbsp;&lt;p&gt;&lt;/p&gt;<br>
+                &lt;/section&gt;
             </div>
         </div>
 
         <div class="card">
-            <h2>EMMET - ATRIBUTO CLASE ⏺️ </h2>
+            <h2>EMMET - AGRUPAR ELEMENTOS () </h2>
             <div class="line"></div>
             <p class="example"><strong>Ejemplo:</strong></p>
-            <p class="example">div.contenedor</p>
-            <p class="example">contenedor2</p>
+            <p class="example">(header>nav)(section>article)</p>
 
             <p class="example"><strong>RESULTADO</strong></p>
 
             <div class="code">
-                &lt;div class="contenedor"&gt;&lt;/div&gt;<br>
+                &lt;header&gt;<br>
+                &nbsp;&nbsp;&nbsp;&lt;nav&gt;&lt;/nav&gt;<br>
+                &lt;/header&gt;<br>
+                &lt;section&gt;<br>
+                &nbsp;&nbsp;&nbsp;&lt;article&gt;&lt;/article&gt;<br>
+                &lt;/section&gt;
             </div>
         </div>
 
         <div class="card">
-            <h2>EMMET - ATRIBUTO CLASE ⏺️ </h2>
+            <h2>EMMET - GENERAR "LOREM IPSUM DOLOR" </h2>
             <div class="line"></div>
             <p class="example"><strong>Ejemplo:</strong></p>
-            <p class="example">div.contenedor</p>
-            <p class="example">contenedor2</p>
+            <p class="example">lorem</p>
+            <p class="example">lorem20</p>
+            <p class="example">lorem*5</p>
 
             <p class="example"><strong>RESULTADO</strong></p>
 
             <div class="code">
-                &lt;div class="contenedor"&gt;&lt;/div&gt;<br>
+                Lorem ipsum dolor sit amet, con...
             </div>
         </div>
 
         <div class="card">
-            <h2>EMMET - ATRIBUTO CLASE ⏺️ </h2>
+            <h2>EMMET - DOCUMENTO HTML </h2>
             <div class="line"></div>
             <p class="example"><strong>Ejemplo:</strong></p>
-            <p class="example">div.contenedor</p>
-            <p class="example">contenedor2</p>
+            <p class="example">html:xs "Documento xhtml 1.0 strict"</p>
+            <p class="example">html:xt "Documento xhtml 1.0 transitional"</p>
+            <p class="example">html:4s "Documento html 4.01 strict</p>
+            <p class="example">html:4t "Documento html4.01 transitional"</p>
+            <p class="example">html:5 "Documento html 5</p>
 
             <p class="example"><strong>RESULTADO</strong></p>
 
             <div class="code">
-                &lt;div class="contenedor"&gt;&lt;/div&gt;<br>
+                &lt;html:xs&gt;&lt;/html:xs&gt;<br>
+                &lt;html:xt&gt;&lt;/html:xt&gt;<br>
+                &lt;html:4s&gt;&lt;/html:4s&gt;<br>
+                &lt;html:4t&gt;&lt;/html:4t&gt;<br> 
             </div>
         </div>
 
         <div class="card">
-            <h2>EMMET - ATRIBUTO CLASE ⏺️ </h2>
+            <h2>EMMET - META TAGS </h2>
             <div class="line"></div>
             <p class="example"><strong>Ejemplo:</strong></p>
-            <p class="example">div.contenedor</p>
-            <p class="example">contenedor2</p>
+            <p class="example">meta:vp</p>
 
             <p class="example"><strong>RESULTADO</strong></p>
 
             <div class="code">
-                &lt;div class="contenedor"&gt;&lt;/div&gt;<br>
+                &lt;meta name="viewport" content="width=device-width..."&gt;
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>RETO EMMET </h2>
+            <div class="line"></div>
+            <p class="example"><strong>Ejemplo:</strong></p>
+            <p class="example">header#header>nav.navbar.navbar-inverse>div.container>div.navbar-header>(button.navbar-toggle[type=button]>span.sr-only{Toggle navigation}+span.icon-bar*3)+a.navbar-brand[href=index.php]>img[src=imgs/logo.png alt=""]^^div.collapse>ul.nav.navbar-nav>li>a.link[href=index.html]{Inicio}^li.active.link>a[href=login.html]{Ingresar}^li>a.link[href=registro.html]{Registrarse}^li>a.link[href=contacto.html]{Contacto}</p>
+
+            <p class="example"><strong>RESULTADO</strong></p>
+
+            <div class="code">
+
             </div>
         </div>
         
