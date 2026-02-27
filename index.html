@@ -3,100 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portafolio de Julian David Ramirez Salinas - ADSO 3314566">
     <title>ADSO 3314566 | PORTAFOLIO</title>
+    <link rel="icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
-        *{
-            margin:0;
-            padding:0;
-            box-sizing: border-box;
-        }
-        @import url('https://fonts.googleapis.com/css2?family=Gluten:slnt,wght@2,166&family=Mansalva&family=The+Girl+Next+Door&display=swap');
+    *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    }
+
         body{
-            background: linear-gradient(135deg,#0f4a1a,#1abc9c);
-            color: black;
-            font-family: 'Poppins', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100dvh;
-        } 
-            main{
-                animation: fadeIn 0.8s ease-in;
-                background: white;
-                width: 380px;
-                text-align: center;
-                padding: 40px;
-                border-radius: 20px;
-                width: 350px;
-                box-shadow: 0 20px 50px rgba(0,0,0,0.2);
-                h1 {
-                    font-size: 2rem;
-                    margin: 0;
-                    text-align: center;
-                }
-                img {
-                    transform: scale(1.05);
-                    transition: 0.3s;
-                    border: 6px solid #1abc9c;
-                    border-radius: 50%;
-                    object-fit: cover;
-                    height: 150px;
-                    display: flex;
-                    margin: 1rem auto;
-                    object-fit: cover;
-                    width: 150px;
-                }
-                h4{
-                    text-align: center;
-                    font-size: 1.4rem;
-                }
-            }
-            @keyframes fadeIn{
-                from{opacity:0; transform: translateY(20px);}
-                to{opacity:1; transform: translateY(0);}
-            }
-            menu{
-                display: flex;
-                flex-direction: column;
-                gap: 15px;
-                margin-top: 20px;
-                a:link, a:visited {
-                    background-color: rgb(240, 228, 225);
-                    color: #100603;
-                    border-radius: 15px;
-                    padding: 0.4rem;
-                    display: flex;
-                    align-items: center;
-                    text-decoration: none;
-                    transition: all 0.3s ease;
-                    span{
-                        background-color: #0f4a1a;
-                        color: white;
-                        border-radius: 50%;
-                        font-size: 2rem;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        margin-right: 15px;
-                        font-weight: bold;
-                        height: 50px;
-                        width: 50px;
-                    }
-                    h4{
-                        margin: 0;
-                    }
-                    small {
-                        display: block;
-                        font-size: 0,7rem;
-                        text-indent: 0.2rem;
-                        width: 225px;                        
-                    }
-                    transition: transform 0.4s ease-in;
-                    &:hover {
-                        transform: scale(1.05) translate(15px);
-                    }
-            }
+            font-family:'Poppins',sans-serif;
+            background: linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            min-height:100vh;
+            color:#1e293b;
+        }
+
+        main{
+            background:#ffffff;
+            max-width:400px;
+            width:90%;
+            padding:40px 30px;
+            border-radius:20px;
+            box-shadow:0 15px 40px rgba(0,0,0,0.15);
+            text-align:center;
+            animation:fadeIn 0.8s ease-in;
+        }
+
+        main h1{
+            font-size:1.8rem;
+            margin-bottom:10px;
+        }
+
+        main img{
+            height:140px;
+            border-radius:50%;
+            object-fit:cover;
+            border:5px solid #22c55e;
+            margin:15px 0;
+            width:140px;
+        }
+
+        main h4{
+            margin-bottom:5px;
+            font-weight:500;
+        }
+
+        .about{
+            color:#64748b;
+            margin-bottom:25px;
+            font-size:0.9rem;
+        }
+
+        menu{
+            display:flex;
+            flex-direction:column;
+            gap:15px;
+        }
+
+        menu a{
+            text-decoration:none;
+            display:flex;
+            align-items:center;
+            background:#f1f5f9;
+            padding:12px;
+            border-radius:12px;
+            transition:all 0.3s ease;
+            color:#0f172a;
+        }
+
+        menu a:hover{
+            transform:translateX(6px);
+            box-shadow:0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        menu span{
+            background:#22c55e;
+            color:white;
+            width:40px;
+            height:40px;
+            border-radius:50%;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-weight:bold;
+            margin-right:15px;
+        }
+
+        menu h4{
+            margin:0;
+            font-size:1rem;
+        }
+
+        menu small{
+            display:block;
+            font-size:0.75rem;
+            color:#64748b;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0; transform:translateY(20px);}
+            to{opacity:1; transform:translateY(0);}
         }
     </style>
 </head>
@@ -105,6 +118,7 @@
         <h1>ADSO 3314566</h1>
         <img src="caricatura.png" alt="">
         <h4>Julian David Ramirez Salinas</h4> 
+        <p class="about">Estudiante ADSO en formación</p>
         <menu>
             <a href="01-emmet/index_2.html">
                 <span>01</span>
@@ -116,7 +130,7 @@
             <a href="02-html/index.html">
                 <span>02</span>
                 <aside>
-                    <h4>Html</h4>
+                    <h4><i class="fa-brands fa-html5"></i> HTML</h4>
                     <small>Structure - Hypertext Markup Language</small>
                 </aside>
             </a>    
@@ -134,7 +148,6 @@
                         <small>Behavior - Programing Language</small>
                     </aside>
                 </a>
-            </a>
         </menu>
     </main>
 </body>
