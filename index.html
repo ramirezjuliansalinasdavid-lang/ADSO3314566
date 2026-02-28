@@ -16,12 +16,13 @@
         }
 
         body{
-            background:linear-gradient(135deg, #003b1f 0%,#006b3f 40%,#00a859 75%,#ffffff 120%);
+            background:linear-gradient(135deg, #0f172a 0%,#111827 50%,#1f2937 100%);
             color: #2d3a4b;
             font-family: "Playpen Sans Thai", sans-serif;
             display: flex;
             justify-content: center;
             min-height: 100dvh;
+            align-items: center;
         }
 
         main{
@@ -63,16 +64,19 @@
         }
 
         menu{
-            background: #00a859;
+            background: #111827;
             color: white;
             padding: 12px 24px;
             border-radius: 8px;
             transition: 0.3s ease;
             text-decoration: none;
         }
+        :root{
+            --verde--nacional: #00a859;
+        }
 
         menu a{            
-            background:#00a859;
+            background:#1f2937;
             text-decoration:none;
             display:flex;
             align-items:center;
@@ -124,6 +128,18 @@
         @keyframes fadeIn{
             from{opacity:0; transform:translateY(20px);}
             to{opacity:1; transform:translateY(0);}
+        }
+
+        .item{
+            background: #ffffff;
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
     </style>
 </head>
