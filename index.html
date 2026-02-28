@@ -16,21 +16,22 @@
         }
 
         body{
-            font-family:'Poppins',sans-serif;
-            background: linear-gradient(135deg,#1e293b,#0f172a);
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            min-height:100vh;
+            background:linear-gradient(135deg, #003b1f 0%,#006b3f 40%,#00a859 75%,#ffffff 120%);
+            color: #2d3a4b;
+            font-family: "Playpen Sans Thai", sans-serif;
+            display: flex;
+            justify-content: center;
+            min-height: 100dvh;
         }
 
         main{
             background:#ffffff;
+            color: #1e293b;
             max-width:420px;
             width:90%;
-            padding:50px 40px;
-            border-radius:18px;
-            box-shadow:0 20px 50px rgba(0,0,0,0.12);
+            padding:30;
+            border-radius:16px;
+            box-shadow:0 15px 40px rgba(0,0,0,0.3);
             text-align:center;
             animation:fadeIn 0.8s ease-in;
         }
@@ -62,16 +63,19 @@
         }
 
         menu{
-            display:flex;
-            flex-direction:column;
-            gap:15px;
+            background: #00a859;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 8px;
+            transition: 0.3s ease;
+            text-decoration: none;
         }
 
-        menu a{
+        menu a{            
+            background:#00a859;
             text-decoration:none;
             display:flex;
             align-items:center;
-            background:#f1f5f9;
             padding:12px;
             border-radius:12px;
             transition:all 0.3s ease;
@@ -79,9 +83,18 @@
         }
 
         menu a:hover{
-            transform:translateX(4px);
-            background:#e2e8f0;
-            box-shadow:0 8px 20px rgba(0,0,0,0.08);
+            background: #008f4c;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,168,89,0.4);
+        }
+        .card::before{
+            content: "";
+            display: block;
+            height: 6px;
+            width: 60px;
+            background: #00a859;
+            margin-bottom: 20px;
+            border-radius: 3px;
         }
 
         menu span{
