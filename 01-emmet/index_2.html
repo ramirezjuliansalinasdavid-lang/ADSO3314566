@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Guía completa de Emmet - Atajos para HTML y CSS">
     <title>Emmet | Guía Visual</title>
-    
+
     <!-- Fonts y Iconos -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
     <style>
-        /* RESET Y VARIABLES */
+        /* RESET Y VARIABLES - NUEVA PALETA DE COLORES */
         * {
             margin: 0;
             padding: 0;
@@ -19,22 +19,25 @@
         }
 
         :root {
-            --primary: #22c55e;
-            --primary-dark: #16a34a;
-            --primary-light: #86efac;
-            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            --dark-bg: #0f172a;
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-primary: #1e293b;
-            --text-secondary: #64748b;
-            --code-bg: #1a1f2e;
+            --primary-dark: #0b2b26;      /* Verde azulado oscuro principal */
+            --primary-medium: #163832;     /* Verde bosque para gradientes */
+            --primary: #2a6b5e;            /* Verde esmeralda para acentos */
+            --primary-light: #4a6b65;       /* Verde grisáceo para textos secundarios */
+            --bg-gradient-start: #0b2b26;
+            --bg-gradient-end: #163832;
+            --card-bg: #ffffff;              /* Fondo de tarjetas blanco */
+            --text-primary: #1e293b;          /* Texto oscuro principal */
+            --text-secondary: #4a6b65;         /* Texto secundario (verde grisáceo) */
+            --text-muted: #5a7b74;             /* Texto aún más suave */
+            --code-bg: #0f3a32;                 /* Fondo para bloques de código (verde muy oscuro) */
+            --border-light: rgba(42, 107, 94, 0.2); /* Bordes sutiles */
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(-45deg, #4158D0, #C850C0, #FFCC70, #22c55e);
+            background: linear-gradient(-45deg, var(--bg-gradient-start), var(--bg-gradient-end), #1a4038, #0f3a32);
             background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
+            animation: gradientBG 12s ease infinite;
             min-height: 100vh;
             padding: 40px 20px;
             position: relative;
@@ -53,7 +56,7 @@
             left: 20px;
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
@@ -62,8 +65,8 @@
             text-decoration: none;
             color: white;
             font-size: 24px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
             z-index: 100;
         }
@@ -71,7 +74,7 @@
         .home-btn:hover {
             background: var(--primary);
             transform: scale(1.1) rotate(360deg);
-            box-shadow: 0 8px 25px rgba(34, 197, 94, 0.4);
+            border-color: transparent;
         }
 
         /* CONTENEDOR PRINCIPAL */
@@ -94,7 +97,7 @@
             background: linear-gradient(to right, #fff, #86efac, #fff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
             margin-bottom: 10px;
             letter-spacing: 2px;
         }
@@ -113,11 +116,11 @@
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
-            background: rgba(0, 0, 0, 0.2);
+            background: rgba(11, 43, 38, 0.5); /* Fondo basado en primary-dark */
             padding: 10px 25px;
             border-radius: 50px;
             backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
         /* LOGO */
@@ -133,15 +136,15 @@
             border-radius: 50%;
             background: white;
             padding: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            border: 4px solid white;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border: 4px solid var(--primary);
             transition: all 0.5s ease;
             animation: float 3s ease-in-out infinite;
         }
 
         .logo-container img:hover {
             transform: scale(1.1) rotate(5deg);
-            border-color: var(--primary);
+            border-color: white;
         }
 
         @keyframes float {
@@ -161,7 +164,7 @@
         .stat-item {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            padding: 15px 25px;
+            padding: 12px 25px;
             border-radius: 50px;
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
@@ -191,7 +194,7 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
-            padding: 12px 25px;
+            padding: 10px 22px;
             border-radius: 50px;
             cursor: pointer;
             font-weight: 500;
@@ -203,10 +206,10 @@
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: var(--primary);
+            background: var(--primary-dark); /* Cambiado a verde oscuro */
             border-color: var(--primary);
             transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 10px 20px rgba(11, 43, 38, 0.3);
         }
 
         /* GRID DE CARDS */
@@ -226,7 +229,7 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             position: relative;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-light);
             backdrop-filter: blur(10px);
             animation: fadeInUp 0.6s ease;
         }
@@ -238,12 +241,12 @@
             left: 0;
             right: 0;
             height: 5px;
-            background: linear-gradient(90deg, var(--primary), var(--primary-light));
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
         }
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(34, 197, 94, 0.3);
+            box-shadow: 0 30px 60px rgba(11, 43, 38, 0.3);
         }
 
         .card-header {
@@ -256,7 +259,7 @@
         .card-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -339,7 +342,7 @@
         }
 
         .tip {
-            background: #f8fafc;
+            background: #f0f7f5; /* Fondo muy suave basado en primary */
             border-radius: 12px;
             padding: 10px 15px;
             font-size: 0.85rem;
@@ -348,6 +351,7 @@
             align-items: center;
             gap: 8px;
             margin-top: 15px;
+            border: 1px solid var(--border-light);
         }
 
         .tip i {
@@ -356,13 +360,17 @@
 
         /* CARD ESPECIAL PARA EL RETO */
         .card.challenge {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, var(--primary-dark), #1a4a40); /* Basado en primary-dark */
             color: white;
             grid-column: 1 / -1;
         }
 
         .card.challenge .card-title {
             color: white;
+        }
+
+        .card.challenge .card-subtitle {
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .card.challenge .code-block {
@@ -378,6 +386,8 @@
             font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 15px;
         }
 
         details {
@@ -447,7 +457,7 @@
         }
 
         ::-webkit-scrollbar-track {
-            background: var(--dark-bg);
+            background: var(--primary-dark);
         }
 
         ::-webkit-scrollbar-thumb {
@@ -456,7 +466,7 @@
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-dark);
+            background: var(--primary-light);
         }
     </style>
 </head>
@@ -468,7 +478,7 @@
 
 <div class="container">
     
-    <!-- HEADER MEJORADO -->
+    <!-- HEADER -->
     <div class="header">
         <div class="logo-container">
             <img src="logo-emmet.svg" alt="Logo Emmet">
@@ -477,7 +487,7 @@
         <h1>⚡ EMMET ⚡</h1>
         <h4>Workflow - Markup & Styling</h4>
         <p>
-            <i class="fas fa-bolt" style="color: #22c55e;"></i>
+            <i class="fas fa-bolt" style="color: #2a6b5e;"></i>
             Escribe HTML y CSS a la velocidad de la luz
         </p>
         
@@ -850,7 +860,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulv
                 <div class="card-icon"><i class="fas fa-trophy"></i></div>
                 <div>
                     <h3 class="card-title">Navbar Completo con Bootstrap</h3>
-                    <div class="card-subtitle" style="color: rgba(255,255,255,0.8);">
+                    <div class="card-subtitle">
                         <i class="fas fa-crown"></i> Nivel: Experto
                     </div>
                 </div>
@@ -895,7 +905,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulv
                 </div>
             </details>
             
-            <div class="tip" style="background: rgba(255,255,255,0.2); color: white;">
+            <div class="tip" style="background: rgba(255,255,255,0.2); color: white; border-color: rgba(255,255,255,0.1);">
                 <i class="fas fa-rocket"></i>
                 ¡Este comando genera un navbar completo de Bootstrap en una sola línea!
             </div>
@@ -913,7 +923,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulv
         navigator.clipboard.writeText(code).then(() => {
             const originalText = button.innerHTML;
             button.innerHTML = '<i class="fas fa-check"></i> Copiado!';
-            button.style.background = '#22c55e';
+            button.style.background = '#0b2b26';
             
             setTimeout(() => {
                 button.innerHTML = originalText;
@@ -953,4 +963,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulv
 </script>
 
 </body>
-</html>
+</html>             
