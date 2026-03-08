@@ -1,184 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portafolio de Julian David Ramirez Salinas - ADSO 3314566">
+
     <title>ADSO 3314566 | PORTAFOLIO</title>
+
     <link rel="icon" href="favicon.ico">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
     <style>
-            *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
+        /* RESET */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
-        body{
-            background:linear-gradient(135deg, #0f172a 0%,#111827 50%,#1f2937 100%);
-            color: #2d3a4b;
-            font-family: "Playpen Sans Thai", sans-serif;
+        /* BODY */
+
+        body {
+            background: linear-gradient(-45deg, #0f172a, #111827, #1f2937, #020617);
+            background-size: 400% 400%;
+            animation: fondo 12s ease infinite;
             display: flex;
             justify-content: center;
-            min-height: 100dvh;
             align-items: center;
+            min-height: 100vh;
         }
 
-        main{
-            background:#ffffff;
+        /* ANIMACION FONDO */
+
+        @keyframes fondo {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* CONTENEDOR PRINCIPAL */
+
+        main {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: #1e293b;
-            max-width:420px;
-            width:90%;
-            padding:30;
-            border-radius:16px;
-            box-shadow:0 15px 40px rgba(0,0,0,0.3);
-            text-align:center;
-            animation:fadeIn 0.8s ease-in;
+            max-width: 500px;
+            width: 90%;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+            text-align: center;
+            animation: fadeIn 0.8s ease-in;
+            position: relative;
         }
 
-        main h1{
-            font-size:2rem;
-            margin-bottom:10px;
+        /* BARRA SUPERIOR */
+
+        main::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #00a859, #22c55e, #16a34a);
+        }
+
+        /* TITULO */
+
+        main h1 {
+            font-size: 2rem;
             font-weight: 600;
         }
 
-        main img{
-            height:140px;
-            border-radius:50%;
-            object-fit:cover;
-            border:4px solid #22c55e;
-            margin:15px 0;
-            width:140px;
-        }
-
-        main h4{
-            margin-bottom:5px;
-            font-weight:600;
-        }
-
-        .about{
-            color:#64748b;
-            margin-bottom:25px;
-            font-size:0.85rem;
-        }
-
-        menu{
-            background: #111827;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
-            transition: 0.3s ease;
-            text-decoration: none;
-        }
-        :root{
-            --verde--nacional: #00a859;
-        }
-
-        menu a{            
-            background:#1f2937;
-            text-decoration:none;
-            display:flex;
-            align-items:center;
-            padding:12px;
-            border-radius:12px;
-            transition:all 0.3s ease;
-            color:#0f172a;
-        }
-
-        menu a:hover{
-            background: #008f4c;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,168,89,0.4);
-        }
-        .card::before{
+        main h1::after {
             content: "";
             display: block;
-            height: 6px;
             width: 60px;
+            height: 4px;
             background: #00a859;
-            margin-bottom: 20px;
+            margin: 10px auto 0;
             border-radius: 3px;
         }
 
-        menu span{
-            background:#0f172a;
-            color:#e2e8f0;
-            width:40px;
-            height:40px;
-            border-radius:50%;
-            display:flex;
-            justify-content:center;
-            align-items:center;
-            font-weight:bold;
-            margin-right:15px;
+        /* FOTO */
+
+        main img {
+            height: 140px;
+            width: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #22c55e;
+            margin: 20px 0;
+            transition: 0.4s;
         }
 
-        menu h4{
-            margin:0;
-            font-size:1rem;
+        main img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
 
-        menu small{
-            display:block;
-            font-size:0.75rem;
-            color:#64748b;
+        /* NOMBRE */
+
+        main h4 {
+            font-weight: 600;
+            margin-bottom: 5px;
         }
 
-        @keyframes fadeIn{
-            from{opacity:0; transform:translateY(20px);}
-            to{opacity:1; transform:translateY(0);}
+        /* DESCRIPCION */
+
+        .about {
+            color: #64748b;
+            margin-bottom: 25px;
+            font-size: 0.9rem;
         }
 
-        .item{
+        /* MENU */
+
+        menu {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* TARJETAS */
+
+        menu a {
             background: #ffffff;
-            border-radius: 14px;
-            padding: 20px;
-            margin-bottom: 15px;
+            text-decoration: none;
+            justify-content: flex-start;
             display: flex;
             align-items: center;
-            gap: 15px;
-            transition: 0.3s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            padding: 16px;
+            border-radius: 14px;
+            transition: 0.3s;
+            color: #0f172a;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        /* HOVER TARJETAS */
+
+        menu a:hover {
+            background: #00a859;
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        menu a:hover small {
+            color: #e2e8f0;
+        }
+
+        /* NUMERO */
+
+        menu span {
+            background: #0f172a;
+            color: #e2e8f0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        /* TEXTO */
+
+        menu h4 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        menu small {
+            display: block;
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        /* REDES SOCIALES */
+
+        .social {
+            margin-top: 25px;
+        }
+
+        .social a {
+            color: #1f2937;
+            display: inline-block;
+            font-size: 20px;
+            margin: 0 12px;
+            transition: color 0.3s, transform 0.2s ease;
+        }
+
+        .social a:hover {
+            color: #00a859;
+            transform: translateY(-3px);
+        }
+
+        /* ANIMACION ENTRADA */
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
     </style>
 </head>
+
 <body>
+
     <main>
+
         <h1>ADSO 3314566</h1>
-        <img src="caricatura.png" alt="">
-        <h4>Julian David Ramirez Salinas</h4> 
+
+        <img src="caricatura.png" alt="Foto perfil">
+
+        <h4>Julian David Ramirez Salinas</h4>
+
         <p class="about">Estudiante ADSO en formación</p>
+        <p style="font-size: 0.9rem; margin-bottom: 20px; color: #00a859; font-weight: 500;">
+            ⬇️ Explora mi progreso ⬇️
+        </p>
+
+
         <menu>
+
             <a href="01-emmet/index_2.html">
                 <span>01</span>
-                <aside>
-                    <h4>Emmet</h4>
+                <aside style="flex-grow: 1; text-align: center;">
+                    <h4><i class="fa-solid fa-code"></i> Emmet</h4>
                     <small>Workflow - Markup & Styling</small>
                 </aside>
             </a>
+
             <a href="02-html/index.html">
                 <span>02</span>
-                <aside>
+                <aside style="flex-grow: 1; text-align: center;">
                     <h4><i class="fa-brands fa-html5"></i> HTML</h4>
                     <small>Structure - Hypertext Markup Language</small>
                 </aside>
-            </a>    
-                <a href="03-css/index.html">
-                    <span>03</span>
-                    <aside>
-                        <h4>Css</h4>
-                        <small>Look & Feel - Cascading Style Sheets</small>
-                    </aside>
-                </a>
-                <a href="04-js/index.html">
-                    <span>04</span>
-                    <aside>
-                        <h4>JavaScript</h4>
-                        <small>Behavior - Programming Language</small>
-                    </aside>
-                </a>
+            </a>
+
+            <a href="03-css/index.html">
+                <span>03</span>
+                <aside style="flex-grow: 1; text-align: center;">
+                    <h4><i class="fa-brands fa-css3-alt"></i> CSS</h4>
+                    <small>Look & Feel - Cascading Style Sheets</small>
+                </aside>
+            </a>
+
+            <a href="04-js/index.html">
+                <span>04</span>
+                <aside style="flex-grow: 1; text-align: center;">
+                    <h4><i class="fa-brands fa-js"></i> JavaScript</h4>
+                    <small>Behavior - Programming Language</small>
+                </aside>
+            </a>
+
         </menu>
+
+        <div class="social">
+
+            <footer style="margin-top: 25px; font-size: 0.75rem; color: #94a3b8;">
+                © <span id="year"></span> - En constante evolución
+            </footer>
+
+            <script>
+                // Para que el año se actualice automáticamente
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
+
+        </div>
+
     </main>
+
 </body>
+
 </html>
