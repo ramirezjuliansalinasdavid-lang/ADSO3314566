@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,417 +8,420 @@
     <title>Emmet | Guía Visual</title>
 
     <!-- Fonts y Iconos -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="../src/css/01-emmet.css">
 </head>
+
 <body>
 
-<a href="../index.html" class="home-btn">
-    <i class="fas fa-home"></i>
-</a>
+    <a href="../index.html" class="home-btn">
+        <i class="fas fa-home"></i>
+    </a>
 
-<div class="container">
-    
-    <!-- HEADER -->
-    <div class="header">
-        <div class="logo-container">
-            <img src="../src/imgs/logo-emmet.svg" alt="Logo Emmet">
-        </div>
-        
-        <h1>⚡ EMMET ⚡</h1>
-        <h4>Workflow - Markup & Styling</h4>
-        <p>
-            <i class="fas fa-bolt" style="color: #2a6b5e;"></i>
-            Escribe HTML y CSS a la velocidad de la luz
-        </p>
-        
-        <!-- ESTADÍSTICAS -->
-        <div class="stats">
-            <div class="stat-item">
-                <i class="fas fa-code"></i>
-                <span>18+ Atajos</span>
+    <div class="container">
+
+        <!-- HEADER -->
+        <div class="header">
+            <div class="logo-container">
+                <img src="../src/imgs/logo-emmet.svg" alt="Logo Emmet">
             </div>
-            <div class="stat-item">
-                <i class="fas fa-rocket"></i>
-                <span>Velocidad 10x</span>
-            </div>
-            <div class="stat-item">
-                <i class="fas fa-star"></i>
-                <span>Nivel: Experto</span>
-            </div>
-        </div>
-    </div>
-    
-    <!-- FILTROS POR CATEGORÍA -->
-    <div class="filters">
-        <button class="filter-btn active" onclick="filterCards('all')">
-            <i class="fas fa-layer-group"></i> Todos
-        </button>
-        <button class="filter-btn" onclick="filterCards('basic')">
-            <i class="fas fa-cube"></i> Básicos
-        </button>
-        <button class="filter-btn" onclick="filterCards('attributes')">
-            <i class="fas fa-tags"></i> Atributos
-        </button>
-        <button class="filter-btn" onclick="filterCards('numbers')">
-            <i class="fas fa-sort-numeric-up"></i> Numeración
-        </button>
-        <button class="filter-btn" onclick="filterCards('advanced')">
-            <i class="fas fa-crown"></i> Avanzados
-        </button>
-    </div>
-    
-    <!-- GRID DE CARDS -->
-    <div class="cards-grid" id="cardsGrid">
-        
-        <!-- CARD 1 - ANIDAR (Básico) -->
-        <div class="card" data-category="basic">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-sitemap"></i></div>
-                <div>
-                    <h3 class="card-title">Anidar Elementos</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-angle-right"></i> Operador: >
-                    </div>
+
+            <h1>⚡ EMMET ⚡</h1>
+            <h4>Workflow - Markup & Styling</h4>
+            <p>
+                <i class="fas fa-bolt" style="color: #2a6b5e;"></i>
+                Escribe HTML y CSS a la velocidad de la luz
+            </p>
+
+            <!-- ESTADÍSTICAS -->
+            <div class="stats">
+                <div class="stat-item">
+                    <i class="fas fa-code"></i>
+                    <span>18+ Atajos</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-rocket"></i>
+                    <span>Velocidad 10x</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <span>Nivel: Experto</span>
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                ul>li>a
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
+        </div>
+
+        <!-- FILTROS POR CATEGORÍA -->
+        <div class="filters">
+            <button class="filter-btn active" onclick="filterCards('all')">
+                <i class="fas fa-layer-group"></i> Todos
+            </button>
+            <button class="filter-btn" onclick="filterCards('basic')">
+                <i class="fas fa-cube"></i> Básicos
+            </button>
+            <button class="filter-btn" onclick="filterCards('attributes')">
+                <i class="fas fa-tags"></i> Atributos
+            </button>
+            <button class="filter-btn" onclick="filterCards('numbers')">
+                <i class="fas fa-sort-numeric-up"></i> Numeración
+            </button>
+            <button class="filter-btn" onclick="filterCards('advanced')">
+                <i class="fas fa-crown"></i> Avanzados
+            </button>
+        </div>
+
+        <!-- GRID DE CARDS -->
+        <div class="cards-grid" id="cardsGrid">
+
+            <!-- CARD 1 - ANIDAR (Básico) -->
+            <div class="card" data-category="basic">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-sitemap"></i></div>
+                    <div>
+                        <h3 class="card-title">Anidar Elementos</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-angle-right"></i> Operador: >
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syntax-tag">
+                    ul>li>a
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>
 &lt;ul&gt;
     &lt;li&gt;&lt;a href=""&gt;Enlace&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                Perfecto para crear menús de navegación anidados
-            </div>
-        </div>
-        
-        <!-- CARD 2 - HERMANOS (Básico) -->
-        <div class="card" data-category="basic">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-plus-circle"></i></div>
-                <div>
-                    <h3 class="card-title">Elementos Hermanos</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-plus"></i> Operador: +
-                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Perfecto para crear menús de navegación anidados
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                section+header+nav
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
+
+            <!-- CARD 2 - HERMANOS (Básico) -->
+            <div class="card" data-category="basic">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-plus-circle"></i></div>
+                    <div>
+                        <h3 class="card-title">Elementos Hermanos</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-plus"></i> Operador: +
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syntax-tag">
+                    section+header+nav
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>
 &lt;section&gt;&lt;/section&gt;
 &lt;header&gt;&lt;/header&gt;
 &lt;nav&gt;&lt;/nav&gt;</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                Crea múltiples elementos al mismo nivel
-            </div>
-        </div>
-        
-        <!-- CARD 3 - REPETIR (Básico) -->
-        <div class="card" data-category="basic">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-repeat"></i></div>
-                <div>
-                    <h3 class="card-title">Repetir Elementos</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-asterisk"></i> Operador: *
-                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Crea múltiples elementos al mismo nivel
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                ul>li*3
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
+
+            <!-- CARD 3 - REPETIR (Básico) -->
+            <div class="card" data-category="basic">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-repeat"></i></div>
+                    <div>
+                        <h3 class="card-title">Repetir Elementos</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-asterisk"></i> Operador: *
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syntax-tag">
+                    ul>li*3
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>
 &lt;ul&gt;
     &lt;li&gt;&lt;/li&gt;
     &lt;li&gt;&lt;/li&gt;
     &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                Crea 3 elementos li de una sola vez
-            </div>
-        </div>
-        
-        <!-- CARD 4 - CLASE (Atributos) -->
-        <div class="card" data-category="attributes">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-hashtag"></i></div>
-                <div>
-                    <h3 class="card-title">Atributo Clase</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-circle"></i> Operador: .
-                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Crea 3 elementos li de una sola vez
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                div.contenedor
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
+
+            <!-- CARD 4 - CLASE (Atributos) -->
+            <div class="card" data-category="attributes">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-hashtag"></i></div>
+                    <div>
+                        <h3 class="card-title">Atributo Clase</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-circle"></i> Operador: .
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syntax-tag">
+                    div.contenedor
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>
 &lt;div class="contenedor"&gt;&lt;/div&gt;</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                Si no especificas etiqueta, por defecto es &lt;div&gt;
-            </div>
-        </div>
-        
-        <!-- CARD 5 - ID (Atributos) -->
-        <div class="card" data-category="attributes">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-id-card"></i></div>
-                <div>
-                    <h3 class="card-title">Identificador ID</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-hash"></i> Operador: #
-                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Si no especificas etiqueta, por defecto es &lt;div&gt;
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                nav#menu
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
+
+            <!-- CARD 5 - ID (Atributos) -->
+            <div class="card" data-category="attributes">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-id-card"></i></div>
+                    <div>
+                        <h3 class="card-title">Identificador ID</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-hash"></i> Operador: #
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syntax-tag">
+                    nav#menu
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>
 &lt;nav id="menu"&gt;&lt;/nav&gt;</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                Útil para identificar elementos únicos
-            </div>
-        </div>
-        
-        <!-- CARD 6 - TEXTO (Atributos) -->
-        <div class="card" data-category="attributes">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-font"></i></div>
-                <div>
-                    <h3 class="card-title">Agregar Texto</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-brackets-curly"></i> Operador: {}
-                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Útil para identificar elementos únicos
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                a{Click Aquí}
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
+
+            <!-- CARD 6 - TEXTO (Atributos) -->
+            <div class="card" data-category="attributes">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-font"></i></div>
+                    <div>
+                        <h3 class="card-title">Agregar Texto</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-brackets-curly"></i> Operador: {}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syntax-tag">
+                    a{Click Aquí}
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>
 &lt;a href=""&gt;Click Aquí&lt;/a&gt;</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                Añade contenido de texto directamente
-            </div>
-        </div>
-        
-        <!-- CARD 7 - NUMERACIÓN (Numeración) -->
-        <div class="card" data-category="numbers">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-sort-numeric-down"></i></div>
-                <div>
-                    <h3 class="card-title">Números Consecutivos</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-dollar-sign"></i> Operador: $
-                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Añade contenido de texto directamente
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                ul>li.item$*3
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
+
+            <!-- CARD 7 - NUMERACIÓN (Numeración) -->
+            <div class="card" data-category="numbers">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-sort-numeric-down"></i></div>
+                    <div>
+                        <h3 class="card-title">Números Consecutivos</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-dollar-sign"></i> Operador: $
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syntax-tag">
+                    ul>li.item$*3
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>
 &lt;ul&gt;
     &lt;li class="item1"&gt;&lt;/li&gt;
     &lt;li class="item2"&gt;&lt;/li&gt;
     &lt;li class="item3"&gt;&lt;/li&gt;
 &lt;/ul&gt;</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                Los $$ dan 01, 02, etc. Los $$$ dan 001, 002...
-            </div>
-        </div>
-        
-        <!-- CARD 8 - SUBIR NIVEL (Avanzado) -->
-        <div class="card" data-category="advanced">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-level-up-alt"></i></div>
-                <div>
-                    <h3 class="card-title">Subir de Nivel</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-caret-up"></i> Operador: ^
-                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Los $$ dan 01, 02, etc. Los $$$ dan 001, 002...
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                section>article>div^p
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
+
+            <!-- CARD 8 - SUBIR NIVEL (Avanzado) -->
+            <div class="card" data-category="advanced">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-level-up-alt"></i></div>
+                    <div>
+                        <h3 class="card-title">Subir de Nivel</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-caret-up"></i> Operador: ^
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syntax-tag">
+                    section>article>div^p
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>
 &lt;section&gt;
     &lt;article&gt;
         &lt;div&gt;&lt;/div&gt;
     &lt;/article&gt;
     &lt;p&gt;&lt;/p&gt;
 &lt;/section&gt;</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                Cada ^ sube un nivel en la jerarquía
-            </div>
-        </div>
-        
-        <!-- CARD 9 - AGRUPAR (Avanzado) -->
-        <div class="card" data-category="advanced">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-object-group"></i></div>
-                <div>
-                    <h3 class="card-title">Agrupar Elementos</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-parentheses"></i> Operador: ()
-                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Cada ^ sube un nivel en la jerarquía
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                (header>nav)+(section>article)
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
+
+            <!-- CARD 9 - AGRUPAR (Avanzado) -->
+            <div class="card" data-category="advanced">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-object-group"></i></div>
+                    <div>
+                        <h3 class="card-title">Agrupar Elementos</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-parentheses"></i> Operador: ()
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syntax-tag">
+                    (header>nav)+(section>article)
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>
 &lt;header&gt;
     &lt;nav&gt;&lt;/nav&gt;
 &lt;/header&gt;
 &lt;section&gt;
     &lt;article&gt;&lt;/article&gt;
 &lt;/section&gt;</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                Útil para agrupar estructuras complejas
-            </div>
-        </div>
-        
-        <!-- CARD 10 - LOREM (Avanzado) -->
-        <div class="card" data-category="advanced">
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-paragraph"></i></div>
-                <div>
-                    <h3 class="card-title">Texto Lorem Ipsum</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-magic"></i> Comando: lorem
-                    </div>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    Útil para agrupar estructuras complejas
                 </div>
             </div>
-            
-            <div class="syntax-tag">
-                lorem20
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo.</pre>
-            </div>
-            
-            <div class="tip">
-                <i class="fas fa-lightbulb"></i>
-                lorem = 30 palabras, lorem20 = 20 palabras, lorem*3 = 3 párrafos
-            </div>
-        </div>
-        
-        <!-- CARD ESPECIAL - RETO -->
-        <div class="card challenge" data-category="advanced">
-            <span class="challenge-badge">🔥 RETO FINAL</span>
-            
-            <div class="card-header">
-                <div class="card-icon"><i class="fas fa-trophy"></i></div>
-                <div>
-                    <h3 class="card-title">Navbar Completo con Bootstrap</h3>
-                    <div class="card-subtitle">
-                        <i class="fas fa-crown"></i> Nivel: Experto
+
+            <!-- CARD 10 - LOREM (Avanzado) -->
+            <div class="card" data-category="advanced">
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-paragraph"></i></div>
+                    <div>
+                        <h3 class="card-title">Texto Lorem Ipsum</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-magic"></i> Comando: lorem
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="code-block">
-                <button class="copy-btn" onclick="copyCode(this)">
-                    <i class="far fa-copy"></i> Copiar
-                </button>
-                <pre>header#header>nav.navbar.navbar-inverse>div.container>div.navbar-header>(button.navbar-toggle[type=button]>span.sr-only{Toggle navigation}+span.icon-bar*3)+a.navbar-brand[href=index.php]>img[src=imgs/logo.png alt=""]^^div.collapse>ul.nav.navbar-nav>li>a.link[href=index.html]{Inicio}^li.active.link>a[href=login.html]{Ingresar}^li>a.link[href=registro.html]{Registrarse}^li>a.link[href=contacto.html]{Contacto}</pre>
-            </div>
-            
-            <details>
-                <summary><i class="fas fa-eye"></i> Ver resultado</summary>
-                <div class="code-block" style="margin-top: 15px;">
+
+                <div class="syntax-tag">
+                    lorem20
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
                     <pre>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulvinar facilisis justo.</pre>
+                </div>
+
+                <div class="tip">
+                    <i class="fas fa-lightbulb"></i>
+                    lorem = 30 palabras, lorem20 = 20 palabras, lorem*3 = 3 párrafos
+                </div>
+            </div>
+
+            <!-- CARD ESPECIAL - RETO -->
+            <div class="card challenge" data-category="advanced">
+                <span class="challenge-badge">🔥 RETO FINAL</span>
+
+                <div class="card-header">
+                    <div class="card-icon"><i class="fas fa-trophy"></i></div>
+                    <div>
+                        <h3 class="card-title">Navbar Completo con Bootstrap</h3>
+                        <div class="card-subtitle">
+                            <i class="fas fa-crown"></i> Nivel: Experto
+                        </div>
+                    </div>
+                </div>
+
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this)">
+                        <i class="far fa-copy"></i> Copiar
+                    </button>
+                    <pre>header#header>nav.navbar.navbar-inverse>div.container>div.navbar-header>(button.navbar-toggle[type=button]>span.sr-only{Toggle navigation}+span.icon-bar*3)+a.navbar-brand[href=index.php]>img[src=imgs/logo.png alt=""]^^div.collapse>ul.nav.navbar-nav>li>a.link[href=index.html]{Inicio}^li.active.link>a[href=login.html]{Ingresar}^li>a.link[href=registro.html]{Registrarse}^li>a.link[href=contacto.html]{Contacto}</pre>
+                </div>
+
+                <details>
+                    <summary><i class="fas fa-eye"></i> Ver resultado</summary>
+                    <div class="code-block" style="margin-top: 15px;">
+                        <pre>
 &lt;header id="header"&gt;
     &lt;nav class="navbar navbar-inverse"&gt;
         &lt;div class="container"&gt;
@@ -443,65 +447,67 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nisl eros, pulv
         &lt;/div&gt;
     &lt;/nav&gt;
 &lt;/header&gt;</pre>
-                </div>
-            </details>
-            
-            <div class="tip" style="background: rgba(255,255,255,0.2); color: white; border-color: rgba(255,255,255,0.1);">
-                <i class="fas fa-rocket"></i>
-                ¡Este comando genera un navbar completo de Bootstrap en una sola línea!
-            </div>
-        </div>
-        
-    </div>
-</div>
+                    </div>
+                </details>
 
-<script>
-    // Función para copiar código
-    function copyCode(button) {
-        const codeBlock = button.closest('.code-block');
-        const code = codeBlock.querySelector('pre').innerText;
-        
-        navigator.clipboard.writeText(code).then(() => {
-            const originalText = button.innerHTML;
-            button.innerHTML = '<i class="fas fa-check"></i> Copiado!';
-            button.style.background = '#0b2b26';
-            
-            setTimeout(() => {
-                button.innerHTML = originalText;
-                button.style.background = '';
-            }, 2000);
+                <div class="tip"
+                    style="background: rgba(255,255,255,0.2); color: white; border-color: rgba(255,255,255,0.1);">
+                    <i class="fas fa-rocket"></i>
+                    ¡Este comando genera un navbar completo de Bootstrap en una sola línea!
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        // Función para copiar código
+        function copyCode(button) {
+            const codeBlock = button.closest('.code-block');
+            const code = codeBlock.querySelector('pre').innerText;
+
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copiado!';
+                button.style.background = '#0b2b26';
+
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                }, 2000);
+            });
+        }
+
+        // Función para filtrar cards
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            // Actualizar botones activos
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filtrar cards
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Animación de entrada para las cards
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, index) => {
+                card.style.animation = `fadeInUp 0.6s ease ${index * 0.1}s both`;
+            });
         });
-    }
-    
-    // Función para filtrar cards
-    function filterCards(category) {
-        const cards = document.querySelectorAll('.card');
-        const buttons = document.querySelectorAll('.filter-btn');
-        
-        // Actualizar botones activos
-        buttons.forEach(btn => {
-            btn.classList.remove('active');
-        });
-        event.target.classList.add('active');
-        
-        // Filtrar cards
-        cards.forEach(card => {
-            if (category === 'all' || card.dataset.category === category) {
-                card.style.display = 'block';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-    }
-    
-    // Animación de entrada para las cards
-    document.addEventListener('DOMContentLoaded', () => {
-        const cards = document.querySelectorAll('.card');
-        cards.forEach((card, index) => {
-            card.style.animation = `fadeInUp 0.6s ease ${index * 0.1}s both`;
-        });
-    });
-</script>
+    </script>
 
 </body>
-</html>             
+
+</html>
