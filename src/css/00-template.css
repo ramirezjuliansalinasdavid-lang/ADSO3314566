@@ -1,32 +1,42 @@
-@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Federant&family=Lobster&family=Playwrite+CU+Guides&family=Roboto:ital,wdth,wght@0,99.7,300;1,99.7,300&display=swap');
+/* ========================================
+   00-template-base.css - ESTILOS BASE PARA PÁGINAS DE CONTENIDO (HTML)
+   ======================================== */
 
+/* IMPORTAR FUENTES (solo las que uses realmente) */
+@import url('https://fonts.googleapis.com/css2?family=Federant&family=Inter:wght@400;500;600;700&display=swap');
+
+/* VARIABLES GLOBALES */
 :root {
     --primary: #f16529;
-    /* Naranja principal del logo */
+    /* Naranja HTML */
     --secondary: #e44d26;
-    /* Naranja secundario del logo */
-    --bg-dark: #151927;
+    /* Naranja secundario */
+    --bg-dark: #1e1e2f;
     /* Fondo oscuro para gradientes */
-    --card-bg: rgba(255, 255, 255, 0.9);
-    --glass-border: rgba(255, 255, 255, 0.2);
-    --text-dark: #1e293b;
-    --text-light: #ffffff;
-    --shadow: 0 20px 50px rgba(241, 101, 41, 0.25);
+    --text-light: #f0f0f0;
+    /* Texto claro */
+    --text-muted: #a0a0b0;
+    /* Texto secundario */
+    --card-bg: rgba(0, 0, 0, 0.6);
+    /* Fondo semitransparente para secciones */
+    --glass-border: rgba(255, 255, 255, 0.15);
+    --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
 }
 
+/* RESET Y ESTILOS BASE DEL CUERPO */
 * {
-    margin: 2;
+    margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--bg-dark), var(--primary));
+    background: linear-gradient(-45deg, var(--primary), var(--secondary), var(--bg-dark), #2a2a40);
     background-size: 400% 400%;
-    animation: gradientBG 12s ease infinite;
+    animation: gradientBG 15s ease infinite;
     min-height: 100vh;
-    padding: 40px 20px;
+    padding: 30px 20px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,183 +57,202 @@ body {
     }
 }
 
+/* ========================================
+   COMPONENTES COMUNES
+   ======================================== */
+
+/* BOTÓN DE INICIO (Home) - Estilo unificado como en tus otras páginas */
 .btn-home {
     position: fixed;
-    top: 20px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
+    top: 25px;
+    left: 25px;
+    width: 55px;
+    height: 55px;
+    background: var(--primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    color: white;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--glass-border);
-    transition: all 0.3s ease;
-    z-index: 100;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    border: 2px solid #ffffff;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 1000;
 }
 
 .btn-home svg {
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
     fill: white;
 }
 
 .btn-home:hover {
-    background: var(--primary);
+    background: #ffffff;
     transform: scale(1.1) rotate(360deg);
-    border-color: transparent;
+    border-color: var(--primary);
 }
 
+.btn-home:hover svg {
+    fill: var(--primary);
+}
+
+/* CONTENEDOR PRINCIPAL DE CADA PÁGINA */
 main {
+    max-width: 900px;
+    /* Un poco más ancho para contenido */
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    background: rgba(20, 20, 30, 0.7);
+    /* Fondo oscuro semitransparente */
+    backdrop-filter: blur(12px);
+    border-radius: 32px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow);
+    color: var(--text-light);
+    animation: fadeIn 0.8s ease-out;
+}
 
-    h1 {
-        font-family: "Federant", serif;
-        font-weight: 400;
-        font-style: normal;
-        font-family: "Federant";
-        font-size: 1.7rem;
-        margin: 0;
-        text-align: justify;
-        color: #fff;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
 
-    img {
-        border: 6px solid white;
-        border-radius: 50%;
-        height: 240px;
-        display: flex;
-        margin: 1rem auto;
-        object-fit: cover;
-        width: 240px;
-    }
-
-    h4 {
-        text-align: justify;
-        font-size: 1.4rem;
-        color: #fff9;
-        font-family: "Federant";
-        margin: 0;
-    }
-
-    h5 {
-        text-align: justify;
-        font-size: 1.3rem;
-        color: #fff9;
-        font-family: "Federant";
-        margin: 0;
-    }
-
-    h6 {
-        text-align: justify;
-        font-size: 1.2rem;
-        color: #fff9;
-        font-family: "Federant";
-        margin: 0;
-    }
-
-    header {
-        h1 {
-            font-size: 3.5rem;
-        }
-
-        h2 {
-            font-size: 1rem;
-            color: #fff9;
-        }
-
-        h1,
-        h2 {
-            text-align: center;
-            color: #fff9;
-        }
-    }
-
-    section {
-        background-color: #0009;
-        width: 70%;
-        min-width: 380px;
-        padding: 20px;
-        max-width: 800%;
-        color: #fff9;
-        font-family: 'Federant';
-        margin: 40px auto;
-
-        h2 {
-            font-family: "Federant", serif;
-            font-weight: 400;
-            font-style: normal;
-            font-family: "Federant";
-            font-size: 1.6rem;
-            margin: 0;
-            text-align: justify;
-            color: #fff;
-        }
-
-        h3 {
-            border-bottom: 2.3px dotted #fff9;
-            text-align: justify;
-            color: #fff;
-            font-family: "Federant";
-            margin: 0;
-            font-size: 1.5rem;
-        }
-
-        p {
-            color: #fff9;
-        }
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
+/* ========================================
+   ESTILOS PARA ENCABEZADOS DE PÁGINA (header dentro de main)
+   ======================================== */
+main header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px dotted var(--primary);
+    padding-bottom: 20px;
+}
+
+main header h1 {
+    font-family: 'Federant', serif;
+    /* Uso de tu fuente decorativa */
+    font-size: 3.2rem;
+    font-weight: 400;
+    color: white;
+    text-shadow: 0 2px 10px var(--primary);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+main header h2 {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ========================================
+   ESTILOS PARA EL CONTENIDO (section)
+   ======================================== */
+main section {
+    width: 100%;
+    max-width: 100%;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 24px;
+    border-left: 6px solid var(--primary);
+    /* Detalle característico */
+    margin: 30px 0;
+    backdrop-filter: blur(4px);
+}
+
+main section h3 {
+    font-family: 'Federant', serif;
+    font-size: 2rem;
+    text-align: center;
+    font-weight: 400;
+    color: white;
+    margin-bottom: 20px;
+    border-bottom: 2px dashed var(--secondary);
+    padding-bottom: 10px;
+}
+
+main section p {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+/* Puedes añadir más estilos genéricos para listas, tablas, etc. si se repiten */
+
+/* ========================================
+   ESTILOS PARA EL MENÚ (si lo usas en estas páginas)
+   ======================================== */
 menu {
     display: flex;
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 15px;
+    margin-top: 30px;
+}
 
-    a:link,
-    a:visited {
-        background-color: darkgray;
-        color: black;
-        border-radius: 12rem;
-        padding: 0.4rem;
-        display: flex;
-        align-items: center;
-        text-decoration: none;
+menu a {
+    background: rgba(0, 0, 0, 0.5);
+    border-left: 6px solid var(--primary);
+    border-radius: 16px;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--glass-border);
+}
 
-        span {
-            background-color: rgb(178, 34, 41);
-            color: floralwhite;
-            border-radius: 50%;
-            font-size: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80px;
-            width: 80px;
-        }
+menu a:hover {
+    background: var(--primary);
+    transform: translateX(10px) scale(1.02);
+    border-left-color: white;
+}
 
-        h4 {
-            margin: 0;
-            text-align-last: left;
-            text-indent: 0.2rem;
-            width: 225px;
-        }
+menu span {
+    background: var(--primary);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-right: 20px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    transition: 0.3s;
+}
 
-        small {
-            display: block;
-            font-size: 0.7rem;
-            text-indent: 0.2rem;
-            width: 225px;
-        }
+menu a:hover span {
+    background: white;
+    color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary);
+}
 
-        transition: transform 0.4s ease-in;
+menu h4 {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: 600;
+}
 
-        &:hover {
-            transform: scale(1.05) translateX(15px);
-        }
-    }
+menu small {
+    display: block;
+    font-size: 0.8rem;
+    color: #b0b0b0;
+}
+
+menu a:hover small {
+    color: white;
 }

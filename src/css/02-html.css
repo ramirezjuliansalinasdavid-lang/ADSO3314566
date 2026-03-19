@@ -1,11 +1,16 @@
-:root {
-    --primary: #f16529;
-    --secondary: #e44d26;
-    --glass: rgba(255, 255, 255, 0.75);
-    --shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-}
+/* 02-html.css - VERSIÓN MEJORADA */
 
-color: var(--primary);
+:root {
+    --html-primary: #f16529;
+    /* Naranja principal de HTML5 */
+    --html-secondary: #e44d26;
+    /* Naranja más intenso */
+    --html-light: #fff3f0;
+    /* Fondo muy claro para tarjetas */
+    --text-dark: #1e293b;
+    --shadow-color: rgba(241, 101, 41, 0.3);
+    /* Sombra anaranjada */
+}
 
 * {
     margin: 0;
@@ -15,43 +20,26 @@ color: var(--primary);
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    background: linear-gradient(135deg, #a3a7af 0%, #e44d26 100%);
+    background: linear-gradient(135deg, #2b2b2b 0%, #484848 100%);
     background-image:
-        linear-gradient(135deg, #e44d26 0%, #a3a7af 100%),
-        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 2px,
-            transparent 2px, transparent 8px);
+        linear-gradient(135deg, #2b2b2b 0%, #484848 100%),
+        repeating-linear-gradient(45deg, rgba(241, 101, 41, 0.03) 0px, rgba(241, 101, 41, 0.03) 2px, transparent 2px, transparent 8px);
     background-blend-mode: overlay;
-    animation: gradientBG 10s ease infinite;
     min-height: 100vh;
-    padding: 40px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 20px;
 }
 
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-
-    50% {
-        background-position: 100% 50%;
-    }
-
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
+/* BOTÓN HOME (igual que en Emmet, pero con colores HTML) */
 .home-btn {
     position: fixed;
     top: 20px;
     left: 20px;
     width: 50px;
     height: 50px;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(10px);
+    background: var(--html-primary);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -59,168 +47,197 @@ body {
     text-decoration: none;
     color: white;
     font-size: 24px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    border: 2px solid #ffffff;
     transition: all 0.3s ease;
     z-index: 100;
 }
 
 .home-btn:hover {
-    background: var(--primary);
+    background: #ffffff;
+    color: var(--html-primary);
     transform: scale(1.1) rotate(360deg);
-    border-color: transparent;
+    border-color: var(--html-primary);
 }
 
-/* CONTENEDOR PRINCIPAL */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    position: relative;
-}
-
-h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    background: linear-gradient(to right, #f16529, #e44d26, #132239);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    margin-bottom: 10px;
-    letter-spacing: 2px;
-    text-align: center;
-    margin-bottom: 40px;
-    animation: fadeInDown 1s ease;
-}
-
-h4 {
-    font-size: 1rem;
-    color: rgba(241, 101, 41);
-    font-weight: 400;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-align: center;
-}
-
+/* CONTENEDOR PRINCIPAL - Inspirado en tu index principal */
 main {
-    background: rgb(187, 191, 199, 0.75);
-    backdrop-filter: blur(15px);
-    border: 5px solid transparent; /* ¡IMPORTANTE! El borde debe ser transparente */
-    border-image: linear-gradient(90deg, #f16529, #e44d26, #f16529) 1;
-    border-radius: 16px;
-    color: #1e293b;
-    max-width: 500px;
-    width: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    /* Fondo blanco semitransparente */
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(241, 101, 41, 0.3);
+    /* Borde naranja sutil */
+    color: var(--text-dark);
+    max-width: 550px;
+    width: 100%;
     padding: 30px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    border-radius: 24px;
+    /* Bordes más modernos */
+    box-shadow: 0 20px 50px var(--shadow-color);
     text-align: center;
     position: relative;
-    transition: 0.4s;
+    overflow: hidden;
+    transition: transform 0.3s ease;
 }
 
 main:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
 }
 
-main img {
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid rgba(241, 101, 41, 0.5);
-    margin: 20px 0;
-    transition: 0.4s;
-    animation: pulse 2s infinite ease-in-out;
+/* Barra superior con el color HTML (como la de tu index, pero naranja) */
+main::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background: linear-gradient(90deg, var(--html-primary), var(--html-secondary), var(--html-primary));
+    z-index: 1;
 }
 
-@keyframes pulse {
-    0% {
-        filter: drop-shadow(0 0 5px rgba(241, 101, 41, 0.3));
-    }
-
-    50% {
-        filter: drop-shadow(0 0 20px rgba(241, 101, 41, 0.7));
-    }
-
-    100% {
-        filter: drop-shadow(0 0 5px rgba(241, 101, 41, 0.3));
-    }
-}
-
-main img:hover {
-    transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-}
-
-menu {
+/* TÍTULO PRINCIPAL */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--html-primary);
+    margin-bottom: 5px;
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 15px;
 }
 
+h1 i {
+    color: var(--html-secondary);
+    font-size: 2.5rem;
+    filter: drop-shadow(0 2px 5px var(--shadow-color));
+}
+
+/* SUBTÍTULO */
+h4 {
+    font-weight: 500;
+    color: #4b5563;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+
+/* IMAGEN DEL LOGO - Más elegante, sin animación de pulso */
+.logo-container {
+    margin: 10px auto 20px;
+}
+
+.logo-container img {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: white;
+    padding: 15px;
+    border: 3px solid var(--html-primary);
+    box-shadow: 0 10px 25px var(--shadow-color);
+    transition: transform 0.4s ease;
+}
+
+.logo-container img:hover {
+    transform: scale(1.05) rotate(3deg);
+}
+
+/* MENÚ - TARJETAS REDISEÑADAS */
+menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    /* Espacio más pequeño entre tarjetas */
+    margin-top: 20px;
+}
+
 menu a {
-    border: 1px solid transparent;
-    background: #c3c8d4;
+    background: #ffffff;
+    /* Fondo blanco puro */
     text-decoration: none;
-    justify-content: flex-start;
     display: flex;
     align-items: center;
-    padding: 18px;
+    padding: 14px 18px;
+    /* Padding más contenido */
     border-radius: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
-    color: #0f172a;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    border-left: 5px solid transparent;
+    transition: all 0.3s ease;
+    color: var(--text-dark);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(241, 101, 41, 0.2);
+    border-left: 6px solid var(--html-primary);
+    /* Borde izquierdo naranja */
 }
 
 menu a:hover {
-    border-color: #f16529;
-    box-shadow: 0 0 0 3px rgba(241, 101, 41, 0.3), 0 15px 35px rgba(0, 0, 0, 0.25);
-    transform: translateY(-5px) scale(1.02);
-    border-left: 5px solid #f16529;
+    background: var(--html-primary);
+    /* Fondo naranja al hacer hover */
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px var(--shadow-color);
+    border-left-color: #ffffff;
+    /* Borde izquierdo blanco al hacer hover */
 }
 
+menu a:hover small {
+    color: #fff3f0;
+}
+
+/* NÚMEROS DE LOS ÍTEMS */
 menu span {
-    background: linear-gradient(135deg, #f16529, #e44d26);
+    background: var(--html-primary);
     color: white;
-    width: 42px;
-    height: 42px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
     margin-right: 15px;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8) inset;
     transition: 0.3s;
 }
 
 menu a:hover span {
-    transform: scale(1.2) rotate(5deg);
-    background: linear-gradient(135deg, #e44d26, #f16529);
+    background: #ffffff;
+    color: var(--html-primary);
+    box-shadow: 0 0 0 2px var(--html-primary) inset;
+    transform: scale(1.1);
 }
 
-menu a:hover small {
-    color: #f16529;
-    /* Naranja del logo */
+/* TEXTO DENTRO DE LAS TARJETAS */
+menu h4 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 600;
+    color: inherit;
+    /* Hereda el color del hover */
+    text-transform: none;
+    letter-spacing: normal;
 }
 
-menu a h4::before {
-    content: '</';
-    font-family: 'Fira Code', monospace;
-    color: #f16529;
-    opacity: 0.3;
-    margin-right: 5px;
-    transition: opacity 0.3s;
+menu small {
+    display: block;
+    font-size: 0.7rem;
+    color: #64748b;
+    transition: color 0.3s;
 }
 
-menu a:hover h4::before {
-    opacity: 1;
+/* PIE DE PÁGINA */
+footer {
+    margin-top: 30px;
+    font-size: 0.75rem;
+    color: #94a3b8;
 }
 
+/* ANIMACIONES SUAVES (como en tus otras páginas) */
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(20px);
     }
 
     to {
@@ -229,37 +246,24 @@ menu a:hover h4::before {
     }
 }
 
-@keyframes fadeInDown {
-    from {
-        opacity: 0;
-        transform: translateY(-40px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+main {
+    animation: fadeIn 0.6s ease-out;
 }
 
+/* SCROLLBAR (opcional, para mantener consistencia) */
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: #151927;
+    background: #2b2b2b;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: linear-gradient(135deg, #f16529, #e44d26);
-    border-radius: 5px;
-    border: 2px solid #151927;
+    background: var(--html-primary);
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #f16529;
-}
-
-::selection {
-    background: #f16529;
-    color: white;
+    background: var(--html-secondary);
 }
