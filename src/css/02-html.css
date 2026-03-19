@@ -16,7 +16,12 @@ color: var(--primary);
 
 body {
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(-45deg, #f16529, #e44d26, #151927, #f16529);
+    background: linear-gradient(135deg, #a3a7af 0%, #e44d26 100%);
+    background-image:
+        linear-gradient(135deg, #e44d26 0%, #a3a7af 100%),
+        repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 2px,
+            transparent 2px, transparent 8px);
+    background-blend-mode: overlay;
     animation: gradientBG 10s ease infinite;
     min-height: 100vh;
     padding: 40px 20px;
@@ -98,15 +103,15 @@ h4 {
 }
 
 main {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgb(187, 191, 199);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: 1px solid rgba(241, 101, 41, 0.3);
     color: #1e293b;
     max-width: 500px;
     width: 50%;
     padding: 30px;
     border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 20px 50px rgba(241, 101, 41, 0.4);
     text-align: center;
     position: relative;
     transition: 0.4s;
@@ -114,6 +119,17 @@ main {
 
 main:hover {
     transform: translateY(-6px);
+}
+
+main::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #f16529, #e44d26, #f16529);
+    border-radius: 16px 16px 0 0;
 }
 
 main img {
@@ -124,11 +140,26 @@ main img {
     border: 5px solid rgba(241, 101, 41, 0.5);
     margin: 20px 0;
     transition: 0.4s;
+    animation: pulse 2s infinite ease-in-out;
 }
 
-main img:hover{
+@keyframes pulse {
+    0% {
+        filter: drop-shadow(0 0 5px rgba(241, 101, 41, 0.3));
+    }
+
+    50% {
+        filter: drop-shadow(0 0 20px rgba(241, 101, 41, 0.7));
+    }
+
+    100% {
+        filter: drop-shadow(0 0 5px rgba(241, 101, 41, 0.3));
+    }
+}
+
+main img:hover {
     transform: scale(1.1) rotate(5deg);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 menu {
@@ -138,27 +169,29 @@ menu {
 }
 
 menu a {
-    background: white;
+    border: 1px solid transparent;
+    background: #c3c8d4;
     text-decoration: none;
     justify-content: flex-start;
     display: flex;
     align-items: center;
     padding: 18px;
     border-radius: 16px;
-    transition: 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
     color: #0f172a;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     border-left: 5px solid transparent;
 }
 
 menu a:hover {
+    border-color: #f16529;
+    box-shadow: 0 0 0 3px rgba(241, 101, 41, 0.3), 0 15px 35px rgba(0, 0, 0, 0.25);
     transform: translateY(-5px) scale(1.02);
     border-left: 5px solid #f16529;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
 }
 
 menu span {
-    background: linear-gradient(135deg,#f16529,#e44d26);
+    background: linear-gradient(135deg, #f16529, #e44d26);
     color: white;
     width: 42px;
     height: 42px;
@@ -171,8 +204,27 @@ menu span {
     transition: 0.3s;
 }
 
-menu a:hover span{
-    transform: scale(1.2);
+menu a:hover span {
+    transform: scale(1.2) rotate(5deg);
+    background: linear-gradient(135deg, #e44d26, #f16529);
+}
+
+menu a:hover small {
+    color: #f16529;
+    /* Naranja del logo */
+}
+
+menu a h4::before {
+    content: '</';
+    font-family: 'Fira Code', monospace;
+    color: #f16529;
+    opacity: 0.3;
+    margin-right: 5px;
+    transition: opacity 0.3s;
+}
+
+menu a:hover h4::before {
+    opacity: 1;
 }
 
 @keyframes fadeIn {
@@ -197,4 +249,27 @@ menu a:hover span{
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #151927;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #f16529, #e44d26);
+    border-radius: 5px;
+    border: 2px solid #151927;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #f16529;
+}
+
+::selection {
+    background: #f16529;
+    color: white;
 }

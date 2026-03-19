@@ -6,18 +6,28 @@
         }
 
         :root {
-            --primary-dark: #0b2b26;      /* Verde azulado oscuro principal */
-            --primary-medium: #163832;     /* Verde bosque para gradientes */
-            --primary: #2a6b5e;            /* Verde esmeralda para acentos */
-            --primary-light: #4a6b65;       /* Verde grisáceo para textos secundarios */
+            --primary-dark: #0b2b26;
+            /* Verde azulado oscuro principal */
+            --primary-medium: #163832;
+            /* Verde bosque para gradientes */
+            --primary: #2a6b5e;
+            /* Verde esmeralda para acentos */
+            --primary-light: #4a6b65;
+            /* Verde grisáceo para textos secundarios */
             --bg-gradient-start: #0b2b26;
             --bg-gradient-end: #163832;
-            --card-bg: #ffffff;              /* Fondo de tarjetas blanco */
-            --text-primary: #1e293b;          /* Texto oscuro principal */
-            --text-secondary: #4a6b65;         /* Texto secundario (verde grisáceo) */
-            --text-muted: #5a7b74;             /* Texto aún más suave */
-            --code-bg: #0f3a32;                 /* Fondo para bloques de código (verde muy oscuro) */
-            --border-light: rgba(42, 107, 94, 0.2); /* Bordes sutiles */
+            --card-bg: #ffffff;
+            /* Fondo de tarjetas blanco */
+            --text-primary: #1e293b;
+            /* Texto oscuro principal */
+            --text-secondary: #4a6b65;
+            /* Texto secundario (verde grisáceo) */
+            --text-muted: #5a7b74;
+            /* Texto aún más suave */
+            --code-bg: #0f3a32;
+            /* Fondo para bloques de código (verde muy oscuro) */
+            --border-light: rgba(42, 107, 94, 0.2);
+            /* Bordes sutiles */
         }
 
         body {
@@ -31,9 +41,17 @@
         }
 
         @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* BOTÓN HOME FLOTANTE */
@@ -43,7 +61,7 @@
             left: 20px;
             width: 50px;
             height: 50px;
-            background: rgba(255, 255, 255, 0.15);
+            background: #00a859;
             backdrop-filter: blur(10px);
             border-radius: 50%;
             display: flex;
@@ -53,15 +71,17 @@
             color: white;
             font-size: 24px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid #ffffff;
             transition: all 0.3s ease;
             z-index: 100;
         }
 
         .home-btn:hover {
-            background: var(--primary);
+            background: #fbbf24;
             transform: scale(1.1) rotate(360deg);
-            border-color: transparent;
+            border-color: #00a859;
+            color: #0b2b26;
+            ;
         }
 
         /* CONTENEDOR PRINCIPAL */
@@ -84,7 +104,7 @@
             background: linear-gradient(to right, #fff, #86efac, #fff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-shadow: 0 0 20px #00a859, 0 0 40px #fbbf24;
             margin-bottom: 10px;
             letter-spacing: 2px;
         }
@@ -103,7 +123,8 @@
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
-            background: rgba(11, 43, 38, 0.5); /* Fondo basado en primary-dark */
+            background: rgba(11, 43, 38, 0.5);
+            /* Fondo basado en primary-dark */
             padding: 10px 25px;
             border-radius: 50px;
             backdrop-filter: blur(5px);
@@ -125,7 +146,7 @@
             padding: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
             border: 4px solid var(--primary);
-            transition: all 0.5s ease;
+            transition: transform 0.5s ease;
             animation: float 3s ease-in-out infinite;
         }
 
@@ -135,8 +156,15 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         /* ESTADÍSTICAS */
@@ -150,6 +178,7 @@
 
         .stat-item {
             background: rgba(255, 255, 255, 0.1);
+            border-left: 4px solid #00a859;
             backdrop-filter: blur(10px);
             padding: 12px 25px;
             border-radius: 50px;
@@ -163,7 +192,7 @@
         }
 
         .stat-item i {
-            color: var(--primary);
+            color: #fbbf24;
             font-size: 1.2rem;
         }
 
@@ -193,7 +222,8 @@
 
         .filter-btn:hover,
         .filter-btn.active {
-            background: var(--primary-dark); /* Cambiado a verde oscuro */
+            background: var(--primary-dark);
+            /* Cambiado a verde oscuro */
             border-color: var(--primary);
             transform: translateY(-2px);
             box-shadow: 0 10px 20px rgba(11, 43, 38, 0.3);
@@ -227,13 +257,13 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            height: 6px;
+            background: linear-gradient(90deg, #00a859, #ffffff, #00a859);
         }
 
         .card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 30px 60px rgba(11, 43, 38, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 168, 89, 0.4), 0 0 0 2px #fbbf24 inset;
         }
 
         .card-header {
@@ -246,7 +276,7 @@
         .card-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            background: linear-gradient(135deg, #00a859, #fbbf24);
             border-radius: 20px;
             display: flex;
             align-items: center;
@@ -277,15 +307,15 @@
         }
 
         .syntax-tag {
-            background: #e2e8f0;
-            color: var(--text-primary);
+            background: #0f3a32;
+            color: #fbbf24;
             padding: 8px 15px;
             border-radius: 12px;
             font-family: 'Fira Code', monospace;
             font-size: 0.9rem;
             display: inline-block;
             margin: 15px 0;
-            border-left: 3px solid var(--primary);
+            border-left: 3px solid #fbbf24;
         }
 
         .code-block {
@@ -310,7 +340,7 @@
             top: 10px;
             left: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.1);
+            background: #00a859;
             border: 1px solid rgba(255, 255, 255, 0.2);
             color: white;
             padding: 5px 10px;
@@ -318,7 +348,12 @@
             cursor: pointer;
             font-size: 0.8rem;
             transition: all 0.3s ease;
-            opacity: 0;
+            opacity: 0.8;
+        }
+
+        .copy-btn.copied {
+            /* Clase que se añadiría con JS al hacer click */
+            background: #00a859;
         }
 
         .code-block:hover .copy-btn {
@@ -330,7 +365,8 @@
         }
 
         .tip {
-            background: #f0f7f5; /* Fondo muy suave basado en primary */
+            background: #f0f7f5;
+            /* Fondo muy suave basado en primary */
             border-radius: 12px;
             padding: 10px 15px;
             font-size: 0.85rem;
@@ -348,7 +384,12 @@
 
         /* CARD ESPECIAL PARA EL RETO */
         .card.challenge {
-            background: linear-gradient(135deg, var(--primary-dark), #1a4a40); /* Basado en primary-dark */
+            background: linear-gradient(135deg, #0b2b26, #1a4a40);
+            background-image: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 2px, transparent 2px, transparent 8px);
+            /* Basado en primary-dark */
+            border: 2px solid #fbbf24;
+            box-shadow: 0 0 30px #fbbf24;
+            position: relative;
             color: white;
             grid-column: 1 / -1;
         }
@@ -395,12 +436,26 @@
             color: var(--primary-light);
         }
 
+        details summary {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 15px;
+            border-radius: 30px;
+            border: 1px solid #fbbf24;
+            transition: 0.3s;
+        }
+
+        details summary:hover {
+            background: #fbbf24;
+            color: #0b2b26;
+        }
+
         /* ANIMACIONES */
         @keyframes fadeInDown {
             from {
                 opacity: 0;
                 transform: translateY(-30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -412,6 +467,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -423,18 +479,25 @@
             .header h1 {
                 font-size: 2.5rem;
             }
-            
+
             .cards-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             .filters {
                 flex-direction: column;
                 align-items: stretch;
             }
-            
+
             .filter-btn {
                 justify-content: center;
+            }
+
+            .filter-btn.active {
+                background: #00a859;
+                color: white;
+                border-color: #fbbf24;
+                box-shadow: 0 0 15px #fbbf24;
             }
         }
 
@@ -449,8 +512,9 @@
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--primary);
+            background: #00a859;
             border-radius: 5px;
+            border: 2px solid #fbbf24;
         }
 
         ::-webkit-scrollbar-thumb:hover {
