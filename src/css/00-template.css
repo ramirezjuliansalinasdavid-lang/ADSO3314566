@@ -145,11 +145,13 @@ main {
 
     section {
         background-color: #0009;
+        width: 70%;
         min-width: 380px;
         padding: 20px;
-        max-width: 500%;
+        max-width: 800%;
         color: #fff9;
         font-family: 'Federant';
+        margin: 40px auto;
 
         h2 {
             font-family: "Federant", serif;
