@@ -121,7 +121,7 @@ main img {
     width: 140px;
     border-radius: 50%;
     object-fit: cover;
-    border: 5px solid #274369;
+    border: 5px solid rgba(241, 101, 41, 0.5);
     margin: 20px 0;
     transition: 0.4s;
 }
