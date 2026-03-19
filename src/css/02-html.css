@@ -103,15 +103,16 @@ h4 {
 }
 
 main {
-    background: rgb(187, 191, 199);
+    background: rgb(187, 191, 199, 0.75);
     backdrop-filter: blur(15px);
-    border: 1px solid rgba(241, 101, 41, 0.3);
+    border: 5px solid transparent; /* ¡IMPORTANTE! El borde debe ser transparente */
+    border-image: linear-gradient(90deg, #f16529, #e44d26, #f16529) 1;
+    border-radius: 16px;
     color: #1e293b;
     max-width: 500px;
     width: 50%;
     padding: 30px;
-    border-radius: 16px;
-    box-shadow: 0 20px 50px rgba(241, 101, 41, 0.4);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
     text-align: center;
     position: relative;
     transition: 0.4s;
@@ -119,17 +120,6 @@ main {
 
 main:hover {
     transform: translateY(-6px);
-}
-
-main::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, #f16529, #e44d26, #f16529);
-    border-radius: 16px 16px 0 0;
 }
 
 main img {
