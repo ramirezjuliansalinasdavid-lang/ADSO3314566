@@ -32,7 +32,12 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(-45deg, var(--bg-gradient-start), var(--bg-gradient-end), #1a4038, #0f3a32);
+            background: linear-gradient(135deg, #1a4038 0%, #0f3a32 100%);
+            background-image:
+                linear-gradient(135deg, #0f3a32 0%, #1a4038 100%),
+                repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 2px,
+                    transparent 2px, transparent 8px);
+            background-blend-mode: overlay;
             background-size: 400% 400%;
             animation: gradientBG 12s ease infinite;
             min-height: 100vh;
