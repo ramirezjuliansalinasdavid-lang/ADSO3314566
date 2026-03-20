@@ -96,7 +96,7 @@ body {
 
 /* CONTENEDOR PRINCIPAL DE CADA PÁGINA */
 main {
-    max-width: 900px;
+    max-width: 500px;
     /* Un poco más ancho para contenido */
     width: 100%;
     margin: 0 auto;
