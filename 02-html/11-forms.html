@@ -1,0 +1,148 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11-forms</title>
+    <link rel="stylesheet" href="../src/css/00-template.css">
+</head>
+
+<body>
+    <a href="index_3.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <h1>11-forms</h1>
+            <h2>Crea formularios interactivos para entradas de usuarios</h2>
+        </header>
+        <section>
+            <form>
+                <!-- Punto 9: Fieldset con legend para agrupar datos personales -->
+                <fieldset>
+                    <legend>📋 Datos personales</legend>
+
+                    <label for="nombre">Nombre completo:</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana Pérez" required>
+
+                    <label for="email">Correo electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="usuario@ejemplo.com" required>
+
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" min="1" max="120">
+                </fieldset>
+
+                <!-- Punto 10: Input de tipo teléfono y fecha -->
+                <fieldset>
+                    <legend> Contacto adicional</legend>
+
+                    <label for="telefono">Teléfono:</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="+57 300 123 4567" pattern="[0-9+\s]+">
+
+                    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+                </fieldset>
+
+                <!-- Punto 11: Select y option para opciones desplegables -->
+                <fieldset>
+                    <legend> Estudios y experiencia</legend>
+
+                    <label for="nivel_estudios">Nivel de estudios:</label>
+                    <select id="nivel_estudios" name="nivel_estudios">
+                        <option value="">-- Selecciona una opción --</option>
+                        <option value="secundaria">Secundaria</option>
+                        <option value="tecnico">Técnico / Tecnólogo</option>
+                        <option value="universitario">Universitario</option>
+                        <option value="posgrado">Posgrado</option>
+                    </select>
+
+                    <label for="anios_experiencia">Años de experiencia:</label>
+                    <select id="anios_experiencia" name="anios_experiencia">
+                        <option value="0">Menos de 1 año</option>
+                        <option value="1">1 año</option>
+                        <option value="2-4">2 a 4 años</option>
+                        <option value="5+">5 años o más</option>
+                    </select>
+                </fieldset>
+
+                <!-- Punto 12: Radio buttons (opción única) -->
+                <fieldset>
+                    <legend>💻 Área de interés principal</legend>
+
+                    <label>
+                        <input type="radio" name="interes" value="frontend"> Frontend (HTML, CSS, JS)
+                    </label>
+                    <label>
+                        <input type="radio" name="interes" value="backend"> Backend (Python, Java, Node.js)
+                    </label>
+                    <label>
+                        <input type="radio" name="interes" value="datos"> Ciencia de datos / IA
+                    </label>
+                    <label>
+                        <input type="radio" name="interes" value="movil"> Desarrollo móvil
+                    </label>
+                </fieldset>
+
+                <!-- Punto 13: Checkboxes (múltiples opciones) -->
+                <fieldset>
+                    <legend> Tecnologías que manejas</legend>
+
+                    <label>
+                        <input type="checkbox" name="tecnologias" value="html"> HTML5
+                    </label>
+                    <label>
+                        <input type="checkbox" name="tecnologias" value="css"> CSS3 / Flexbox / Grid
+                    </label>
+                    <label>
+                        <input type="checkbox" name="tecnologias" value="js"> JavaScript
+                    </label>
+                    <label>
+                        <input type="checkbox" name="tecnologias" value="react"> React / Vue / Angular
+                    </label>
+                    <label>
+                        <input type="checkbox" name="tecnologias" value="python"> Python
+                    </label>
+                </fieldset>
+
+                <!-- Punto 14: Textarea para comentarios largos -->
+                <fieldset>
+                    <legend> Comentarios adicionales</legend>
+
+                    <label for="comentarios">¿Algo más que quieras agregar?</label>
+                    <textarea id="comentarios" name="comentarios" rows="5" cols="40"
+                        placeholder="Escribe aquí tus comentarios, sugerencias o preguntas..."></textarea>
+                </fieldset>
+
+                <!-- Punto 15: Inputs de tipo password y archivo -->
+                <fieldset>
+                    <legend> Configuración de cuenta</legend>
+
+                    <label for="password">Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
+
+                    <label for="confirmar_pass">Confirmar contraseña:</label>
+                    <input type="password" id="confirmar_pass" name="confirmar_pass" required>
+
+                    <label for="archivo">Subir CV o portafolio (PDF, imagen):</label>
+                    <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.png">
+                </fieldset>
+
+                <!-- Punto 16: Botones de envío y reinicio -->
+                <fieldset>
+                    <legend></legend> Acciones del formulario</legend>
+
+                    <input type="submit" value="Enviar formulario">
+                    <input type="reset" value="Limpiar todos los campos">
+                </fieldset>
+            </form>
+        </section>
+    </main>
+
+</body>
+
+</html>
