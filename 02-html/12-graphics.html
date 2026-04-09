@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="../src/css/00-template.css">
 </head>
 
+<style>
+    
+    canvas,
+    svg {
+        width: 100%;
+        height: auto;
+    }
+
+</style>
+
 <body>
     <a href="index_3.html" class="btn-home">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
@@ -24,21 +34,23 @@
         <section>
             <h3>CANVAS</h3>
             <canvas id="miCanvas" width="350" height="150"
-                style="border: 2px solid #1e1e2f; background: #f16529; display: block; margin: 10px;">
+                style="border: 2px solid #1e1e2f; background: #f16529; display: block; margin: 10px; width: 100%; height: auto; max-width: 350px;">
                 Tu navegador no soporta canvas.
             </canvas>
             <h3>SVG</h3>
             <svg width="350" height="150" xmlns="http://www.w3.org/2000/svg"
-                style="border: 1px solid #1e1e2f; margin: 10px; background: #f16529;">
+                style="border: 1px solid #1e1e2f; margin: 10px; background: #f16529; width: 100%; height: auto; max-width: 350px;">
                 <circle cx="175" cy="75" r="50" fill="#e74c3c" stroke="#c0392b" stroke-width="5" fill-opacity="0.8" />
-                <text x="175" y="80" fill="white" font-size="15" font-family="Federant" text-anchor="middle" font-weight="bold">Círculo</text>
+                <text x="175" y="80" fill="white" font-size="15" font-family="Federant" text-anchor="middle"
+                    font-weight="bold">Círculo</text>
             </svg>
         </section>
     </main>
     <script>
         const canvas = document.getElementById('miCanvas');
         const ctx = canvas.getContext('2d');
-        
+
+        // Las coordenadas siguen siendo las mismas porque el canvas tiene un tamaño de dibujo fijo (350x150)
         ctx.beginPath();
         ctx.arc(175, 75, 50, 0, 2 * Math.PI);
         ctx.fillStyle = '#2a2a40';
