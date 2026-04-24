@@ -28,7 +28,7 @@
 }
 
 body {
-    background: var(--css-bg);
+    background: linear-gradient(135deg, #4a2670 0%, #662299 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
