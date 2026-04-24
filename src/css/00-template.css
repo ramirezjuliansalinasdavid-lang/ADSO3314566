@@ -1,5 +1,5 @@
 /* ========================================
-   00-template-base.css - ESTILOS BASE PARA PÁGINAS DE CONTENIDO (HTML)
+    00-template-base.css - ESTILOS BASE PARA PÁGINAS DE CONTENIDO (HTML)
    ======================================== */
 
 /* IMPORTAR FUENTES (solo las que uses realmente) */
@@ -56,7 +56,7 @@ body {
 }
 
 /* ========================================
-   COMPONENTES COMUNES
+    COMPONENTES COMUNES
    ======================================== */
 
 /* BOTÓN DE INICIO (Home) - Estilo unificado como en tus otras páginas */
@@ -100,7 +100,7 @@ main {
     /* Un poco más ancho para contenido */
     width: 100%;
     margin: 0 auto;
-    padding: 30px;
+    padding: 20px;
     background: rgba(20, 20, 30, 0.7);
     /* Fondo oscuro semitransparente */
     backdrop-filter: blur(12px);
@@ -124,7 +124,7 @@ main {
 }
 
 /* ========================================
-   ESTILOS PARA ENCABEZADOS DE PÁGINA (header dentro de main)
+    ESTILOS PARA ENCABEZADOS DE PÁGINA (header dentro de main)
    ======================================== */
 main header {
     text-align: center;
@@ -153,7 +153,7 @@ main header h2 {
 }
 
 /* ========================================
-   ESTILOS PARA EL CONTENIDO (section)
+    ESTILOS PARA EL CONTENIDO (section)
    ======================================== */
 main section {
     width: 100%;
@@ -185,21 +185,27 @@ main section p {
 }
 
 main section img {
-    width: 300px;                    /* Tamaño mediano como los logos */
-    height: 300px;                   /* Mismo alto = círculo perfecto */
-    object-fit: cover;               /* Imagen se ajusta sin deformarse */
-    border-radius: 50%;               /* ¡LAS HACE CIRCULARES! */
+    width: 300px;
+    /* Tamaño mediano como los logos */
+    height: 300px;
+    /* Mismo alto = círculo perfecto */
+    object-fit: cover;
+    /* Imagen se ajusta sin deformarse */
+    border-radius: 50%;
+    /* ¡LAS HACE CIRCULARES! */
     display: block;
     margin: 30px auto;
     transition: all 0.5s ease;
-    background: white;                /* Fondo blanco como los logos */
-    padding: 8px;                     /* Espacio interior como marco blanco */
+    background: white;
+    /* Fondo blanco como los logos */
+    padding: 8px;
+    /* Espacio interior como marco blanco */
 }
 
 /* Puedes añadir más estilos genéricos para listas, tablas, etc. si se repiten */
 
 /* ========================================
-   ESTILOS PARA EL MENÚ (si lo usas en estas páginas)
+    ESTILOS PARA EL MENÚ (si lo usas en estas páginas)
    ======================================== */
 menu {
     display: flex;

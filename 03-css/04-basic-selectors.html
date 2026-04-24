@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>04-basic-selectors</title>
+    <title>04-Basic-Selectors</title>
     <link rel="stylesheet" href="../src/css/03-template.css">
 
 </head>
@@ -19,18 +19,23 @@
     <main>
         <style>
             section div.rotate {
-                background: #de8be0;
-                color: #663399;
-                margin: 4rem auto;
-                padding: 0.4rem;
+                background: linear-gradient(135deg, #de8be0, #b855c9);
+                color: white;
+                margin: 2rem auto;
+                padding: 2rem 1rem;
                 text-align: center;
-                font-size: 4rem;
-                width: 200px;
-                transform: rotate(-10deg);
+                font-size: clamp(2rem, 5vw, 3rem);
+                font-weight: bold;
+                width: 80%;
+                max-width: 300px;
+                transform: rotate(-2deg);
+                border-radius: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+                transition: transform 0.3s ease;
             }
         </style>
         <header>
-            <h1>04 Basic Selectors</h1>
+            <h1>04 Basic-Selectors</h1>
             <ul>
                 <li>Universal (*)</li>
                 <li>Type / Tag (p)</li>

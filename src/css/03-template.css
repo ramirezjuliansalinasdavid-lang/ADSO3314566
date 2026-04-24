@@ -83,7 +83,7 @@ main {
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(12px);
     border: 1px solid var(--border-color);
-    max-width: 1100px;
+    max-width: 550px;
     width: 90%;
     margin: 0 auto;
     padding: 40px;
@@ -152,6 +152,7 @@ h1 {
     color: transparent;
     margin-bottom: 15px;
     letter-spacing: -1px;
+
 }
 
 h2 {
@@ -352,5 +353,45 @@ footer {
         width: 100%;
         text-align: center;
         justify-content: center;
+    }
+}
+
+/* ========================================
+    AJUSTES PARA MÓVIL - Botón home no se superpone
+   ======================================== */
+@media (max-width: 650px) {
+    main {
+        margin-top: 80px;
+        padding: 20px;
+        /* Espacio para que el botón no tape el contenido */
+    }
+
+    main header {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    main header ul {
+        padding-left: 20px;
+        /* ← Espacio interno para los bullets */
+        margin-left: 0;
+    }
+
+    main header ul li {
+        text-align: center;
+        word-break: break-word;
+        /* Evita que texto largo se salga */
+    }
+
+    .btn-home {
+        top: 15px;
+        left: 15px;
+        width: 45px;
+        height: 45px;
+    }
+
+    .btn-home svg {
+        width: 22px;
+        height: 22px;
     }
 }
