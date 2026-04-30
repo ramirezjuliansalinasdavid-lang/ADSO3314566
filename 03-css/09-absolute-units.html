@@ -1,18 +1,188 @@
-<!---->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>09-Absolute-Units</title>
+    <title>09-Absolute-Units | CSS Units Demo</title>
     <link rel="stylesheet" href="../src/css/03-template.css">
     <style>
-        li.abs1 {font-size: 0.5in;}
-        li.abs2 {font-size: 1cm;}
-        li.abs3 {font-size: 10mm;}
-        li.abs4 {font-size: 10pt;}
-        li.abs5 {font-size: 2pc;}
+        /* Estilos específicos para unidades absolutas */
+
+        /* Contenedor principal centrado */
+        main {
+            max-width: 700px;
+            width: 90%;
+            margin: 0 auto;
+        }
+
+        /* Centrar títulos */
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Lista de unidades - estilo grid para mejor presentación */
+        .units-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .units-list li {
+            background: rgba(255, 255, 255, 0.12);
+            padding: 12px 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: all 0.3s ease;
+            color: #FFFFFF;
+        }
+
+        .units-list li:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Sección de demostración */
+        .demo-section {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 24px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+
+        .demo-section h3 {
+            color: #FFFFFF;
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+            text-align: center;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            padding-bottom: 10px;
+        }
+
+        /* Lista de demostración - bien indentada */
+        .demo-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .demo-list li {
+            padding: 15px 18px;
+            margin: 12px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            border-left: 4px solid;
+            transition: all 0.3s ease;
+            color: #FFFFFF;
+            line-height: 1.5;
+        }
+
+        /* Colores por tipo de unidad */
+        .demo-list li:nth-child(1) {
+            border-left-color: #ff8888;
+        }
+
+        .demo-list li:nth-child(2) {
+            border-left-color: #6ee7e0;
+        }
+
+        .demo-list li:nth-child(3) {
+            border-left-color: #ffdd77;
+        }
+
+        .demo-list li:nth-child(4) {
+            border-left-color: #a8ffd0;
+        }
+
+        .demo-list li:nth-child(5) {
+            border-left-color: #c9b3ff;
+        }
+
+        .demo-list li:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        /* Badge para la unidad */
+        .unit-badge {
+            display: inline-block;
+            background: #1e1e2e;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            font-weight: bold;
+            margin-right: 15px;
+            color: #ffdd77;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .unit-desc {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Conversión a píxeles (referencia visual) */
+        .px-reference {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-family: monospace;
+            margin-left: 10px;
+            color: #aaa;
+        }
+
+        /* Clases para tamaños de fuente */
+        .abs1 {
+            font-size: 0.5in;
+        }
+
+        .abs2 {
+            font-size: 1cm;
+        }
+
+        .abs3 {
+            font-size: 10mm;
+        }
+
+        .abs4 {
+            font-size: 10pt;
+        }
+
+        .abs5 {
+            font-size: 2pc;
+        }
+
+        /* Responsive */
+        @media (max-width: 550px) {
+            .units-list {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-list li {
+                padding: 12px;
+            }
+
+            .unit-badge {
+                display: block;
+                margin-bottom: 8px;
+                margin-right: 0;
+                text-align: center;
+            }
+
+            .px-reference {
+                display: block;
+                margin-left: 0;
+                margin-top: 5px;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
@@ -22,28 +192,49 @@
             <path
                 d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
             </path>
-        </svg> </a>
+        </svg>
+    </a>
     <main>
         <header>
             <h1>09-Absolute-Units</h1>
             <h2>Especifique un valor de longitud fijo. No importa si cambia el ancho o la altura de la pantalla.</h2>
-            <ul>
-                <li>Inch (in)</li>
-                <li>Centimeter (cm)</li>
-                <li>Milimeter (mm)</li>
-                <li>Point M (pt)</li>
-                <li>Pica (pc)</li>
-            </ul>
         </header>
-        <section>
-            <ul>  
-                <li class="abs1">in: 0.5in</li>
-                <li class="abs2">cm: 1cm</li>
-                <li class="abs3">mm: 10mm</li>
-                <li class="abs4">pt: 10pt</li>
-                <li class="abs5">pc: 2pc</li>
+
+        <!-- Lista de unidades en formato grid -->
+        <ul class="units-list">
+            <li>Inch (in)</li>
+            <li>Centimeter (cm)</li>
+            <li>Millimeter (mm)</li>
+            <li>Point (pt)</li>
+            <li>Pica (pc)</li>
+        </ul>
+
+        <!-- Sección de demostración -->
+        <div class="demo-section">
+            <h3>🎨 Demostración Visual</h3>
+            <ul class="demo-list">
+                <li class="abs1">
+                    <span class="unit-badge">0.5in</span>
+                    <span class="unit-desc">Pulgada - 1in = 2.54cm</span>
+                </li>
+                <li class="abs2">
+                    <span class="unit-badge">1cm</span>
+                    <span class="unit-desc">Centímetro - Unidad métrica</span>
+                </li>
+                <li class="abs3">
+                    <span class="unit-badge">10mm</span>
+                    <span class="unit-desc">Milímetro - 10mm = 1cm</span>
+                </li>
+                <li class="abs4">
+                    <span class="unit-badge">10pt</span>
+                    <span class="unit-desc">Punto - 1pt = 1/72 pulgada</span>
+                </li>
+                <li class="abs5">
+                    <span class="unit-badge">2pc</span>
+                    <span class="unit-desc">Pica - 1pc = 12pt</span>
+                </li>
             </ul>
-        </section>
+        </div>
     </main>
 </body>
 

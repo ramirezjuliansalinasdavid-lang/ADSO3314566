@@ -8,10 +8,96 @@
     <title>07-Inheritance</title>
     <link rel="stylesheet" href="../src/css/03-template.css">
     <style>
+        /* CSS corregido - sin anidamiento inválido */
         section {
-            color: darksalmon;
-            li.important {
-                color: palegreen
+            color: rgb(168, 151, 229);
+        }
+
+        /* Regla independiente para elementos importantes */
+        li.important {
+            color: rgb(14, 7, 29) !important;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+
+        /* ============================================
+            NUEVOS ESTILOS PARA CENTRAR Y INDENTAR
+        ============================================ */
+
+        /* Contenedor principal centrado */
+        main {
+            max-width: 700px;
+            width: 90%;
+            margin: 0 auto;
+            text-align: left;
+            /* El texto dentro queda alineado a la izquierda pero el bloque está centrado */
+        }
+
+        /* Centrar títulos */
+        header {
+            text-align: center;
+        }
+
+        /* Estilos para las listas - indentación perfecta */
+        section ul,
+        section ol {
+            margin-left: 0;
+            padding-left: 25px;
+        }
+
+        /* Lista principal */
+        section>ul {
+            list-style-type: disc;
+        }
+
+        /* Lista anidada (ol dentro de li) */
+        section li ol {
+            margin-top: 8px;
+            margin-bottom: 8px;
+            padding-left: 35px;
+            list-style-type: decimal;
+        }
+
+        /* Elementos de lista con mejor espaciado */
+        section li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+
+        /* Resaltar el título del juego */
+        section li strong {
+            color: #908dbc;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+
+        /* Ajuste para el elemento important */
+        li.important {
+            display: list-item;
+            /* Volver a comportamiento normal de lista */
+            margin-left: 0;
+        }
+
+        /* Mejorar la nota demo */
+        .demo-note {
+            text-align: left;
+            margin: 30px auto 0 auto;
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 650px) {
+
+            section ul,
+            section ol {
+                padding-left: 20px;
+            }
+
+            section li ol {
+                padding-left: 25px;
             }
         }
     </style>
