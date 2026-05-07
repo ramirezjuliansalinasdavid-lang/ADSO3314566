@@ -5,16 +5,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>13-Backgroun</title>
+    <title>14-Backgroun</title>
     <link rel="stylesheet" href="../src/css/03-template.css">
     <style>
-        h3 {
-            text-align: center;
-            color: blueviolet;
-            font-family: 'Poppins', sans-serif;
+        .bg-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
         }
 
+        .bg-card {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(4px);
+            border-radius: 1.8rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
+        .bg-card:hover {
+            transform: translate(-5px);
+            box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .card-header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .card-header h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+            letter-spacing: -0.3px;
+        }
+
+        .css-code {
+            font-family: 'Courier New', monospace;
+            background: #1e1e2e;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: #a5d6ff;
+            border: 1px solid #6c5ce7
+        }
+        .demo-area {
+            padding: 2rem;
+            margin: 1.5rem;
+            border-radius: 1.2rem;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: green;
+        }
+        .bg-image-demo {
+            background-image: url(img/Nacional.png);
+            background-size: 10%;
+            background-position: center;
+            position: relative;
+        }
     </style>
 </head>
 
@@ -33,11 +92,30 @@
                 <li>background-image</li>
                 <li>background-repeat</li>
                 <li>background-position</li>
-                <li>background-size</li>                
+                <li>background-size</li>
             </h2>
         </header>
         <section>
-            <h3>background-color</h3>            
+            <div class="bg-grid">
+                <div class="bg-card">
+                    <div class="card-header">
+                        <h4>🎨Background-Color</h4>
+                        <span class="css-code">background-color: green</span>
+                    </div>
+                    <div class="demo-area bg-color-demo">
+                    </div>
+                </div>
+
+                <div class="bg-card">
+                    <div class="card-header">
+                        <h4>🖼️Background-Image-Repeat-Position-Size</h4>
+                        <span class="css-code">Atletico Nacional</span>
+                    </div>
+                    <div class="demo-area bg-image-demo">
+
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 </body>
