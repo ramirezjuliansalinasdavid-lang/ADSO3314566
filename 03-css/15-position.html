@@ -8,6 +8,227 @@
     <title>15-Position</title>
     <link rel="stylesheet" href="../src/css/03-template.css">
     <style>
+        .position-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .position-card {
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(4px);
+            border-radius: 1.8rem;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .position-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -12px rgba(0, 0, 0, 0.4);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .card-header {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 0.8rem 1.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .card-header h4 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: white;
+            margin: 0;
+        }
+
+        .css-badge {
+            font-family: 'Courier New', monospace;
+            background: #1e1e2e;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: #a5d6ff;
+            border-left: 3px solid #6c5ce7;
+        }
+
+        .demo-container {
+            margin: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 1.2rem;
+            padding: 1rem;
+            border: 1px dashed rgba(255, 255, 255, 0.3);
+        }
+
+        .position-box {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            font-size: 0.8rem;
+            box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .explanation {
+            padding: 0.5rem 1.5rem 1.5rem 1.5rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.85rem;
+            line-height: 1.5;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .explanation strong {
+            color: #ffd93d;
+        }
+
+        .static-demo .position-box {
+            position: static;
+            margin: 0 auto;
+        }
+
+        .relative-demo .position-box {
+            position: relative;
+            top: 20px;
+            left: 30px;
+            background: linear-gradient(135deg, #00b894, #55efc4);
+        }
+
+        .absolute-container {
+            position: relative;
+            min-height: 220px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+
+        .absolute-demo .position-box {
+            position: absolute;
+            bottom: 15px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff7675, #d63031);
+            width: 100px;
+            height: 100px;
+        }
+
+        .fixed-demo .position-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, #fdcb6e, #f39c12);
+            z-index: 1000;
+            font-size: 0.7rem;
+        }
+
+        .fixed-note {
+            background: #ff7675;
+            border-radius: 0.8rem;
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.75rem;
+        }
+
+        .fake-fixed {
+            position: sticky;
+            bottom: 0;
+            background: #f39c12;
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .sticky-scroll-container {
+            max-height: 250px;
+            overflow-y: auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 1rem;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background: #6c5ce7;
+            padding: 10px;
+            border-radius: 0.8rem;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            z-index: 10;
+            margin-bottom: 10px;
+        }
+
+        .sticky-content {
+            height: 300px;
+            background: repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.05) 0px, rgba(255, 255, 255, 0.05) 20px, transparent 20px, transparent 40px);
+            border-radius: 0.6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .fixed-note {
+            background: #ff7675;
+            border-radius: 0.8rem;
+            padding: 0.8rem;
+            text-align: center;
+            font-size: 0.75rem;
+        }
+
+        .fake-fixed {
+            position: sticky;
+            bottom: 0;
+            background: #f39c12;
+            margin-top: 10px;
+            padding: 8px;
+            border-radius: 30px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .note-icon {
+            font-size: 0.7rem;
+            background: rgba(0, 0, 0, 0.4);
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 30px;
+        }
+
+        button.small-reset {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            border-radius: 30px;
+            padding: 4px 12px;
+            color: white;
+            margin-top: 8px;
+            cursor: pointer;
+            font-size: 0.7rem;
+        }
+
+        button.small-reset:hover {
+            background: #6c5ce7;
+        }
     </style>
 </head>
 
@@ -30,8 +251,143 @@
             </h2>
         </header>
         <section>
+            <div class="position-grid">
+                <div class="position-card sattic-demo">
+                    <div class="card-header">
+                        <h4>📌STATIC (Normal)</h4>
+                        <span class="css-badge">Position: Static</span>
+                    </div>
+                    <div class="demo-container">
+                        <div class="position-box">
+                            Elemento Static <br>⚡Flujo normal
+                        </div>
+                        <p style="color: white; font-size: 0.75rem; margin-top: 12px;">No se mueve sigue el flujo del
+                            documento. es el valor por defecto</p>
+                    </div>
+                    <div class="explanation">
+                        <strong>🔍"Static"</strong>es el posicionamiento por defecto. Los elementos se colocan en orden
+                        normal (uno debajo de otro).
+                        Las propiedades <code>top, right, bottom, left</code> <strong>NO</strong> afectan a un elemento
+                        static.
+                    </div>
+                </div>
+                <div class="position-card relative-demo">
+                    <div class="card-header">
+                        <h4>🔁RELATIVE</h4>
+                        <span class="css-badge">position: relative; top: 20px; left: 30px;</span>
+                    </div>
+                    <div class="demo-container">
+                        <div class="position-box">
+                            Relative<br>⚡ Se desplaza
+                        </div>
+                        <p style="color:#ffeaa7; font-size:0.7rem; margin-top:8px;">✨ ¡Observa cómo se mueve 20px hacia
+                            abajo y 30px a la derecha! pero respeta su espacio original.</p>
+                    </div>
+                    <div class="explanation">
+                        <strong>📐 Relative:</strong> Se desplaza respecto a su posición normal, <strong>pero el espacio
+                            original queda reservado</strong>.
+                        Es útil para ajustes finos o como contenedor de elementos <code>absolute</code>.
+                    </div>
+                </div>
+                <div class="position-card absolute-demo">
+                    <div class="card-header">
+                        <h4>🎯 ABSOLUTE</h4>
+                        <span class="css-badge">position: absolute; bottom: 15px; right: 20px;</span>
+                    </div>
+                    <div class="demo-container absolute-container">
+                        <p style="color:white; font-size:0.7rem; margin-bottom:10px;">📦 Contenedor relative (padre)</p>
+                        <div class="position-box">
+                            Absolute<br> ⚡ Anclado abajo-derecha
+                        </div>
+                        <p style="color:#dfe6e9; font-size:0.7rem; margin-top:50px;">⬅️ Este elemento se posiciona
+                            respecto al contenedor con <strong>position: relative</strong>.</p>
+                    </div>
+                    <div class="explanation">
+                        <strong>📍 Absolute:</strong> Se saca del flujo normal y se posiciona respecto a su
+                        <strong>ancestro posicionado más cercano</strong> (relative, absolute, fixed, sticky).
+                        Si no existe, se posiciona respecto al <code>&lt;html&gt;</code>. Ideal para modales, tooltips o
+                        elementos superpuestos.
+                    </div>
+                </div>
+                <div class="position-card fixed-demo">
+                    <div class="card-header">
+                        <h4>📌 FIXED</h4>
+                        <span class="css-badge">position: fixed; bottom: 20px; right: 20px;</span>
+                    </div>
+                    <div class="demo-container">
+                        <div class="fixed-note">
+                            💡 <strong>Fixed</strong> se posiciona respecto a la ventana del navegador (viewport). <br>
+                            Un elemento con <code>position: fixed</code> permanece en el mismo lugar aunque hagas scroll
+                            en la página.
+                        </div>
+                        <div class="fake-fixed">
+                            ⭐ ¡Mira la esquina inferior derecha de la PÁGINA! (Hay un cuadro fijo real)
+                        </div>
+                    </div>
+                    <div class="explanation">
+                        <strong>🧱 Fixed:</strong> Se queda "pegado" a la pantalla siempre visible. No se mueve al hacer
+                        scroll.
+                        Es típico para menús flotantes, botones de acción, o chats. En este ejemplo hemos creado un
+                        recuadro fijo real abajo a la derecha (usa scroll para comprobarlo).
+                    </div>
+                </div>
+                <div class="position-card sticky-demo">
+                    <div class="card-header">
+                        <h4>🧲 STICKY</h4>
+                        <span class="css-badge">position: sticky; top: 0;</span>
+                    </div>
+                    <div class="demo-container">
+                        <div class="sticky-scroll-container">
+                            <div class="sticky-header">
+                                📌 Soy un encabezado STICKY (¡desliza hacia abajo!)
+                            </div>
+                            <div class="sticky-content">
+                                🧾 Contenido desplazable... <br> Al hacer scroll, el elemento "sticky" se pega arriba
+                                hasta que su contenedor termina.
+                            </div>
+                            <div style="height: 40px;"></div>
+                            <div class="sticky-content" style="background: rgba(0,0,0,0.3);">
+                                Más contenido para ver el efecto sticky.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="explanation">
+                        <strong>🧲 Sticky:</strong> Híbrido entre relative y fixed. Se comporta como
+                        <code>relative</code> hasta que su contenedor lo lleva al borde establecido
+                        (<code>top:0</code>),
+                        entonces se "pega" como <code>fixed</code> dentro de su contenedor padre. Ideal para headers de
+                        sección o tablas.
+                    </div>
+                </div>
+                <div id="realFixedDemo"
+                    style="position: fixed; bottom: 20px; right: 20px; width: 130px; height: 130px; background: linear-gradient(145deg, #f39c12, #e67e22); border-radius: 20px; display: flex; align-items: center; justify-content: center; text-align: center; color: white; font-weight: bold; font-size: 0.7rem; box-shadow: 0 10px 20px rgba(0,0,0,0.3); z-index: 999; backdrop-filter: blur(4px); border: 1px solid rgba(255,255,255,0.5); cursor: pointer; transition: 0.2s;"
+                    onclick="this.style.transform='scale(0.95)'; setTimeout(()=> this.style.transform='scale(1)', 200);">
+                    📌 FIXED REAL<br> (Siempre visible)
+                </div>
+            </div>
+            </div>
+            </div>
         </section>
     </main>
+    <script>
+        // SCRIPT para el ejemplo Relative: reiniciar posición
+        const relativeBox = document.querySelector('.relative-demo .position-box');
+        const resetBtn = document.getElementById('resetRelative');
+        if (relativeBox && resetBtn) {
+            // Guardamos el estilo inline original
+            resetBtn.addEventListener('click', () => {
+                relativeBox.style.top = '0px';
+                relativeBox.style.left = '0px';
+                // Añadimos un pequeño feedback
+                resetBtn.innerText = '✓ Reiniciado';
+                setTimeout(() => resetBtn.innerText = '⟳ Reiniciar posición', 1000);
+            });
+            // Para que el usuario vea que puede cambiar, pero sin quitar la clase relative.
+            // También permitimos arrastrar simbólico? mejor no complejizar.
+        }
+        // Pequeño efecto para demostrar que el fixed existe: Al hacer scroll, no se mueve.
+        console.log('Demo Position: el cuadro FIXED real está en la esquina inferior derecha de la ventana (viewport)');
+    </script>
 </body>
 
 </html>
