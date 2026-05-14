@@ -1,0 +1,358 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17-Visualization</title>
+    <link rel="stylesheet" href="../src/css/03-template.css">
+    <style>
+        /* ===== VISUALIZATION THEME ===== */
+        .tema-visual {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 20px;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+        }
+
+        .tema-visual:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .titulo-visual {
+            color: #c9b3ff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #8b5cf6;
+            padding-left: 12px;
+        }
+
+        .descripcion-visual {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Display */
+        .demo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .demo-item {
+            text-align: center;
+            min-width: 120px;
+        }
+
+        .caja-display {
+            background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+            color: white;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 12px;
+            font-weight: bold;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .caja-display.block {
+            display: block;
+            width: 100%;
+        }
+
+        .caja-display.inline {
+            display: inline;
+            width: auto;
+            padding: 8px 12px;
+        }
+
+        .caja-display.none {
+            display: none;
+        }
+
+        .caja-display.flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .caja-display.grid {
+            display: grid;
+            place-items: center;
+        }
+
+        .etiqueta-css {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Visibility */
+        .comparador-visual {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .caja-visibilidad {
+            background: linear-gradient(135deg, #a855f7, #7e22ce);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            min-width: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .caja-visibilidad.hidden {
+            visibility: hidden;
+        }
+
+        /* Overflow */
+        .overflow-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .caja-overflow {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 10px;
+            height: 100px;
+            width: 100%;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.8rem;
+        }
+
+        .caja-overflow.visible {
+            overflow: visible;
+        }
+
+        .caja-overflow.hidden {
+            overflow: hidden;
+        }
+
+        .caja-overflow.scroll {
+            overflow: scroll;
+        }
+
+        .caja-overflow.auto {
+            overflow: auto;
+        }
+
+        /* Z-Index */
+        .contenedor-zindex {
+            position: relative;
+            height: 180px;
+            margin: 30px 0;
+        }
+
+        .capa {
+            position: absolute;
+            width: 120px;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: bold;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .z1 {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            top: 0;
+            left: 20px;
+        }
+
+        .z2 {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            top: 30px;
+            left: 60px;
+        }
+
+        .z3 {
+            background: linear-gradient(135deg, #10b981, #059669);
+            top: 60px;
+            left: 100px;
+        }
+
+        .nota-visual {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px;
+            border-radius: 8px;
+            margin: 10px 0;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Tabla resumen */
+        .tabla-resumen {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .tabla-resumen th,
+        .tabla-resumen td {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+        }
+
+        .tabla-resumen th {
+            background: rgba(139, 92, 246, 0.3);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <h1>17-Visualization</h1>
+            <h2>
+                <li>Display: block|inline|none|flex|grid</li>
+                <li>Visibility: visible|hidden</li>
+                <li>Overflow: visible|hidden|scroll|auto</li>
+                <li>Z-Index: 1...n</li>
+            </h2>
+        </header>
+        <section>
+            <!-- DISPLAY -->
+            <div class="tema-visual">
+                <h3 class="titulo-visual">🎨 DISPLAY</h3>
+                <p class="descripcion-visual">Define cómo se comporta un elemento en el flujo del documento.</p>
+
+                <div class="demo-grid">
+                    <div class="demo-item">
+                        <div class="caja-display block">block</div>
+                        <span class="etiqueta-css">Ocupa todo el ancho</span>
+                    </div>
+                    <div class="demo-item">
+                        <span class="caja-display inline">inline</span>
+                        <span class="caja-display inline">inline</span>
+                        <span class="etiqueta-css">Solo ocupa su contenido</span>
+                    </div>
+                    <div class="demo-item">
+                        <div class="caja-display none">none</div>
+                        <span class="etiqueta-css">¡No se ve ni ocupa espacio!</span>
+                    </div>
+                    <div class="demo-item">
+                        <div class="caja-display flex">flex</div>
+                        <span class="etiqueta-css">Layout flexible</span>
+                    </div>
+                    <div class="demo-item">
+                        <div class="caja-display grid">grid</div>
+                        <span class="etiqueta-css">Layout en cuadrícula</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- VISIBILITY -->
+            <div class="tema-visual">
+                <h3 class="titulo-visual">👁️ VISIBILITY</h3>
+                <div class="comparador-visual">
+                    <div class="caja-visibilidad visible">visible</div>
+                    <div class="caja-visibilidad hidden">hidden</div>
+                    <div class="caja-visibilidad visible">visible</div>
+                </div>
+                <p class="nota-visual">💡 <strong>visibility: hidden</strong> → oculta el elemento PERO sigue
+                    ocupando espacio</p>
+                <p class="nota-visual">💡 <strong>display: none</strong> → oculta y NO ocupa espacio</p>
+            </div>
+
+            <!-- OVERFLOW -->
+            <div class="tema-visual">
+                <h3 class="titulo-visual">📦 OVERFLOW</h3>
+                <div class="overflow-demo">
+                    <div class="caja-overflow visible">
+                        <strong>visible</strong><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Este contenido se desborda y se ve
+                        fuera de la caja.
+                    </div>
+                    <div class="caja-overflow hidden">
+                        <strong>hidden</strong><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Este contenido se desborda pero
+                        queda oculto.
+                    </div>
+                    <div class="caja-overflow scroll">
+                        <strong>scroll</strong><br>
+                        Lorem ipsum dolor sit amet consectetur. Aparecen barras de scroll siempre.
+                    </div>
+                    <div class="caja-overflow auto">
+                        <strong>auto</strong><br>
+                        Lorem ipsum dolor sit amet consectetur. Solo muestra scroll si es necesario.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Z-INDEX -->
+            <div class="tema-visual">
+                <h3 class="titulo-visual">🔢 Z-INDEX</h3>
+                <div class="contenedor-zindex">
+                    <div class="capa z1" style="z-index: 1;">z-index: 1</div>
+                    <div class="capa z2" style="z-index: 2;">z-index: 2</div>
+                    <div class="capa z3" style="z-index: 3;">z-index: 3</div>
+                </div>
+                <p class="nota-visual">🎯 Mayor z-index = más cerca del usuario (se superpone arriba)</p>
+                <p class="nota-visual">⚠️ Solo funciona en elementos con <strong>position</strong> (relative,
+                    absolute, fixed, sticky)</p>
+            </div>
+
+            <!-- TABLA RESUMEN -->
+            <div class="explicacion">
+                <h4 style="margin-bottom: 15px; color: white;">📋 Resumen de propiedades</h4>
+                <table class="tabla-resumen">
+                    <tr>
+                        <th>Propiedad</th>
+                        <th>Valores</th>
+                        <th>¿Ocupa espacio?</th>
+                    </tr>
+                    <tr>
+                        <td>display</td>
+                        <td>block, inline, none, flex, grid</td>
+                        <td>none = no | otros = sí</td>
+                    </tr>
+                    <tr>
+                        <td>visibility</td>
+                        <td>visible, hidden</td>
+                        <td>Sí (hidden mantiene el espacio)</td>
+                    </tr>
+                    <tr>
+                        <td>overflow</td>
+                        <td>visible, hidden, scroll, auto</td>
+                        <td>Controla desbordamiento</td>
+                    </tr>
+                    <tr>
+                        <td>z-index</td>
+                        <td>1, 2, 3... n</td>
+                        <td>Controla superposición</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>

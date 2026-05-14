@@ -1,0 +1,367 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18-Typography</title>
+    <link rel="stylesheet" href="../src/css/03-template.css">
+    <style>
+        /* ===== TYPOGRAPHY THEME ===== */
+        .tema-typography {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 20px;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+        }
+
+        .tema-typography:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .titulo-typo {
+            color: #c9b3ff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #8b5cf6;
+            padding-left: 12px;
+        }
+
+        .descripcion-typo {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+        }
+
+        /* Color demo */
+        .color-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 15px 0;
+        }
+
+        .color-sample {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-weight: 500;
+        }
+
+        /* Family demo */
+        .family-demo {
+            margin: 15px 0;
+        }
+
+        .family-sample {
+            padding: 10px;
+            margin: 8px 0;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            color: white;
+        }
+
+        .family-sample.sans {
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        .family-sample.serif {
+            font-family: Georgia, 'Times New Roman', serif;
+        }
+
+        .family-sample.mono {
+            font-family: 'Courier New', monospace;
+        }
+
+        .family-sample.cursive {
+            font-family: 'Brush Script MT', cursive;
+        }
+
+        /* Size demo */
+        .size-demo {
+            margin: 15px 0;
+        }
+
+        .size-sample {
+            margin: 8px 0;
+            color: white;
+        }
+
+        .size-sample.xs {
+            font-size: 10px;
+        }
+
+        .size-sample.sm {
+            font-size: 14px;
+        }
+
+        .size-sample.md {
+            font-size: 18px;
+        }
+
+        .size-sample.lg {
+            font-size: 24px;
+        }
+
+        .size-sample.xl {
+            font-size: 32px;
+        }
+
+        .size-sample.xxl {
+            font-size: 48px;
+        }
+
+        /* Weight demo */
+        .weight-demo {
+            margin: 15px 0;
+        }
+
+        .weight-sample {
+            margin: 8px 0;
+            color: white;
+        }
+
+        .weight-sample.thin {
+            font-weight: 100;
+        }
+
+        .weight-sample.light {
+            font-weight: 300;
+        }
+
+        .weight-sample.regular {
+            font-weight: 400;
+        }
+
+        .weight-sample.medium {
+            font-weight: 500;
+        }
+
+        .weight-sample.semibold {
+            font-weight: 600;
+        }
+
+        .weight-sample.bold {
+            font-weight: 700;
+        }
+
+        .weight-sample.extrabold {
+            font-weight: 800;
+        }
+
+        .weight-sample.black {
+            font-weight: 900;
+        }
+
+        /* Combo demo */
+        .combo-demo {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+        }
+
+        .combo-texto {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #c9b3ff;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .code-mini {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 12px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.8rem;
+            color: #a5d6ff;
+            border-left: 3px solid #8b5cf6;
+        }
+
+        /* Tabla typography */
+        .tabla-typo {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .tabla-typo th,
+        .tabla-typo td {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.85rem;
+        }
+
+        .tabla-typo th {
+            background: rgba(139, 92, 246, 0.3);
+            color: white;
+        }
+
+        .tabla-typo code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #a5d6ff;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <h1>18-Typography</h1>
+            <h2>
+                <li>Color</li>
+                <li>Family</li>
+                <li>Size</li>
+                <li>Weight</li>
+            </h2>
+        </header>
+        <section>
+            <!-- COLOR -->
+            <div class="tema-typography">
+                <h3 class="titulo-typo">🎨 COLOR</h3>
+                <p class="descripcion-typo">Define el color del texto. Puede usar nombres, hexadecimales, RGB, HSL.</p>
+
+                <div class="color-demo">
+                    <p class="color-sample" style="color: #ff6b6b;">❤️ #ff6b6b - Rojo coral</p>
+                    <p class="color-sample" style="color: #4ecdc4;">💚 #4ecdc4 - Verde menta</p>
+                    <p class="color-sample" style="color: #ffe66d;">💛 #ffe66d - Amarillo</p>
+                    <p class="color-sample" style="color: #c9b3ff;">💜 #c9b3ff - Lavanda (tu paleta)</p>
+                    <p class="color-sample" style="color: rgb(139, 92, 246);">💙 rgb(139, 92, 246) - Morado</p>
+                </div>
+            </div>
+
+            <!-- FAMILY -->
+            <div class="tema-typography">
+                <h3 class="titulo-typo">🔤 FAMILY</h3>
+                <p class="descripcion-typo">Define la fuente o tipo de letra del texto.</p>
+
+                <div class="family-demo">
+                    <p class="family-sample sans">Sans-Serif: Arial, Helvetica, sans-serif</p>
+                    <p class="family-sample serif">Serif: Georgia, Times, serif</p>
+                    <p class="family-sample mono">Monospace: 'Courier New', monospace</p>
+                    <p class="family-sample cursive">Cursive: 'Brush Script MT', cursive</p>
+                </div>
+                <div class="code-mini">
+                    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+                </div>
+            </div>
+
+            <!-- SIZE -->
+            <div class="tema-typography">
+                <h3 class="titulo-typo">📏 SIZE</h3>
+                <p class="descripcion-typo">Define el tamaño del texto (px, em, rem, %).</p>
+
+                <div class="size-demo">
+                    <p class="size-sample xs">10px - Extra pequeño</p>
+                    <p class="size-sample sm">14px - Pequeño</p>
+                    <p class="size-sample md">18px - Mediano</p>
+                    <p class="size-sample lg">24px - Grande</p>
+                    <p class="size-sample xl">32px - Extra grande</p>
+                    <p class="size-sample xxl">48px - Mega</p>
+                </div>
+            </div>
+
+            <!-- WEIGHT -->
+            <div class="tema-typography">
+                <h3 class="titulo-typo">💪 WEIGHT</h3>
+                <p class="descripcion-typo">Define el grosor o negrita del texto (100 a 900).</p>
+
+                <div class="weight-demo">
+                    <p class="weight-sample thin">100 - Thin (Delgado)</p>
+                    <p class="weight-sample light">300 - Light (Ligero)</p>
+                    <p class="weight-sample regular">400 - Regular (Normal)</p>
+                    <p class="weight-sample medium">500 - Medium (Medio)</p>
+                    <p class="weight-sample semibold">600 - SemiBold</p>
+                    <p class="weight-sample bold">700 - Bold (Negrita)</p>
+                    <p class="weight-sample extrabold">800 - ExtraBold</p>
+                    <p class="weight-sample black">900 - Black (Negro)</p>
+                </div>
+            </div>
+
+            <!-- EJEMPLO COMBINADO -->
+            <div class="tema-typography">
+                <h3 class="titulo-typo">✨ Ejemplo combinado</h3>
+                <div class="combo-demo">
+                    <p class="combo-texto">
+                        Este texto combina <span class="highlight">color</span>,
+                        <span class="highlight">font-family</span>,
+                        <span class="highlight">font-size</span> y
+                        <span class="highlight">font-weight</span>
+                    </p>
+                    <div class="code-mini">
+                        color: #c9b3ff;<br>
+                        font-family: 'Poppins', sans-serif;<br>
+                        font-size: 1.2rem;<br>
+                        font-weight: 600;
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA RESUMEN -->
+            <div class="explicacion">
+                <h4 style="margin-bottom: 15px; color: white;">📋 Propiedades de Typography</h4>
+                <table class="tabla-typo">
+                    <tr>
+                        <th>Propiedad</th>
+                        <th>Descripción</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                    <tr>
+                        <td>color</td>
+                        <td>Color del texto</td>
+                        <td><code>color: #663399;</code></td>
+                    </tr>
+                    <tr>
+                        <td>font-family</td>
+                        <td>Tipo de fuente</td>
+                        <td><code>font-family: 'Arial', sans-serif;</code></td>
+                    </tr>
+                    <tr>
+                        <td>font-size</td>
+                        <td>Tamaño del texto</td>
+                        <td><code>font-size: 16px;</code></td>
+                    </tr>
+                    <tr>
+                        <td>font-weight</td>
+                        <td>Grosor del texto</td>
+                        <td><code>font-weight: bold;</code></td>
+                    </tr>
+                    <tr>
+                        <td>font-style</td>
+                        <td>Estilo (normal/italic)</td>
+                        <td><code>font-style: italic;</code></td>
+                    </tr>
+                    <tr>
+                        <td>text-align</td>
+                        <td>Alineación del texto</td>
+                        <td><code>text-align: center;</code></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

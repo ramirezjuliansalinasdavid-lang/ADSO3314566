@@ -1,0 +1,499 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>22-Cursors</title>
+    <link rel="stylesheet" href="../src/css/03-template.css">
+    <style>
+        /* ===== CURSORS THEME ===== */
+        .tema-cursors {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 20px;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+        }
+
+        .tema-cursors:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .titulo-cursors {
+            color: #c9b3ff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #8b5cf6;
+            padding-left: 12px;
+        }
+
+        .descripcion-cursors {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .demo-cursors {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        /* Grid de cursores */
+        .cursor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 20px;
+        }
+
+        .cursor-card {
+            text-align: center;
+        }
+
+        .cursor-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.75rem;
+            margin-top: 8px;
+        }
+
+        .cursor-box {
+            background: linear-gradient(135deg, #6d28d9, #4c1d95);
+            padding: 20px 10px;
+            border-radius: 12px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Valores de cursor */
+        .cursor-box.auto {
+            cursor: auto;
+        }
+
+        .cursor-box.default {
+            cursor: default;
+        }
+
+        .cursor-box.none {
+            cursor: none;
+        }
+
+        .cursor-box.pointer {
+            cursor: pointer;
+        }
+
+        .cursor-box.context-menu {
+            cursor: context-menu;
+        }
+
+        .cursor-box.help {
+            cursor: help;
+        }
+
+        .cursor-box.progress {
+            cursor: progress;
+        }
+
+        .cursor-box.wait {
+            cursor: wait;
+        }
+
+        .cursor-box.text {
+            cursor: text;
+        }
+
+        .cursor-box.vertical-text {
+            cursor: vertical-text;
+        }
+
+        .cursor-box.crosshair {
+            cursor: crosshair;
+        }
+
+        .cursor-box.move {
+            cursor: move;
+        }
+
+        .cursor-box.grab {
+            cursor: grab;
+        }
+
+        .cursor-box.grabbing {
+            cursor: grabbing;
+        }
+
+        .cursor-box.all-scroll {
+            cursor: all-scroll;
+        }
+
+        .cursor-box.ew-resize {
+            cursor: ew-resize;
+        }
+
+        .cursor-box.ns-resize {
+            cursor: ns-resize;
+        }
+
+        .cursor-box.nesw-resize {
+            cursor: nesw-resize;
+        }
+
+        .cursor-box.nwse-resize {
+            cursor: nwse-resize;
+        }
+
+        .cursor-box.zoom-in {
+            cursor: zoom-in;
+        }
+
+        .cursor-box.zoom-out {
+            cursor: zoom-out;
+        }
+
+        .cursor-box.not-allowed {
+            cursor: not-allowed;
+        }
+
+        .cursor-box.no-drop {
+            cursor: no-drop;
+        }
+
+        .resize-grid {
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        }
+
+        /* Botones de ejemplo */
+        .botones-cursor {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .cursor-btn {
+            background: #6d28d9;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .cursor-btn:hover {
+            background: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .code-mini {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #a5d6ff;
+            border-left: 3px solid #8b5cf6;
+            margin-top: 12px;
+        }
+
+        /* Tabla */
+        .tabla-cursors {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .tabla-cursors th,
+        .tabla-cursors td {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.8rem;
+        }
+
+        .tabla-cursors th {
+            background: rgba(139, 92, 246, 0.3);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <h1>22-Cursors</h1>
+            <h2>Especifica el cursor del ratón que se mostrará al apuntar sobre un elemento.</h2>
+        </header>
+        <section>
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">🖱️ ¿Qué es la propiedad cursor?</h3>
+                <p class="descripcion-cursors">La propiedad <strong>cursor</strong> especifica el tipo de cursor del
+                    ratón que se mostrará al pasar sobre un elemento. Mejora la experiencia del usuario indicando qué
+                    acción se puede realizar.</p>
+            </div>
+
+            <!-- CURSORES BÁSICOS -->
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">🔹 Cursor: auto | default | none</h3>
+
+                <div class="demo-cursors">
+                    <div class="cursor-grid">
+                        <div class="cursor-card">
+                            <div class="cursor-box auto">auto</div>
+                            <p>El navegador determina el cursor</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box default">default</div>
+                            <p>Cursor por defecto (flecha)</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box none">none</div>
+                            <p>Sin cursor (oculto)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURSORES DE ENLACE/SELECCIÓN -->
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">🔗 Cursor: pointer | context-menu | help</h3>
+
+                <div class="demo-cursors">
+                    <div class="cursor-grid">
+                        <div class="cursor-card">
+                            <div class="cursor-box pointer">pointer</div>
+                            <p>Mano - indica enlace clickeable</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box context-menu">context-menu</div>
+                            <p>Menú contextual disponible</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box help">help</div>
+                            <p>Ayuda/información disponible</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURSORES DE PROGRESO -->
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">⏳ Cursor: progress | wait</h3>
+
+                <div class="demo-cursors">
+                    <div class="cursor-grid">
+                        <div class="cursor-card">
+                            <div class="cursor-box progress">progress</div>
+                            <p>En progreso (puede interactuar)</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box wait">wait</div>
+                            <p>Espera (cargando, no interactuar)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURSORES DE TEXTO -->
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">✏️ Cursor: text | vertical-text | crosshair</h3>
+
+                <div class="demo-cursors">
+                    <div class="cursor-grid">
+                        <div class="cursor-card">
+                            <div class="cursor-box text">text</div>
+                            <p>Seleccionar texto (cursor I)</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box vertical-text">vertical-text</div>
+                            <p>Texto vertical</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box crosshair">crosshair</div>
+                            <p>Precisión (selección exacta)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURSORES DE MOVIMIENTO -->
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">🖐️ Cursor: move | grab | grabbing | all-scroll</h3>
+
+                <div class="demo-cursors">
+                    <div class="cursor-grid">
+                        <div class="cursor-card">
+                            <div class="cursor-box move">move</div>
+                            <p>Mover elemento</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box grab">grab</div>
+                            <p>Agarrar (mano abierta)</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box grabbing">grabbing</div>
+                            <p>Arrastrando (mano cerrada)</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box all-scroll">all-scroll</div>
+                            <p>Desplazar en todas direcciones</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURSORES DE REDIMENSIÓN -->
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">📐 Cursor: redimensión (ew-resize, ns-resize, etc.)</h3>
+
+                <div class="demo-cursors">
+                    <div class="cursor-grid resize-grid">
+                        <div class="cursor-card">
+                            <div class="cursor-box ew-resize">ew-resize</div>
+                            <p>Horizontal ↔️</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box ns-resize">ns-resize</div>
+                            <p>Vertical ↕️</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box nesw-resize">nesw-resize</div>
+                            <p>Diagonal ↗️↙️</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box nwse-resize">nwse-resize</div>
+                            <p>Diagonal ↖️↘️</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURSOR ZOOM -->
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">🔍 Cursor: zoom-in | zoom-out</h3>
+
+                <div class="demo-cursors">
+                    <div class="cursor-grid">
+                        <div class="cursor-card">
+                            <div class="cursor-box zoom-in">zoom-in</div>
+                            <p>Acercar (+) → clic</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box zoom-out">zoom-out</div>
+                            <p>Alejar (-) → clic</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CURSOR NOT-ALLOWED -->
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">🚫 Cursor: not-allowed | no-drop</h3>
+
+                <div class="demo-cursors">
+                    <div class="cursor-grid">
+                        <div class="cursor-card">
+                            <div class="cursor-box not-allowed">not-allowed</div>
+                            <p>Acción no permitida</p>
+                        </div>
+                        <div class="cursor-card">
+                            <div class="cursor-box no-drop">no-drop</div>
+                            <p>No se puede soltar aquí</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-mini">/* Evita que el usuario haga clic en elementos deshabilitados */<br>.disabled {
+                    cursor: not-allowed; opacity: 0.6; }</div>
+            </div>
+
+            <!-- EJEMPLO PRÁCTICO -->
+            <div class="tema-cursors">
+                <h3 class="titulo-cursors">🎮 Ejemplo práctico: Botones con diferentes cursores</h3>
+
+                <div class="demo-cursors">
+                    <div class="botones-cursor">
+                        <button class="cursor-btn" style="cursor: pointer;">📎 Pointer</button>
+                        <button class="cursor-btn" style="cursor: help;">❓ Help</button>
+                        <button class="cursor-btn" style="cursor: progress;">⏳ Progress</button>
+                        <button class="cursor-btn" style="cursor: wait;">⏰ Wait</button>
+                        <button class="cursor-btn" style="cursor: zoom-in;">🔍 Zoom In</button>
+                        <button class="cursor-btn" style="cursor: move;">🖐️ Move</button>
+                        <button class="cursor-btn" style="cursor: not-allowed;">🚫 Not Allowed</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TABLA RESUMEN -->
+            <div class="explicacion">
+                <h4 style="margin-bottom: 15px; color: white;">📋 Tipos de cursores CSS</h4>
+                <table class="tabla-cursors">
+                    <tr>
+                        <th>Categoría</th>
+                        <th>Valores</th>
+                        <th>Uso típico</th>
+                    </tr>
+                    <tr>
+                        <td>Básicos</td>
+                        <td>auto, default, none</td>
+                        <td>Comportamiento estándar</td>
+                    </tr>
+                    <tr>
+                        <td>Enlaces/Selección</td>
+                        <td>pointer, context-menu, help</td>
+                        <td>Botones, enlaces, ayuda</td>
+                    </tr>
+                    <tr>
+                        <td>Progreso</td>
+                        <td>progress, wait</td>
+                        <td>Carga de datos, procesos</td>
+                    </tr>
+                    <tr>
+                        <td>Texto</td>
+                        <td>text, vertical-text, crosshair</td>
+                        <td>Selección de texto, precisión</td>
+                    </tr>
+                    <tr>
+                        <td>Movimiento</td>
+                        <td>move, grab, grabbing, all-scroll</td>
+                        <td>Arrastrar, mover elementos</td>
+                    </tr>
+                    <tr>
+                        <td>Redimensión</td>
+                        <td>ew-resize, ns-resize, nesw-resize, nwse-resize</td>
+                        <td>Cambiar tamaño de elementos</td>
+                    </tr>
+                    <tr>
+                        <td>Zoom</td>
+                        <td>zoom-in, zoom-out</td>
+                        <td>Ampliar/reducir contenido</td>
+                    </tr>
+                    <tr>
+                        <td>Prohibido</td>
+                        <td>not-allowed, no-drop</td>
+                        <td>Elementos deshabilitados</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

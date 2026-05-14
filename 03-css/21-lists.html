@@ -1,0 +1,496 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>21-Lists</title>
+    <link rel="stylesheet" href="../src/css/03-template.css">
+    <style>
+        /* ===== LISTS THEME ===== */
+        .tema-lists {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 20px;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+        }
+
+        .tema-lists:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .titulo-lists {
+            color: #c9b3ff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #8b5cf6;
+            padding-left: 12px;
+        }
+
+        .descripcion-lists {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .demo-lists {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        /* Grid de listas */
+        .listas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .lista-columna h4 {
+            color: #c9b3ff;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .lista-ejemplo {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 12px 12px 30px;
+            border-radius: 12px;
+            margin: 10px 0;
+            color: white;
+        }
+
+        .lista-ejemplo li {
+            margin: 5px 0;
+        }
+
+        /* List-style-types */
+        .disc {
+            list-style-type: disc;
+        }
+
+        .circle {
+            list-style-type: circle;
+        }
+
+        .square {
+            list-style-type: square;
+        }
+
+        .none {
+            list-style-type: none;
+            padding-left: 20px;
+        }
+
+        .decimal {
+            list-style-type: decimal;
+        }
+
+        .lower-roman {
+            list-style-type: lower-roman;
+        }
+
+        .upper-alpha {
+            list-style-type: upper-alpha;
+        }
+
+        .lower-alpha {
+            list-style-type: lower-alpha;
+        }
+
+        /* Position demo */
+        .position-demo {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .position-demo h4 {
+            color: #c9b3ff;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+        }
+
+        .outside,
+        .inside {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .outside li,
+        .inside li {
+            margin: 8px 0;
+        }
+
+        .outside {
+            list-style-position: outside;
+        }
+
+        .inside {
+            list-style-position: inside;
+        }
+
+        /* List image demo */
+        .lista-imagen {
+            list-style-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23fbbf24" width="16" height="16"><path d="M12 2L15 8.5L22 9.5L17 14L18.5 21L12 17.5L5.5 21L7 14L2 9.5L9 8.5L12 2Z"/></svg>');
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px 12px 12px 30px;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .lista-imagen li {
+            margin: 8px 0;
+        }
+
+        /* Shorthand examples */
+        .shorthand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .shorthand-grid h4 {
+            color: #c9b3ff;
+            margin-bottom: 10px;
+            font-size: 0.8rem;
+        }
+
+        .shorthand-ejemplo {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 12px;
+            border-radius: 12px;
+            color: white;
+        }
+
+        .shorthand-ejemplo li {
+            margin: 5px 0;
+        }
+
+        .estilo1 {
+            list-style: square inside;
+        }
+
+        .estilo2 {
+            list-style: upper-roman outside;
+        }
+
+        .estilo3 {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        /* Menu horizontal */
+        .menu-horizontal {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 10px;
+        }
+
+        .menu-horizontal li {
+            display: inline-block;
+            margin: 0;
+        }
+
+        .menu-horizontal a {
+            display: block;
+            padding: 10px 20px;
+            background: #6d28d9;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-horizontal a:hover {
+            background: #8b5cf6;
+            transform: translateY(-2px);
+        }
+
+        .code-mini {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #a5d6ff;
+            border-left: 3px solid #8b5cf6;
+            margin-top: 12px;
+        }
+
+        /* Tabla */
+        .tabla-lists {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .tabla-lists th,
+        .tabla-lists td {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.8rem;
+            vertical-align: top;
+        }
+
+        .tabla-lists th {
+            background: rgba(139, 92, 246, 0.3);
+            color: white;
+        }
+
+        .tabla-lists code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #a5d6ff;
+        }
+
+        .tabla-lists ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <h1>21-Lists</h1>
+            <h2>Permite configurar todas las propiedades de estilo de la lista a la vez.</h2>
+        </header>
+        <section>
+            <div class="tema-lists">
+                <h3 class="titulo-lists">📋 ¿Qué son las propiedades de listas?</h3>
+                <p class="descripcion-lists">CSS permite configurar el <strong>estilo de las listas</strong> (ul, ol)
+                    incluyendo el tipo de viñeta, posición y usar imágenes personalizadas.</p>
+            </div>
+
+            <!-- LIST-STYLE-TYPE -->
+            <div class="tema-lists">
+                <h3 class="titulo-lists">🎯 LIST-STYLE-TYPE</h3>
+                <p class="descripcion-lists">Define el tipo de viñeta o numeración de la lista.</p>
+
+                <div class="demo-lists">
+                    <div class="listas-grid">
+                        <div class="lista-columna">
+                            <h4>🔘 Lista desordenada (ul)</h4>
+                            <ul class="lista-ejemplo disc">
+                                <li>disc (círculo relleno)</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ul>
+                            <ul class="lista-ejemplo circle">
+                                <li>circle (círculo vacío)</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ul>
+                            <ul class="lista-ejemplo square">
+                                <li>square (cuadrado)</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ul>
+                            <ul class="lista-ejemplo none">
+                                <li>none (sin viñeta)</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ul>
+                        </div>
+                        <div class="lista-columna">
+                            <h4>🔢 Lista ordenada (ol)</h4>
+                            <ol class="lista-ejemplo decimal">
+                                <li>decimal (1,2,3...)</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ol>
+                            <ol class="lista-ejemplo lower-roman">
+                                <li>lower-roman (i,ii,iii...)</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ol>
+                            <ol class="lista-ejemplo upper-alpha">
+                                <li>upper-alpha (A,B,C...)</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ol>
+                            <ol class="lista-ejemplo lower-alpha">
+                                <li>lower-alpha (a,b,c...)</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIST-STYLE-POSITION -->
+            <div class="tema-lists">
+                <h3 class="titulo-lists">📍 LIST-STYLE-POSITION</h3>
+                <p class="descripcion-lists">Define la posición de la viñeta (dentro o fuera del contenido).</p>
+
+                <div class="demo-lists">
+                    <div class="position-demo">
+                        <div>
+                            <h4>outside (fuera - por defecto)</h4>
+                            <ul class="lista-posicion outside">
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. La viñeta está fuera del
+                                    texto.</li>
+                                <li>Elemento 2 con texto más largo para mostrar la diferencia</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>inside (dentro)</h4>
+                            <ul class="lista-posicion inside">
+                                <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. La viñeta está dentro del
+                                    texto y se alinea con el contenido.</li>
+                                <li>Elemento 2 con texto más largo para mostrar la diferencia</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIST-STYLE-IMAGE -->
+            <div class="tema-lists">
+                <h3 class="titulo-lists">🖼️ LIST-STYLE-IMAGE</h3>
+                <p class="descripcion-lists">Usa una imagen personalizada como viñeta.</p>
+
+                <div class="demo-lists">
+                    <ul class="lista-imagen">
+                        <li>Viñeta con imagen personalizada (⭐)</li>
+                        <li>Elemento 2 con viñeta personalizada</li>
+                        <li>Elemento 3 con viñeta personalizada</li>
+                    </ul>
+                </div>
+                <div class="code-mini">list-style-image: url('estrella.png');</div>
+            </div>
+
+            <!-- LIST-STYLE (SHORTHAND) -->
+            <div class="tema-lists">
+                <h3 class="titulo-lists">⚡ LIST-STYLE (Shorthand)</h3>
+                <p class="descripcion-lists">Propiedad resumida que combina type, position e image.</p>
+
+                <div class="demo-lists">
+                    <div class="shorthand-grid">
+                        <div>
+                            <h4>list-style: square inside;</h4>
+                            <ul class="shorthand-ejemplo estilo1">
+                                <li>Elemento 1</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>list-style: upper-roman outside;</h4>
+                            <ul class="shorthand-ejemplo estilo2">
+                                <li>Elemento 1</li>
+                                <li>Elemento 2</li>
+                                <li>Elemento 3</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>list-style: none;</h4>
+                            <ul class="shorthand-ejemplo estilo3">
+                                <li>Sin viñetas</li>
+                                <li>Útil para menús</li>
+                                <li>Se usa con padding:0</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-mini">
+                    /* Formato: list-style: type position image; */<br>
+                    list-style: square inside;<br>
+                    list-style: none; /* Elimina viñetas */
+                </div>
+            </div>
+
+            <!-- LISTAS HORIZONTALES (MENÚS) -->
+            <div class="tema-lists">
+                <h3 class="titulo-lists">🍔 Listas horizontales (Menús)</h3>
+                <p class="descripcion-lists">Combinando list-style: none y display: inline-block.</p>
+
+                <div class="demo-lists">
+                    <ul class="menu-horizontal">
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Servicios</a></li>
+                        <li><a href="#">Productos</a></li>
+                        <li><a href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="code-mini">
+                    ul { list-style: none; padding: 0; }<br>
+                    li { display: inline-block; margin: 0 10px; }
+                </div>
+            </div>
+
+            <!-- TABLA RESUMEN -->
+            <div class="explicacion">
+                <h4 style="margin-bottom: 15px; color: white;">📋 Propiedades de Listas</h4>
+                <table class="tabla-lists">
+                    <tr>
+                        <th>Propiedad</th>
+                        <th>Valores comunes</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>list-style-type</td>
+                        <td>disc, circle, square, decimal, lower-roman, upper-alpha, none</td>
+                        <td>Tipo de viñeta o numeración</td>
+                    </tr>
+                    <tr>
+                        <td>list-style-position</td>
+                        <td>outside, inside</td>
+                        <td>Posición de la viñeta</td>
+                    </tr>
+                    <tr>
+                        <td>list-style-image</td>
+                        <td>url('imagen.png'), none</td>
+                        <td>Imagen como viñeta</td>
+                    </tr>
+                    <tr>
+                        <td>list-style</td>
+                        <td>type position image</td>
+                        <table>
+                            早上
+                            <li>Propiedad resumida</li>
+                            <li>Orden: type → position → image</li>
+                            </ul>
+                            </td>
+                    </tr>
+                    <tr>
+                        <td>padding-left / margin</td>
+                        <td>px, em, rem</td>
+                        <td>Espaciado y sangría de la lista</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

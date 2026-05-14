@@ -1,0 +1,452 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20-Pseudoclasses</title>
+    <link rel="stylesheet" href="../src/css/03-template.css">
+    <style>
+        /* ===== PSEUDOCLASSES THEME ===== */
+        .tema-pseudo {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 20px;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+        }
+
+        .tema-pseudo:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .titulo-pseudo {
+            color: #c9b3ff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #8b5cf6;
+            padding-left: 12px;
+        }
+
+        .descripcion-pseudo {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .demo-pseudo {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        /* Botones */
+        .pseudo-btn {
+            background: #6d28d9;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .hover-btn:hover {
+            background: #7c3aed;
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(124, 58, 237, 0.4);
+        }
+
+        .active-btn:active {
+            transform: scale(0.95);
+            background: #5b21b6;
+        }
+
+        .hover-box {
+            margin-top: 15px;
+            background: #4c1d95;
+            padding: 12px;
+            border-radius: 12px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .hover-box:hover {
+            background: #7e22ce;
+            transform: translateY(-3px);
+            letter-spacing: 2px;
+        }
+
+        /* Input focus */
+        .pseudo-input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+        }
+
+        .pseudo-input:focus {
+            outline: none;
+            border-color: #a855f7;
+            background: #1e1e2e;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.3);
+        }
+
+        /* Links */
+        .pseudo-link {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .link-demo:link {
+            color: #a78bfa;
+            background: rgba(167, 139, 250, 0.2);
+        }
+
+        .visited-demo:visited {
+            color: #c084fc;
+            background: rgba(192, 132, 252, 0.2);
+        }
+
+        .pseudo-link:hover {
+            background: rgba(168, 85, 247, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Child containers */
+        .children-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .child-item {
+            background: #5b21b6;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .child-item:first-child {
+            background: #7e22ce;
+            font-weight: bold;
+        }
+
+        .child-item:last-child {
+            background: #4c1d95;
+            font-weight: bold;
+        }
+
+        /* Nth-child */
+        .nth-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .nth-item {
+            background: #7e22ce;
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .nth-item:nth-child(even) {
+            background: #6d28d9;
+        }
+
+        .nth-item:nth-child(odd) {
+            background: #8b5cf6;
+        }
+
+        .nth-item:nth-child(3n) {
+            border: 2px solid #fbbf24;
+            font-weight: bold;
+        }
+
+        .nth-labels {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .nth-badge {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            color: #fbbf24;
+        }
+
+        /* Not container */
+        .not-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .not-item {
+            background: #7e22ce;
+            padding: 10px;
+            border-radius: 8px;
+            color: white;
+            text-align: center;
+        }
+
+        .not-item:not(.especial) {
+            background: #4c1d95;
+        }
+
+        .not-item.especial {
+            background: #f59e0b;
+            font-weight: bold;
+        }
+
+        .code-mini {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 10px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #a5d6ff;
+            border-left: 3px solid #8b5cf6;
+            margin-top: 12px;
+        }
+
+        /* Tabla */
+        .tabla-pseudo {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .tabla-pseudo th,
+        .tabla-pseudo td {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.8rem;
+        }
+
+        .tabla-pseudo th {
+            background: rgba(139, 92, 246, 0.3);
+            color: white;
+        }
+
+        .tabla-pseudo code {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #a5d6ff;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <h1>20-Pseudoclasses</h1>
+            <h2>Se utiliza para definir un estado especial de un elemento.</h2>
+        </header>
+        <section>
+            <div class="tema-pseudo">
+                <h3 class="titulo-pseudo">🎯 ¿Qué son las Pseudoclases?</h3>
+                <p class="descripcion-pseudo">Una pseudoclase define un <strong>estado especial</strong> de un elemento.
+                    Se escriben con <code
+                        style="background:rgba(0,0,0,0.3); padding:2px 6px; border-radius:4px;">:</code> seguido del
+                    nombre de la pseudoclase.</p>
+            </div>
+
+            <!-- HOVER -->
+            <div class="tema-pseudo">
+                <h3 class="titulo-pseudo">🖱️ :hover</h3>
+                <p class="descripcion-pseudo">Se activa cuando el mouse pasa sobre el elemento.</p>
+
+                <div class="demo-pseudo">
+                    <button class="pseudo-btn hover-btn">Pasa el mouse aquí →</button>
+                    <div class="hover-box">✨ Efecto hover ✨</div>
+                </div>
+                <div class="code-mini">button:hover { background: #7c3aed; transform: scale(1.05); }</div>
+            </div>
+
+            <!-- ACTIVE -->
+            <div class="tema-pseudo">
+                <h3 class="titulo-pseudo">👆 :active</h3>
+                <p class="descripcion-pseudo">Se activa en el momento que se hace clic (elemento presionado).</p>
+
+                <div class="demo-pseudo">
+                    <button class="pseudo-btn active-btn">Haz clic aquí →</button>
+                </div>
+                <div class="code-mini">button:active { transform: scale(0.95); background: #5b21b6; }</div>
+            </div>
+
+            <!-- FOCUS -->
+            <div class="tema-pseudo">
+                <h3 class="titulo-pseudo">⌨️ :focus</h3>
+                <p class="descripcion-pseudo">Se activa cuando el elemento recibe foco (tab o clic).</p>
+
+                <div class="demo-pseudo">
+                    <input type="text" class="pseudo-input focus-input" placeholder="Haz clic o tab aquí">
+                </div>
+                <div class="code-mini">input:focus { outline: 2px solid #a855f7; background: #1e1e2e; }</div>
+            </div>
+
+            <!-- VISITED / LINK -->
+            <div class="tema-pseudo">
+                <h3 class="titulo-pseudo">🔗 :link y :visited</h3>
+                <p class="descripcion-pseudo">:link → enlace no visitado | :visited → enlace ya visitado.</p>
+
+                <div class="demo-pseudo">
+                    <a href="#" class="pseudo-link link-demo">Enlace no visitado (link)</a>
+                    <a href="#" class="pseudo-link visited-demo">Enlace visitado (visited)</a>
+                </div>
+                <div class="code-mini">a:link { color: #a78bfa; }<br>a:visited { color: #c084fc; }</div>
+            </div>
+
+            <!-- FIRST-CHILD / LAST-CHILD -->
+            <div class="tema-pseudo">
+                <h3 class="titulo-pseudo">👶 :first-child / :last-child</h3>
+                <p class="descripcion-pseudo">Selecciona el primer o último hijo de un contenedor.</p>
+
+                <div class="demo-pseudo">
+                    <div class="children-container">
+                        <div class="child-item">📦 Primer hijo (first-child)</div>
+                        <div class="child-item">📦 Hijo del medio</div>
+                        <div class="child-item">📦 Último hijo (last-child)</div>
+                    </div>
+                </div>
+                <div class="code-mini">.child-item:first-child { background: #7e22ce; }<br>.child-item:last-child {
+                    background: #4c1d95; }</div>
+            </div>
+
+            <!-- NTH-CHILD -->
+            <div class="tema-pseudo">
+                <h3 class="titulo-pseudo">🔢 :nth-child(n)</h3>
+                <p class="descripcion-pseudo">Selecciona elementos según su posición (par, impar, número específico).
+                </p>
+
+                <div class="demo-pseudo">
+                    <div class="nth-container">
+                        <div class="nth-item">Elemento 1</div>
+                        <div class="nth-item">Elemento 2</div>
+                        <div class="nth-item">Elemento 3</div>
+                        <div class="nth-item">Elemento 4</div>
+                        <div class="nth-item">Elemento 5</div>
+                        <div class="nth-item">Elemento 6</div>
+                    </div>
+                    <div class="nth-labels">
+                        <span class="nth-badge even">🎨 :nth-child(even) - Pares</span>
+                        <span class="nth-badge odd">🎨 :nth-child(odd) - Impares</span>
+                        <span class="nth-badge three">🎨 :nth-child(3n) - Múltiplos de 3</span>
+                    </div>
+                </div>
+                <div class="code-mini">.nth-item:nth-child(even) { background: #6d28d9; }<br>.nth-item:nth-child(odd) {
+                    background: #8b5cf6; }</div>
+            </div>
+
+            <!-- NOT -->
+            <div class="tema-pseudo">
+                <h3 class="titulo-pseudo">🚫 :not()</h3>
+                <p class="descripcion-pseudo">Selecciona todos los elementos EXCEPTO los que coinciden con el selector.
+                </p>
+
+                <div class="demo-pseudo">
+                    <div class="not-container">
+                        <div class="not-item especial">✨ Especial (excluido)</div>
+                        <div class="not-item">Normal 1</div>
+                        <div class="not-item">Normal 2</div>
+                        <div class="not-item">Normal 3</div>
+                    </div>
+                </div>
+                <div class="code-mini">.not-item:not(.especial) { background: #4c1d95; }</div>
+            </div>
+
+            <!-- TABLA RESUMEN -->
+            <div class="explicacion">
+                <h4 style="margin-bottom: 15px; color: white;">📋 Pseudoclases más comunes</h4>
+                <table class="tabla-pseudo">
+                    <tr>
+                        <th>Pseudoclase</th>
+                        <th>Se activa cuando...</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                    <tr>
+                        <td>:hover</td>
+                        <td>Mouse sobre el elemento</td>
+                        <td><code>button:hover</code></td>
+                    </tr>
+                    <tr>
+                        <td>:active</td>
+                        <td>Elemento presionado (clic)</td>
+                        <td><code>a:active</code></td>
+                    </tr>
+                    <tr>
+                        <td>:focus</td>
+                        <td>Elemento tiene foco</td>
+                        <td><code>input:focus</code></td>
+                    </tr>
+                    <tr>
+                        <td>:link</td>
+                        <td>Enlace no visitado</td>
+                        <td><code>a:link</code></td>
+                    </tr>
+                    <tr>
+                        <td>:visited</td>
+                        <td>Enlace ya visitado</td>
+                        <td><code>a:visited</code></td>
+                    </tr>
+                    <tr>
+                        <td>:first-child</td>
+                        <td>Primer hijo</td>
+                        <td><code>li:first-child</code></td>
+                    </tr>
+                    <tr>
+                        <td>:last-child</td>
+                        <td>Último hijo</td>
+                        <td><code>li:last-child</code></td>
+                    </tr>
+                    <tr>
+                        <td>:nth-child()</td>
+                        <td>Posición específica</td>
+                        <td><code>li:nth-child(2n)</code></td>
+                    </tr>
+                    <tr>
+                        <td>:not()</td>
+                        <td>Negación del selector</td>
+                        <td><code>div:not(.clase)</code></td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

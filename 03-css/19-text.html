@@ -1,0 +1,385 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19-Text</title>
+    <link rel="stylesheet" href="../src/css/03-template.css">
+    <style>
+        /* ===== TEXT THEME ===== */
+        .tema-text {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            padding: 20px;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+        }
+
+        .tema-text:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .titulo-text {
+            color: #c9b3ff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #8b5cf6;
+            padding-left: 12px;
+        }
+
+        .descripcion-text {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            font-size: 0.85rem;
+        }
+
+        /* ALIGN */
+        .align-demo p {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .align-left {
+            text-align: left;
+        }
+
+        .align-center {
+            text-align: center;
+        }
+
+        .align-right {
+            text-align: right;
+        }
+
+        .align-justify {
+            text-align: justify;
+        }
+
+        /* LINE HEIGHT */
+        .lineheight-demo p {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .lh-tight {
+            line-height: 1.2;
+        }
+
+        .lh-normal {
+            line-height: 1.5;
+        }
+
+        .lh-loose {
+            line-height: 2.0;
+        }
+
+        /* DECORATION */
+        .decoration-demo p,
+        .decoration-demo a {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            color: white;
+            display: block;
+        }
+
+        .dec-underline {
+            text-decoration: underline;
+        }
+
+        .dec-overline {
+            text-decoration: overline;
+        }
+
+        .dec-line-through {
+            text-decoration: line-through;
+        }
+
+        .dec-none {
+            text-decoration: none;
+        }
+
+        .dec-link {
+            text-decoration: none;
+            background: #8b5cf6;
+            color: white;
+            text-align: center;
+        }
+
+        .dec-link:hover {
+            text-decoration: underline;
+            background: #6d28d9;
+        }
+
+        /* TRANSFORM */
+        .transform-demo p {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .trans-uppercase {
+            text-transform: uppercase;
+        }
+
+        .trans-lowercase {
+            text-transform: lowercase;
+        }
+
+        .trans-capitalize {
+            text-transform: capitalize;
+        }
+
+        .trans-none {
+            text-transform: none;
+        }
+
+        /* INDENT */
+        .indent-demo p {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .indent-none {
+            text-indent: 0;
+        }
+
+        .indent-small {
+            text-indent: 20px;
+        }
+
+        .indent-large {
+            text-indent: 50px;
+        }
+
+        /* SPACING */
+        .spacing-demo p {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            color: white;
+        }
+
+        .spacing-normal {
+            letter-spacing: normal;
+            word-spacing: normal;
+        }
+
+        .spacing-letter {
+            letter-spacing: 3px;
+        }
+
+        .spacing-word {
+            word-spacing: 10px;
+        }
+
+        .spacing-both {
+            letter-spacing: 2px;
+            word-spacing: 8px;
+        }
+
+        /* TABLA */
+        .tabla-text {
+            width: 100%;
+            border-collapse: collapse;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .tabla-text th,
+        .tabla-text td {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            text-align: left;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.8rem;
+        }
+
+        .tabla-text th {
+            background: rgba(139, 92, 246, 0.3);
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <h1>19-Text</h1>
+            <h2>
+                <li>Align</li>
+                <li>Line Height</li>
+                <li>Decoration</li>
+                <li>Transform</li>
+                <li>Indent</li>
+                <li>Spacing (word/letter)</li>
+            </h2>
+        </header>
+        <section>
+            <!-- ALIGN -->
+            <div class="tema-text">
+                <h3 class="titulo-text">⬅️➡️ ALIGN</h3>
+                <p class="descripcion-text">Alineación horizontal del texto.</p>
+
+                <div class="align-demo">
+                    <p class="align-left">text-align: left - Texto alineado a la izquierda</p>
+                    <p class="align-center">text-align: center - Texto centrado</p>
+                    <p class="align-right">text-align: right - Texto alineado a la derecha</p>
+                    <p class="align-justify">text-align: justify - Texto justificado. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit. Este texto se estira para ocupar todo el ancho.</p>
+                </div>
+            </div>
+
+            <!-- LINE HEIGHT -->
+            <div class="tema-text">
+                <h3 class="titulo-text">📏 LINE HEIGHT</h3>
+                <p class="descripcion-text">Espaciado entre líneas de texto.</p>
+
+                <div class="lineheight-demo">
+                    <p class="lh-tight"><strong>line-height: 1.2 (Compacto)</strong><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Texto con espacio reducido entre
+                        líneas.</p>
+
+                    <p class="lh-normal"><strong>line-height: 1.5 (Normal)</strong><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Espaciado estándar para buena
+                        legibilidad.</p>
+
+                    <p class="lh-loose"><strong>line-height: 2.0 (Espaciado)</strong><br>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Texto con mucho espacio entre líneas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- DECORATION -->
+            <div class="tema-text">
+                <h3 class="titulo-text">✍️ DECORATION</h3>
+                <p class="descripcion-text">Adornos decorativos para el texto.</p>
+
+                <div class="decoration-demo">
+                    <p class="dec-underline">text-decoration: underline - Subrayado</p>
+                    <p class="dec-overline">text-decoration: overline - Línea superior</p>
+                    <p class="dec-line-through">text-decoration: line-through - Tachado</p>
+                    <p class="dec-none">text-decoration: none - Sin decoración (normal)</p>
+                    <a href="#" class="dec-link">Enlace sin subrayado (hover para ver efecto)</a>
+                </div>
+            </div>
+
+            <!-- TRANSFORM -->
+            <div class="tema-text">
+                <h3 class="titulo-text">🔄 TRANSFORM</h3>
+                <p class="descripcion-text">Transforma el texto (mayúsculas, minúsculas, capitalización).</p>
+
+                <div class="transform-demo">
+                    <p class="trans-uppercase">text-transform: uppercase - todo en mayúsculas</p>
+                    <p class="trans-lowercase">TEXT-TRANSFORM: LOWERCASE - todo en minúsculas</p>
+                    <p class="trans-capitalize">text-transform: capitalize - Cada Palabra Con Mayúscula</p>
+                    <p class="trans-none">text-transform: none - Texto original</p>
+                </div>
+            </div>
+
+            <!-- INDENT -->
+            <div class="tema-text">
+                <h3 class="titulo-text">📌 INDENT</h3>
+                <p class="descripcion-text">Sangría en la primera línea del texto.</p>
+
+                <div class="indent-demo">
+                    <p class="indent-none"><strong>text-indent: 0</strong> - Sin sangría. Lorem ipsum dolor sit amet
+                        consectetur adipisicing elit.</p>
+                    <p class="indent-small"><strong>text-indent: 20px</strong> - Sangría pequeña. Lorem ipsum dolor sit
+                        amet consectetur adipisicing elit.</p>
+                    <p class="indent-large"><strong>text-indent: 50px</strong> - Sangría grande. Lorem ipsum dolor sit
+                        amet consectetur adipisicing elit.</p>
+                </div>
+            </div>
+
+            <!-- SPACING (WORD/LETTER) -->
+            <div class="tema-text">
+                <h3 class="titulo-text">🔤 SPACING</h3>
+                <p class="descripcion-text">Espaciado entre palabras y letras.</p>
+
+                <div class="spacing-demo">
+                    <p class="spacing-normal"><strong>Normal:</strong> Espaciado estándar entre palabras y letras</p>
+                    <p class="spacing-letter"><strong>letter-spacing: 3px</strong> - E s p a c i a d o e n t r e l e t r
+                        a s</p>
+                    <p class="spacing-word"><strong>word-spacing: 10px</strong> - Espaciado entre palabras aumentado</p>
+                    <p class="spacing-both"><strong>Ambos (letter:2px, word:8px)</strong> - Combinación de espaciados
+                    </p>
+                </div>
+            </div>
+
+            <!-- TABLA RESUMEN -->
+            <div class="explicacion">
+                <h4 style="margin-bottom: 15px; color: white;">📋 Propiedades de Texto</h4>
+                <table class="tabla-text">
+                    <tr>
+                        <th>Propiedad</th>
+                        <th>Valores comunes</th>
+                        <th>Descripción</th>
+                    </tr>
+                    <tr>
+                        <td>text-align</td>
+                        <td>left, center, right, justify</td>
+                        <td>Alineación horizontal</td>
+                    </tr>
+                    <tr>
+                        <td>line-height</td>
+                        <td>1.2, 1.5, 2, 200%</td>
+                        <td>Espaciado entre líneas</td>
+                    </tr>
+                    <tr>
+                        <td>text-decoration</td>
+                        <td>underline, overline, line-through, none</td>
+                        <td>Adornos decorativos</td>
+                    </tr>
+                    <tr>
+                        <td>text-transform</td>
+                        <td>uppercase, lowercase, capitalize, none</td>
+                        <td>Cambia mayúsculas/minúsculas</td>
+                    </tr>
+                    <tr>
+                        <td>text-indent</td>
+                        <td>px, em, rem, %</td>
+                        <td>Sangría primera línea</td>
+                    </tr>
+                    <tr>
+                        <td>letter-spacing</td>
+                        <td>px, em, rem</td>
+                        <td>Espaciado entre letras</td>
+                    </tr>
+                    <tr>
+                        <td>word-spacing</td>
+                        <td>px, em, rem</td>
+                        <td>Espaciado entre palabras</td>
+                    </tr>
+                </table>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
