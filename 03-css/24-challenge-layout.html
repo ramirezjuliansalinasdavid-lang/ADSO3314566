@@ -6,11 +6,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sprite - Galería de Imágenes Sprite</title>
     <style>
-        main {
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             background-color: #17a053;
             border: 4px solid #fff;
+        }
+
+        main {
+            background-color: #17a053;
             min-height: 100dvh;
             padding: 40px 20px;
+            max-width: 980px;
+            margin: 0 auto;
 
             div.logo {
                 background: url(img/spriteweb.png) no-repeat;
@@ -21,56 +33,253 @@
             }
         }
 
+        /* ── NAVEGACIÓN ── */
         .nav-menu {
-            text-align: center;
-            margin: 40px 0;
+            margin: 30px 0;
             display: flex;
             justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
+            gap: 4px;
+            flex-wrap: nowrap;
         }
 
         .nav-menu a {
-            background-color: rgba(0, 0, 0, 0.4);
+            background-color: rgba(0, 0, 0, 0.45);
             color: white;
-            padding: 1rem;
+            padding: 16px 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            width: 120px;
+            flex: 1;
             text-decoration: none;
-            border-bottom: 7px white solid;
+            border-bottom: 5px solid white;
             text-transform: uppercase;
+            font-family: sans-serif;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu a:hover {
+            background-color: rgba(0, 0, 0, 0.65);
+            border-bottom-color: #f5d020;
+        }
+
+        /* ── SECCIÓN SPRITES (galería) ── */
+        .sprites-section {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            margin: 20px 0;
+        }
+
+        .sprites-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 8px;
+        }
+
+        .sprites-card {
+            flex: 1;
+            position: relative;
+            border: 3px solid white;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .sprites-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .sprites-card h3 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            color: black;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: sans-serif;
+            padding: 20px 10px;
+            background-color: rgba(193, 178, 178, 0.35);
+            z-index: 2;
+            text-align: center;
+        }
+
+        .sprite-img {
+            background: url(img/spriteweb.png) no-repeat;
+            background-color: black;
+            height: 180px;
+            width: 100%;
+            background-position: -500px -10px;
+        }
+
+        /* ── SECCIÓN ARTÍCULOS ── */
+        .articles-section {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .article-card {
+            background-color: white;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+        }
+
+        .article-sprite {
+            background: url(img/spriteweb.png)no-repeat;
+            background-color: white;
+            width: 90px;
+            height: 90px;
+            background-position: -290px -500px;
+        }
+
+        .article-text {
+            flex: 1;
+            font-family: sans-serif;
+            font-size: 0.78rem;
+            color: #222;
+            line-height: 1.55;
+            text-align: justify;
+        }
+
+        .article-can {
+            background-image: url(img/spriteweb.png);
+            background-repeat: no-repeat;
+            background-color: white;
+            flex-shrink: 0;
+            width: 120px;
+            height: 150px;
+            background-position: -90px -210px;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background-color: white;
+            margin: 20px 0 0 0;
+            padding: 20px 10px 15px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            background: url(img/spriteweb.png)no-repeat;
+            background-position: -445px -435px;
+            width: 370px;
+            height: 160px;
+            margin: 0 auto 10px;
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-nav a {
+            color: #17a053;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .footer-nav a:hover {
+            border-bottom-color: #17a053;
         }
     </style>
 </head>
 
 <body>
     <main>
+
+        <!-- LOGO -->
         <div class="logo"></div>
-        <div class="nav-menu">
+
+        <!-- NAVEGACIÓN -->
+        <nav class="nav-menu">
             <a href="#">INICIO</a>
             <a href="#">NOSOTROS</a>
             <a href="#">PORTAFOLIO</a>
             <a href="#">SERVICIOS</a>
             <a href="#">CONTACTO</a>
-        </div>
-        <div class="sprites-section">
+        </nav>
+
+        <!-- GALERÍA DE SPRITES -->
+        <section class="sprites-section">
             <div class="sprites-container">
-                <div class="sprite-card">
-                    <div class="sprite-01"></div>
+                <div class="sprites-card">
                     <h3>Sprite 01</h3>
+                    <div class="sprite-img"></div>
                 </div>
-                <div class="sprite-card">
-                    <div class="sprite-02"></div>
+                <div class="sprites-card">
                     <h3>Sprite 02</h3>
+                    <div class="sprite-img"></div>
                 </div>
-                <div class="sprite-card">
-                    <div class="sprite-03"></div>
+                <div class="sprites-card">
                     <h3>Sprite 03</h3>
+                    <div class="sprite-img"></div>
                 </div>
             </div>
-        </div>
+        </section>
+
+        <!-- ARTÍCULOS -->
+        <section class="articles-section">
+
+            <div class="article-card">
+                <div class="article-sprite"></div>
+                <p class="article-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro
+                    corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos
+                    cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod
+                    facilis odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.
+                </p>
+                <div class="article-can"></div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-sprite"></div>
+                <p class="article-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro
+                    corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos
+                    cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod
+                    facilis odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.
+                </p>
+                <div class="article-can"></div>
+            </div>
+
+            <div class="article-card">
+                <div class="article-sprite"></div>
+                <p class="article-text">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam minima blanditiis porro
+                    corporis incidunt dolorum quas, exercitationem quam voluptatibus maxime perspiciatis, hic iure quos
+                    cumque necessitatibus sit architecto facere aperiam fugit voluptates. Cumque, delectus error quod
+                    facilis odio suscipit culpa quis? Ullam autem maxime nostrum reprehenderit mollitia.
+                </p>
+                <div class="article-can"></div>
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-logo"></div>
+            <nav class="footer-nav">
+                <a href="#">INICIO</a>
+                <a href="#">NOSOTROS</a>
+                <a href="#">PORTAFOLIO</a>
+                <a href="#">SERVICIOS</a>
+                <a href="#">CONTACTO</a>
+            </nav>
+        </footer>
+
     </main>
 </body>
 
