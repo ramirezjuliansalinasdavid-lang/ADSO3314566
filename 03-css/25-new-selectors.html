@@ -1,67 +1,179 @@
 <!---->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>25-New Selectors</title>
     <link rel="stylesheet" href="../src/css/03-template.css">
-    <style> 
-    .demo-box {
-        background: rgba(0,0,0,0.3);
-        border-radius: 16px;
-        padding: 20px;
-        margin-bottom: 25px;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    
-    .demo-box h3 {
-        color: #fbf6f6;
-        font-size: 1.2rem;
-        margin-bottom: 15px;
-        border-left: 4px solid #663399;
-        padding-left: 12px;
-    }
+    <style>
+        .demo-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
 
-    .flex-row {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-bottom: 15px;
-    }
+        .demo-box p {
+            color: #dcdcdc;
+        }
 
-    .box {
-        background: #e0e0e0;
-        padding: 10px 15px;
-        border-radius: 8px;
-        text-align: center;
-        font-weight: 500;
-        color: #333;
-        min-width: 70px;
-        font-size: 0.9rem;
-    }
+        .demo-box h3 {
+            color: #fbf6f6;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            border-left: 4px solid #663399;
+            padding-left: 12px;
+        }
 
-    .box:first-of-type {
-        background: #12ad2c
-    }
+        .flex-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
 
-    .box:nth-of-type(3) {
-        background: #ebab0c
-    }
+        .box {
+            background: #e0e0e0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 500;
+            color: #333;
+            min-width: 70px;
+            font-size: 0.9rem;
+        }
 
-    .box:last-of-type {
-        background: #d12c2c
-    }
-    
-    .chess {
-        
-    }
+        .box:first-of-type {
+            background: #12ad2c
+        }
+
+        .box:nth-of-type(3) {
+            background: #ebab0c
+        }
+
+        .box:last-of-type {
+            background: #d12c2c
+        }
+
+        .chess {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            width: 400px;
+
+            .f {
+                background-color: white;
+            }
+        }
+
+        .f:nth-child(16n+1),
+        .f:nth-child(16n+3),
+        .f:nth-child(16n+5),
+        .f:nth-child(16n+7),
+        .f:nth-child(16n+10),
+        .f:nth-child(16n+12),
+        .f:nth-child(16n+14),
+        .f:nth-child(16n+16) {
+            background-color: black;
+        }
+
+        .target-demo {
+            display: flex;
+            gap: 0;
+            background: #2a1060;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 340px;
+            height: 200px;
+            position: relative;
+        }
+
+        .target-demo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, rgba(0, 0, 0, 0.15) 3px, rgba(0, 0, 0, 0.15) 4px);
+            pointer-events: none;
+            z-index: 5;
+            border-radius: 10px;
+        }
+
+        .target-menu {
+            width: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 20px;
+            padding: 16px 14px;
+            border-right: 1px solid #3a1a70;
+            z-index: 2;
+        }
+
+        .target-menu a {
+            font-family: 'Press Start 2P', 'Courier New', monospace;
+            font-size: 15px;
+            color: #b090e0;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+        }
+
+        body:has(#apple:target) .target-menu a[href="#apple"],
+        body:has(#pear:target) .target-menu a[href="#pear"],
+        body:has(#orange:target) .target-menu a[href="#orange"] {
+            color: #ffffff;
+        }
+
+        .target-display {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fruit {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            opacity: 0;
+            transition: opacity 0.15s;
+            pointer-events: none;
+        }
+
+        .fruit:target {
+            opacity: 1;
+        }
+
+        body:not(:has(:target)) #orange {
+            opacity: 1;
+        }
+
+        body:has(#apple:target) #orange,
+        body:has(#pear:target) #orange {
+            opacity: 0;
+        }
+
+        ::selection {
+            background: green;
+            color: white;
+        }
 
     </style>
 </head>
+
 <body>
     <a href="../03-css/index_4.html" class="btn-home">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z"></path></svg>    </a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
     <main>
         <header>
             <h1>25-New Selectors</h1>
@@ -80,89 +192,94 @@
             </div>
             <div class="demo-box">
                 <div class="chess">
-                    <div class="f">
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                    </div>
-                    <div class="f">
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                    </div>
-                    <div class="f">
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                    </div>
-                    <div class="f">
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                    </div>
-                    <div class="f">
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                    </div>
-                    <div class="f">
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                    </div>
-                    <div class="f">
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                    </div>
-                    <div class="f">
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
-                        <div class="c"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                    <div class="f"></div>
+                </div>
+            </div>
+            <div class="demo-box">
+                <h3>:target</h3>
+                <div class="target-demo">
+                    <nav class="target-menu">
+                        <a href="#apple">Apple</a>
+                        <a href="#pear">Pear</a>
+                        <a href="#orange">Orange</a>
+                    </nav>
+                    <div class="target-display">
+                        <div id="apple" class="fruit">🍎</div>
+                        <div id="pear" class="fruit">🍐</div>
+                        <div id="orange" class="fruit">🍊</div>
                     </div>
                 </div>
+            </div>
+            <div class="demo-box">
+                <h3>:selection</h3>
+                <p>lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua.</p>
             </div>
         </section>
     </main>
 </body>
+
 </html>
