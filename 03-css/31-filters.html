@@ -1,0 +1,93 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>31-Filters</title>
+    <link rel="stylesheet" href="../src/css/03-template.css">
+    <style>
+        .demo-box {
+            background: rgba(0, 0, 0, 0.1);            
+        }
+
+        .demo-box h3 {
+            text-align: center;
+            color: #fff;
+        }
+
+        img.filter {
+            border: none;
+            border-radius: 0;
+            object-fit: contain;
+            display: block;
+            margin-inline: auto;
+            transition: all 0.6s ease-in;
+            width: 160px;
+        }
+
+        img.filter:hover {
+            filter: none;
+        }
+
+        img.filter1 {
+            filter: grayscale(1);
+        }
+
+        img.filter2 {
+            filter: blur(6px);
+        }
+
+        img.filter3 {
+            filter: sepia(1);
+        }
+
+        img.filter4 {
+            filter: brightness(50%);
+        }
+
+        img.filter5 {
+            filter: invert(1);
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <h1>31-Filters</h1>
+            <h2>Define efectos visuales (como desenfoque y saturación)</h2>
+        </header>
+        <div class="demo-box">
+            <section>
+                <h3>GrayScale</h3>
+                <img class="filter filter1" src="img/Nacional.png" alt="">
+            </section>
+            <section>
+                <h3>Blur</h3>
+                <img class="filter filter2" src="img/Nacional.png" alt="">
+            </section>
+            <section>
+                <h3>Sepia</h3>
+                <img class="filter filter3" src="img/Nacional.png" alt="">
+            </section>
+            <section>
+                <h3>Brightness</h3>
+                <img class="filter filter4" src="img/Nacional.png" alt="">
+            </section>
+            <section>
+                <h3>Invert</h3>
+                <img class="filter filter5" src="img/Nacional.png" alt="">
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
