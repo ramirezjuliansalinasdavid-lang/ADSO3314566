@@ -1,0 +1,141 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>38-Media-Queries</title>
+    <link rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Federant&family=Lobster&family=Playwrite+CU+Guides&family=Roboto:ital,wdth,wght@0,99.7,300;1,99.7,300&display=swap');
+
+        * {
+            transition: all 0.5s ease-in;
+        }
+
+        body {
+            font-family: Poppins;
+            background-color: #003675;
+            color: #fff;
+
+            main {
+                padding: 4rem;
+
+                header {
+                    figure.logo {
+                        background: url(img/pepsi01.png) no-repeat center;
+                        height: 354px;
+                        margin: 0 auto;
+                        width: 919px;
+                    }
+                }
+
+                section {
+                    h1 {
+                        text-align: center;
+                        font-size: 4rem;
+
+                        span.md,
+                        span.sm {
+                            display: none;
+                        }
+                    }
+
+                    p {
+                        margin-block: 4rem;
+                        text-align: justify;
+                        line-height: 2rem;
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 1024px) {
+            body main {
+                header {
+                    figure.logo {
+                        background: url(img/pepsi02.png) no-repeat center;
+                     height: 370px;
+                        width: 348px;
+                    }
+                }
+                section {
+                    h1 {
+                        font-size: 2rem;
+                        span.lg,
+                        span.sm {
+                            display: none;
+                        }
+    
+                        span.md {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+        }
+
+        @media (max-width: 780px) {
+            body main {
+                header {
+                    figure.logo {
+                        background: url(img/pepsi03.png) no-repeat center;
+                     height: 156px;
+                        width: 162px;
+                    }
+                }
+                section {
+                    h1 {
+                        font-size: 1.2rem;
+                        span.lg,
+                        span.md {
+                            display: none;
+                        }
+    
+                        span.sm {
+                            display: inline;
+                        }
+                    }
+                }
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <figure class="logo"></figure>
+        </header>
+        <section>
+            <h1>
+                Media Queries:
+                <span class="lg"> (> 1024px) 💻Desktop </span>
+                <span class="md"> (< 1024px) 📟Tablet </span>
+                <span class="sm"> (< 780px) 📱Mobile </span>
+            </h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo quo maiores saepe amet expedita corporis,
+                adipisci architecto ipsa? Veritatis dolorem, delectus laboriosam animi sint consectetur sequi,
+                cupiditate excepturi a iure neque tenetur recusandae doloribus similique. Neque aliquid tempore, quas
+                aperiam nostrum, fuga repellat laudantium provident facilis, labore nisi minima veniam non tenetur eos
+                quisquam temporibus ipsum facere? Velit porro, voluptatum tempore, non quisquam vel numquam sit veniam
+                natus sequi doloribus a laudantium possimus itaque consequatur ipsam autem voluptate nobis dicta
+                cupiditate labore excepturi nesciunt animi corrupti. Alias asperiores laboriosam repudiandae non eum
+                soluta, dicta, quos, quam sapiente consectetur consequuntur molestias. Fuga deleniti eveniet, commodi
+                officiis sint veritatis assumenda, nulla incidunt a recusandae pariatur, possimus nihil iure. Animi
+                necessitatibus nesciunt recusandae.
+            </p>
+        </section>
+    </main>
+</body>
+
+</html>

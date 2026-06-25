@@ -1,0 +1,126 @@
+<!---->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>37-Animations</title>
+    <link rel="stylesheet" href="../src/css/03-template.css">
+    <style>
+        .demo-box {
+            background: rgba(0, 0, 0, 0.1); 
+        }
+
+        main section {
+            div.jungle {
+                background: url(img/jungle.png) no-repeat center;
+                border-radius: 4px;
+                margin: 2rem auto;
+                margin-block: 1rem;
+                position: relative;
+                height: 471px;
+                width: 380px;
+                img {
+                    border-radius: 0;
+                    border: none;
+                    position: absolute;
+                }
+                img.logo {
+                    top: 35px;
+                    left: 30px;
+                    height: 72px;
+                    object-fit: contain;
+                    width: 317px;
+                    animation: 1s animLogo ease-in infinite;
+                }
+                img.dk {
+                    top: 190px;
+                    left: 120px;
+                    width: 140px;
+                    object-fit: contain;
+                    z-index: 8;
+                    animation: 2s animDK ease-out infinite;
+                }
+                div.move {
+                    position: absolute;
+                    top: 300px;
+                    left: 0;
+                    img.ryno {
+                        width: 145px;
+                        object-fit: contain;
+                        top: 0;
+                        animation: 0.9s animRyno linear infinite;                        
+                    }
+                }
+            }
+        }
+        @keyframes animLogo {
+            0%, 100% {
+                transform: scale(1)
+            }
+            50% {
+                transform: scale(1.2)
+            }            
+        }
+        @keyframes animDK {
+            0% { top: 190px; transform: rotatex(0deg); }
+            40% { top: 100px; transform: rotatex(0deg); }
+            50% { top: 100px; transform: rotatex(360deg); }
+            60% { top: 100px; transform: rotatex(360deg); }
+            100% { top: 190px; transform: rotatex(360deg); }
+        }
+        @keyframes animRyno {
+            0%, 100% { top: 0px;}
+            50% { top: -8px; }
+            0% { 
+                left: 0px; /* Empieza fuera de la pantalla por la izquierda */
+                transform: scaleX(1); /* Mirando hacia la derecha */
+            }
+            25% {
+                left: 20px;
+                transform: scaleX(1);
+            }
+            50% { 
+                left: 220px; /* Llega al lado derecho */
+                transform: scaleX(1);
+            }
+            75% {
+                left: 220px;
+                transform: scaleX(-1); /* Gira para mirar hacia la izquierda */
+            }
+            100% { 
+                left: 0px; /* Sale por la izquierda */
+                transform: scaleX(-1);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg> </a>
+    <main>
+        <header>
+            <h1>37-Animation</h1>
+            <h2>Permite que un elemento cambie gradualmente de un estilo a otro.</h2>
+        </header>
+        <div class="demo-box">
+            <section>
+                <div class="jungle">
+                    <img src="img/logo-dk.png" class="logo">
+                    <img src="img/dk.png" class="dk">
+                    <div class="move">
+                        <img src="img/ryno.png" class="ryno">
+                    </div>                    
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
