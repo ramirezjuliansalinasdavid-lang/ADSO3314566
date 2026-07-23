@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>35-Transformations</title>
+    <link rel="stylesheet" href="../src/css/03-template.css">
+    <style>
+        /* ===== ESTILOS ESPECÍFICOS PARA TRANSFORMATIONS ===== */
+
+        /* CENTRAR TODO EL CONTENIDO DEL MAIN */
+        main {
+            text-align: center;
+            /* ← CENTRADO PRINCIPAL DE TODO */
+        }
+
+        /* CENTRAR EL HEADER */
+        header {
+            text-align: center;
+        }
+
+        header h1 {
+            text-align: center;
+        }
+
+        header h2 {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 30px auto;
+            /* ← CENTRADO Y MÁRGENES */
+        }
+
+        /* CENTRAR EL CONTENEDOR DE CARDS */
+        .contenedor-cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* ← CENTRADO HORIZONTAL DE LAS CARDS */
+            gap: 25px;
+            max-width: 1200px;
+            margin: 0 auto;
+            /* ← CENTRADO DEL CONTENEDOR */
+            padding: 20px;
+        }
+
+        /* CADA CARD - CENTRAR SU CONTENIDO INTERNO */
+        .caja-negra-individual {
+            text-align: center;
+            /* ← CENTRAR TEXTO DENTRO DE LA CARD */
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* ← CENTRAR ELEMENTOS VERTICALMENTE */
+            width: 180px;
+            padding: 20px 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(4px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .caja-negra-individual:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        /* TÍTULO H3 - CENTRADO */
+        .caja-negra-individual h3 {
+            border-bottom: none !important;
+            padding-bottom: 10px !important;
+            margin: 0 0 1rem 0 !important;
+            display: inline-block !important;
+            /* ← PERMITE QUE EL ANCHO SE AJUSTE AL CONTENIDO */
+            position: relative !important;
+            color: #ff63ed !important;
+            text-align: center !important;
+            /* ← CENTRADO DEL TEXTO */
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        /* LÍNEA NEÓN BAJO EL TÍTULO */
+        .caja-negra-individual h3::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 2px !important;
+            background: linear-gradient(90deg, #bb4dff, #ff66cc, #ff00ff, #bb4dff) !important;
+            background-size: 200% auto !important;
+            border-radius: 2px !important;
+            animation: neonLine 2s ease-in-out infinite, linePulse 1.5s ease-in-out infinite !important;
+            display: block !important;
+        }
+
+        /* ANIMACIONES DE LA LÍNEA NEÓN */
+        @keyframes neonLine {
+            0% {
+                background-position: 0% center;
+            }
+
+            100% {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes linePulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 2px #bb4dff, 0 0 4px #ff66cc;
+                height: 2px;
+            }
+
+            50% {
+                box-shadow: 0 0 8px #bb4dff, 0 0 12px #ff66cc, 0 0 16px #ff00ff;
+                height: 3px;
+            }
+        }
+
+        /* IMÁGENES - CENTRADAS */
+        .caja-negra-individual img {
+            border-radius: 12px;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            display: block;
+            /* ← PARA QUE EL MARGEN AUTO FUNCIONE */
+            margin: 0 auto;
+            /* ← CENTRADO DE LA IMAGEN */
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* ===== TRANSFORMACIONES ===== */
+        .caja-rotate img:hover {
+            transform: rotate(20deg);
+        }
+
+        .caja-scale img:hover {
+            transform: scale(1.2);
+        }
+
+        .caja-translate img:hover {
+            transform: translateY(-20px);
+        }
+
+        .caja-skew img:hover {
+            transform: skew(-10deg, 5deg);
+        }
+
+        .caja-combo img:hover {
+            transform: rotate(-10deg) scale(1.15) translateY(-10px);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .contenedor-cards {
+                gap: 15px;
+                padding: 10px;
+            }
+
+            .caja-negra-individual {
+                width: 140px;
+                padding: 15px 10px;
+            }
+
+            .caja-negra-individual h3 {
+                font-size: 1rem;
+            }
+
+            header h2 {
+                font-size: 0.9rem;
+                padding: 0 15px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .caja-negra-individual {
+                width: 120px;
+                padding: 12px 8px;
+            }
+
+            .caja-negra-individual h3 {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <a href="../03-css/index_4.html" class="btn-home">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+            <path
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
+            </path>
+        </svg>
+    </a>
+
+    <main>
+        <header>
+            <h1>35-Transformations</h1>
+            <h2>Las transformaciones CSS permiten modificar la forma, posición y tamaño de los elementos.</h2>
+        </header>
+
+        <section>
+            <div class="contenedor-cards">
+                <!-- Rotate -->
+                <div class="caja-negra-individual caja-rotate">
+                    <h3>Rotate</h3>
+                    <img src="img/real.png" alt="Rotate">
+                </div>
+
+                <!-- Scale -->
+                <div class="caja-negra-individual caja-scale">
+                    <h3>Scale</h3>
+                    <img src="img/real.png" alt="Scale">
+                </div>
+
+                <!-- Translate -->
+                <div class="caja-negra-individual caja-translate">
+                    <h3>Translate</h3>
+                    <img src="img/real.png" alt="Translate">
+                </div>
+
+                <!-- Skew -->
+                <div class="caja-negra-individual caja-skew">
+                    <h3>Skew</h3>
+                    <img src="img/real.png" alt="Skew">
+                </div>
+
+                <!-- Combined -->
+                <div class="caja-negra-individual caja-combo">
+                    <h3>Combined</h3>
+                    <img src="img/real.png" alt="Combined">
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+/* ============================================================
+   ESTILOS PARA PÁGINA DE JAVASCRIPT
+   Fondo: #f0db4f (amarillo JS) con efecto NEON/GLOW
+   ============================================================ */
+
+:root {
+    --js-yellow: #f0db4f;
+    --js-dark: #323330;
+    --bg-yellow: #f0db4f;
+    --card-bg: rgba(50, 51, 48, 0.06);
+    --text-light: #1e1e1e;
+    --text-muted: rgba(30, 30, 30, 0.7);
+    --border-color: rgba(50, 51, 48, 0.15);
+    --glow-color: var(--js-yellow);
+    --shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --radius: 16px;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+}
+
+body {
+    background: var(--bg-yellow);
+    min-height: 100vh;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Fondo con patrón sutil (igual que tu CSS original) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.3) 0%, transparent 60%),
+        radial-gradient(circle at 80% 20%, rgba(0, 0, 0, 0.05) 0%, transparent 50%),
+        repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.04) 0px,
+            rgba(255, 255, 255, 0.04) 20px,
+            transparent 20px,
+            transparent 40px);
+    pointer-events: none;
+    z-index: 0;
+}
+
+main {
+    max-width: 1300px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+/* ---------- BOTÓN HOME (con glow) ---------- */
+.home-btn {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 99;
+    background: var(--js-dark);
+    color: var(--js-yellow);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    transition: all var(--transition);
+}
+
+.home-btn:hover {
+    background: var(--js-yellow);
+    color: var(--js-dark);
+    transform: scale(1.1) rotate(-4deg);
+    box-shadow: 0 0 30px rgba(50, 51, 48, 0.4),
+        0 0 60px rgba(50, 51, 48, 0.15);
+}
+
+/* ---------- HEADER / LOGO (GLOW) ---------- */
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.logo-container img {
+    width: 85px;
+    height: auto;
+    /* Efecto GLOW en el logo */
+    filter: drop-shadow(0 0 20px rgba(50, 51, 48, 0.3)) drop-shadow(0 0 40px rgba(50, 51, 48, 0.15));
+    transition: all var(--transition);
+}
+
+.logo-container img:hover {
+    transform: scale(1.05) rotate(-3deg);
+    filter: drop-shadow(0 0 30px rgba(50, 51, 48, 0.5)) drop-shadow(0 0 60px rgba(50, 51, 48, 0.25));
+}
+
+/* ---------- TÍTULOS (GLOW) ---------- */
+h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    color: var(--js-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+    /* GLOW en el texto */
+    text-shadow: 0 0 20px rgba(50, 51, 48, 0.2),
+        0 0 40px rgba(50, 51, 48, 0.08);
+}
+
+h1 i {
+    font-size: 2.8rem;
+    color: var(--js-dark);
+    /* GLOW en los iconos */
+    filter: drop-shadow(0 0 15px rgba(50, 51, 48, 0.3)) drop-shadow(0 0 30px rgba(50, 51, 48, 0.1));
+    opacity: 0.7;
+}
+
+h4 {
+    text-align: center;
+    font-weight: 300;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    margin-bottom: 40px;
+    border-bottom: 2px dashed rgba(50, 51, 48, 0.15);
+    padding-bottom: 16px;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ---------- COLUMNAS DEL MENÚ ---------- */
+.menu-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.menu-column {
+    background: var(--card-bg);
+    backdrop-filter: blur(4px);
+    border-radius: var(--radius);
+    padding: 24px 20px 32px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.menu-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+/* ---------- TÍTULO DE CADA COLUMNA (GLOW) ---------- */
+.section-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--js-dark);
+    background: rgba(255, 255, 255, 0.5);
+    padding: 8px 20px;
+    border-radius: 40px;
+    display: inline-block;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    letter-spacing: 0.3px;
+    backdrop-filter: blur(4px);
+    /* GLOW en el título de sección */
+    box-shadow: 0 0 25px rgba(50, 51, 48, 0.08);
+    text-shadow: 0 0 20px rgba(50, 51, 48, 0.05);
+}
+
+/* ---------- ENLACES DEL MENÚ ---------- */
+menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 10px 16px;
+    border-radius: 40px;
+    text-decoration: none;
+    color: var(--js-dark);
+    font-weight: 400;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    transition: all 0.25s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+menu a:hover {
+    background: var(--js-dark);
+    color: var(--js-yellow);
+    transform: translateX(6px);
+    border-color: var(--js-dark);
+    /* GLOW en el hover del enlace */
+    box-shadow: 0 0 30px rgba(50, 51, 48, 0.2),
+        0 0 60px rgba(50, 51, 48, 0.08),
+        inset 0 0 30px rgba(50, 51, 48, 0.05);
+}
+
+/* Número de cada enlace */
+menu a span {
+    font-weight: 600;
+    font-size: 0.8rem;
+    background: rgba(0, 0, 0, 0.06);
+    padding: 0 10px;
+    border-radius: 30px;
+    min-width: 32px;
+    text-align: center;
+    color: var(--js-dark);
+    transition: var(--transition);
+}
+
+menu a:hover span {
+    background: var(--js-yellow);
+    color: var(--js-dark);
+    /* GLOW en el número al hacer hover */
+    box-shadow: 0 0 20px rgba(240, 219, 79, 0.4);
+}
+
+/* Texto del enlace */
+menu a aside h4 {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: inherit;
+    letter-spacing: 0.2px;
+    max-width: 100%;
+    transition: var(--transition);
+}
+
+menu a:hover aside h4 {
+    color: var(--js-yellow);
+    /* GLOW en el texto al hacer hover */
+    text-shadow: 0 0 20px rgba(240, 219, 79, 0.2);
+}
+
+/* ---------- FOOTER (con glow sutil) ---------- */
+.social {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.social footer {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+    font-weight: 300;
+    letter-spacing: 0.3px;
+}
+
+.social footer span {
+    font-weight: 400;
+    color: var(--js-dark);
+    /* GLOW en el año */
+    text-shadow: 0 0 15px rgba(50, 51, 48, 0.15);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 800px) {
+    .menu-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    h1 {
+        font-size: 2.6rem;
+        gap: 12px;
+    }
+
+    h1 i {
+        font-size: 2rem;
+    }
+
+    .home-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        top: 16px;
+        left: 16px;
+    }
+
+    .logo-container img {
+        width: 65px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+    }
+
+    menu a {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+
+    menu a aside h4 {
+        font-size: 0.8rem;
+    }
+
+    .section-title {
+        font-size: 1rem;
+        padding: 6px 14px;
+    }
+}
