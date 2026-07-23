@@ -1,4 +1,3 @@
-<!---->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,80 +5,279 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>39-Challenge-Responsive</title>
-    <link rel="stylesheet">
     <style>
-        header {
-            text-align: center;
-            padding: 3rem 0 2.5rem;
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
-        header h1 {
-            font-family: 'Georgia', serif;
-            font-size: clamp(1.5rem, 4w, 2.5rem);
+        body {
+            font-family: system-ui, sans-serif;
+            background: #fff;
+            color: #111;
+        }
+
+        /* ── Back button ── */
+        .btn-home {
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem 4rem;
+        }
+
+        /* ── Header ── */
+        header {
+            text-align: center;
+            padding: 2rem 0 2.5rem;
+        }
+
+        .title-opm {
+            font-size: clamp(2.8rem, 10vw, 6rem);
+            font-weight: 900;
+            color: #e02020;
+            text-transform: uppercase;
+            font-style: italic;
             letter-spacing: -.02em;
-            color: #E61D25;
-            margin-bottom: 15px;
+            line-height: 1;
+            font-family: Impact, 'Arial Black', sans-serif;
         }
-        section.logos-mundial {            
-            background-color: rgba(0, 0, 0, 0.3);
-            padding: 15px;
-            margin: 20px 0;            
+
+        .title-jp {
+            font-size: clamp(1rem, 3vw, 1.6rem);
+            color: #111;
+            margin-top: .4rem;
+            letter-spacing: .15em;
+            font-weight: 400;
         }
-        img.francia {
-            height: 72px;
+
+        /* ── Seasons grid ── */
+        .seasons-grid {
+            display: grid;
+            gap: 1rem;
+            grid-template-columns: repeat(4, 1fr);
+            margin-bottom: 3rem;
         }
-        img.argentina {
-            height: 72px;
+
+        @media (max-width: 800px) {
+            .seasons-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
-        img.portugal {
-            height: 72px;
+
+        @media (max-width: 420px) {
+            .seasons-grid {
+                grid-template-columns: 1fr;
+            }
         }
-        img.colombia {
-            height: 72px;
+
+        .season-card {
+            position: relative;
+            border-radius: 6px;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            background: #1a1a2e;
+        }
+
+        .season-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Placeholder gradient when no image */
+        .season-card .placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .season-card:nth-child(1) .placeholder {
+            background: linear-gradient(160deg, #2d1b1b 0%, #8b0000 100%);
+        }
+
+        .season-card:nth-child(2) .placeholder {
+            background: linear-gradient(160deg, #1a2d1b 0%, #1a5c1a 100%);
+        }
+
+        .season-card:nth-child(3) .placeholder {
+            background: linear-gradient(160deg, #1b1b2d 0%, #000080 100%);
+        }
+
+        .season-card:nth-child(4) .placeholder {
+            background: linear-gradient(160deg, #2d1b2d 0%, #6a0dad 100%);
+        }
+
+        .season-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, .65);
+            color: #fff;
+            font-size: .85rem;
+            padding: .45rem .6rem;
+            text-align: center;
+        }
+
+        /* ── Characters section ── */
+        .characters {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .character {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 560px) {
+            .character {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .character-img {
+            width: 100%;
+            aspect-ratio: 3/4;
+            object-fit: cover;
+            border-radius: 6px;
+            display: block;
+            background: #111;
+        }
+
+        .character-img-placeholder {
+            width: 100%;
+            aspect-ratio: 3/4;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .saitama-placeholder {
+            background: linear-gradient(160deg, #1a1a1a 0%, #4a0000 100%);
+        }
+
+        .genos-placeholder {
+            background: linear-gradient(160deg, #0a0a1a 0%, #001a4a 100%);
+        }
+
+        .character-info h2 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            margin-bottom: .75rem;
+            color: #111;
+        }
+
+        .character-info p {
+            font-size: .9rem;
+            line-height: 1.7;
+            color: #444;
         }
     </style>
 </head>
 
 <body>
+
     <a href="../03-css/index_4.html" class="btn-home">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#000000" viewBox="0 0 256 256">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#000000" viewBox="0 0 256 256">
             <path
-                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z">
-            </path>
-        </svg> </a>
+                d="M224,128a8,8,0,0,1-8,8H59.31l58.35,58.34a8,8,0,0,1-11.32,11.32l-72-72a8,8,0,0,1,0-11.32l72-72a8,8,0,0,1,11.32,11.32L59.31,120H216A8,8,0,0,1,224,128Z" />
+        </svg>
+    </a>
+
     <main>
         <header>
-            <h1>39-Challenge-Responsive</h1>
+            <h1 class="title-opm">Copa Mundial de Fútbol de 2026</h1>
+            <p class="title-jp">Estados Unidos - Mexico - Canada</p>
         </header>
-        <section class="logos-mundial">
-            <div class="logos-container">
-                <div class="logos-card">
-                    <h3>Francia</h3>
-                    <div class="logo-img">
-                        <img src="img/francia.png" class="francia">
-                    </div>
+
+        <section>
+
+            <!-- Seasons grid -->
+            <div class="seasons-grid">
+                <div class="season-card">
+                    <img src="img/francia.png" alt="Francia">
+                    <div class="season-label">Francia</div>
                 </div>
-                <div class="logos-card">
-                    <h3>Argentina</h3>
-                    <div class="logo-img">
-                        <img src="img/argentina.webp" class="argentina">                        
-                    </div>
+                <div class="season-card">
+                    <img src="img/argentina.webp" alt="Argentina">
+                    <div class="season-label">Argentina</div>
                 </div>
-                <div class="logos-card">
-                    <h3>Portugal</h3>
-                    <div class="logo-img">
-                        <img src="img/portugal.png" class="portugal"> 
-                    </div>
+                <div class="season-card">
+                    <img src="img/portugal.png" alt="Portugal">
+                    <div class="season-label">Portugal</div>
                 </div>
-                <div class="logos-card">
-                    <h3>Colombia</h3>
-                    <div class="logo-img">
-                        <img src="img/colombia.png" class="colombia">
-                    </div>
+                <div class="season-card">
+                    <img src="img/colombia.png" alt="Colombia">
+                    <div class="season-label">Colombia</div>
                 </div>
             </div>
+
+            <!-- Characters -->
+            <div class="characters">
+
+                <div class="character">
+                    <div class="character-img-placeholder saitama-placeholder">👊</div>
+                    <div class="character-info">
+                        <h2>Saitama Sensei</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia aspernatur quam
+                            reprehenderit beatae explicabo porro excepturi sunt, totam obcaecati culpa nisi quasi qui
+                            earum sint nam. Incidunt repellat sequi recusandae non dolorem, dolor ex minus eius ad
+                            veritatis earum, dicta vitae odit laudantium saepe hic et quam nobis maxime quod maiores
+                            fugit laboriosam magni amet. Labore laudantium dignissimos, laboriosam quisquam sequi beatae
+                            itaque officia quos praesentium distinctio doloremque, aut quae ex, veniam sit eaque
+                            accusamus.</p>
+                    </div>
+                </div>
+
+                <div class="character">
+                    <div class="character-img-placeholder genos-placeholder">🤖</div>
+                    <div class="character-info">
+                        <h2>Genos</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia aspernatur quam
+                            reprehenderit beatae explicabo porro excepturi sunt, totam obcaecati culpa nisi quasi qui
+                            earum sint nam. Incidunt repellat sequi recusandae non dolorem, dolor ex minus eius ad
+                            veritatis earum, dicta vitae odit laudantium saepe hic et quam nobis maxime quod maiores
+                            fugit laboriosam magni amet. Labore laudantium dignissimos, laboriosam quisquam sequi beatae
+                            itaque officia quos praesentium distinctio doloremque, aut quae ex, veniam sit eaque
+                            accusamus.</p>
+                    </div>
+                </div>
+
+            </div>
+
         </section>
     </main>
+
 </body>
 
 </html>
