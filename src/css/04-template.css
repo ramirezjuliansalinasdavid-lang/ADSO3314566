@@ -1,74 +1,291 @@
 /* ============================================================
-   JAVASCRIPT — TEMPLATE PARA LECCIONES
-   Estilo consistente con la página principal
+   JAVASCRIPT — TEMPLATE PARA LECCIONES (CYBERPUNK / #f0db4f)
+   Autocontenido: no depende de otro CSS para variables o fuentes
    ============================================================ */
 
-/* ===== CONTENEDOR DE LA LECCIÓN ===== */
-.lesson-container {
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Share+Tech+Mono&family=Poppins:wght@300;400;600;700&display=swap');
+
+:root {
+    --js-yellow: #c0ad31;
+    --js-yellow-deep: #d9c22e;
+
+    --ink: #11120c;
+    --ink-soft: #1b1926;
+
+    --cyan: #00c2d1;
+    --magenta: #e0114f;
+
+    --panel-bg: rgba(255, 255, 255, 0.15);
+    --panel-bg-2: rgba(255, 255, 255, 0.06);
+    --panel-border: rgba(13, 12, 18, 0.12);
+
+    --text-main: #14121c;
+    --text-muted: rgba(20, 18, 28, 0.65);
+
+    --font-display: 'Orbitron', sans-serif;
+    --font-mono: 'Share Tech Mono', monospace;
+    --font-body: 'Poppins', 'Segoe UI', system-ui, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-body);
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    background: var(--js-yellow);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 60px 20px 50px;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ---------- FONDO: franjas + grid de circuito + luz ---------- */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(135deg,
+            transparent 0px,
+            transparent 46px,
+            rgba(13, 12, 18, 0.045) 46px,
+            rgba(13, 12, 18, 0.045) 58px),
+        linear-gradient(rgba(13, 12, 18, 0.10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13, 12, 18, 0.10) 1px, transparent 1px),
+        radial-gradient(circle at 15% 8%, rgba(255, 255, 255, 0.35) 0%, transparent 45%),
+        radial-gradient(circle at 88% 92%, rgba(13, 12, 18, 0.12) 0%, transparent 50%);
+    background-size: auto, 40px 40px, 40px 40px, 100% 100%, 100% 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* viñeta */
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 45%, rgba(13, 12, 18, 0.18) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* barrido de escaneo animado, sin necesidad de markup extra */
+html::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 5;
+    background: linear-gradient(rgba(13, 12, 18, 0) 0%,
+            rgba(13, 12, 18, 0.06) 50%,
+            rgba(13, 12, 18, 0) 100%);
+    height: 140px;
+    animation: scan-move 7s linear infinite;
+    mix-blend-mode: multiply;
+}
+
+@keyframes scan-move {
+    0% {
+        transform: translateY(-140px);
+    }
+
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+/* ---------- BOTÓN VOLVER (circular, esquina superior) ---------- */
+.btn-home {
+    position: fixed;
+    top: 24px;
+    left: 24px;
+    z-index: 99;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--ink);
+    border: 1px solid var(--ink);
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(13, 12, 18, 0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-home svg {
+    fill: var(--js-yellow) !important;
+    width: 20px;
+    height: 20px;
+    transition: fill 0.25s ease;
+}
+
+.btn-home:hover {
+    background: var(--ink-soft);
+    transform: scale(1.08) rotate(-6deg);
+    box-shadow: 0 0 0 3px var(--js-yellow-deep), 0 8px 24px rgba(13, 12, 18, 0.45);
+}
+
+.btn-home:hover svg {
+    fill: var(--cyan) !important;
+}
+
+/* ---------- TARJETA PRINCIPAL DE LA LECCIÓN ---------- */
+/* Se aplica directamente a <main>, así funciona en cualquier
+   página de lección sin necesitar clases extra en el HTML. */
+main {
+    position: relative;
+    z-index: 1;
     max-width: 820px;
     margin: 30px auto 0;
-    padding: 0 20px;
+    background: linear-gradient(180deg, var(--panel-bg) 0%, var(--panel-bg-2) 100%);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 44px 38px 40px;
+    border: 1px solid var(--panel-border);
+    box-shadow: 0 18px 45px rgba(13, 12, 18, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* ===== TARJETA DE CONTENIDO (ESTILO VIDRIO) ===== */
-.content-card {
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-radius: 16px;
-    padding: 40px 35px;
-    border: 1px solid rgba(13, 12, 18, 0.10);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.10),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
-    transition: all 0.3s ease;
+main:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 55px rgba(13, 12, 18, 0.28), 0 0 26px rgba(0, 194, 209, 0.25);
 }
 
-.content-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 48px rgba(13, 12, 18, 0.15);
+/* corchetes HUD en las esquinas del panel */
+main::before,
+main::after {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    border: 2px solid var(--ink);
+    opacity: 0.6;
+    pointer-events: none;
 }
 
-/* ===== TÍTULO DE LA LECCIÓN ===== */
-.lesson-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.4rem;
-    font-weight: 700;
+main::before {
+    top: 14px;
+    left: 14px;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 6px 0 0 0;
+}
+
+main::after {
+    bottom: 14px;
+    right: 14px;
+    border-left: none;
+    border-top: none;
+    border-radius: 0 0 6px 0;
+}
+
+/* ---------- ENCABEZADO ---------- */
+main header {
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+main header h1 {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    background-clip: text;
+    animation: gradientShift 4s ease-in-out infinite;
+    text-shadow:
+        2px 0 var(--cyan),
+        -2px 0 var(--magenta),
+        0 0 20px rgba(0, 194, 209, 0.3);
     color: var(--ink);
-    text-align: center;
-    margin-bottom: 12px;
-    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
 }
 
-.lesson-title .highlight {
-    color: var(--cyan);
-    text-shadow: 0 0 20px rgba(0, 194, 209, 0.25);
-}
-
-/* ===== SUBTÍTULO ===== */
-.lesson-subtitle {
+main header h2 {
+    display: inline-block;
     font-family: var(--font-body);
-    font-size: 1.05rem;
-    color: var(--text-muted);
-    text-align: center;
-    margin-bottom: 30px;
-    padding-bottom: 20px;
-    border-bottom: 2px dashed rgba(13, 12, 18, 0.10);
+    font-weight: 400;
+    font-size: 0.99rem;
     line-height: 1.6;
+    color: var(--text-muted);
+    background: rgba(13, 12, 18, 0.06);
+    border: 1px solid rgba(13, 12, 18, 0.12);
+    border-radius: 14px;
+    padding: 14px 22px;
+    max-width: 560px;
+}
+
+/* ---------- BADGE / BARRA DE IDENTIDAD ---------- */
+.id-badge {
+    display: block;
+    text-align: center;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, var(--magenta) 0%, var(--ink) 100%);
+    box-shadow: 0 8px 24px rgba(224, 17, 79, 0.25);
+    margin: 24px 0;
+}
+
+/* ---------- SECCIÓN DE CONTENIDO ---------- */
+main section {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* Cualquier salida de texto generada (document.write, innerHTML, etc.) */
+main section h3 {
+    font-family: var(--font-mono);
+    font-size: 1.1rem;
+    color: var(--ink);
+    background: rgba(13, 12, 18, 0.06);
+    border-left: 3px solid var(--js-yellow-deep);
+    padding: 10px 16px;
+    border-radius: 6px;
+}
+
+main section p {
+    font-family: var(--font-mono);
+    font-size: 1rem;
+    color: var(--ink);
+    background: rgba(13, 12, 18, 0.06);
+    border-left: 3px solid var(--cyan);
+    padding: 10px 16px;
+    border-radius: 6px;
+    line-height: 1.6;
+}
+
+main section p:empty {
+    display: none;
 }
 
 /* ===== CAJA DE CÓDIGO (TERMINAL) ===== */
 .code-box {
     background: var(--ink);
     border-radius: 12px;
-    padding: 30px 28px 28px;
+    padding: 30px 28px 24px;
     border: 2px solid var(--js-yellow);
-    box-shadow: 0 0 40px rgba(240, 219, 79, 0.06),
-        inset 0 0 40px rgba(240, 219, 79, 0.02);
+    box-shadow: 0 0 40px rgba(240, 219, 79, 0.1);
     position: relative;
-    margin-bottom: 20px;
 }
 
-/* Puntos de la terminal (●●●) */
 .code-box::before {
     content: "● ● ●";
     position: absolute;
@@ -76,21 +293,22 @@
     left: 18px;
     font-size: 0.7rem;
     letter-spacing: 5px;
-    color: rgba(255, 255, 255, 0.12);
+    color: rgba(255, 255, 255, 0.18);
 }
 
 .code-box code {
-    font-family: 'Share Tech Mono', monospace;
-    font-size: 1.15rem;
+    font-family: var(--font-mono);
+    font-size: 1rem;
     color: var(--js-yellow);
     display: block;
     padding-top: 10px;
-    line-height: 2;
+    line-height: 1.9;
+    white-space: pre-wrap;
+    word-break: break-word;
 }
 
-/* Colores de sintaxis */
 .code-box code .comment {
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.3);
     font-style: italic;
 }
 
@@ -99,11 +317,11 @@
 }
 
 .code-box code .function {
-    color: #00c2d1;
+    color: var(--cyan);
 }
 
 .code-box code .string {
-    color: #f0db4f;
+    color: var(--js-yellow);
 }
 
 .code-box code .number {
@@ -111,14 +329,14 @@
 }
 
 .code-box code .variable {
-    color: #f0db4f;
+    color: var(--js-yellow);
 }
 
 .code-box code .operator {
     color: #ff63ed;
 }
 
-/* ===== BADGE (estilo etiqueta) ===== */
+/* ===== BADGE TIPO ETIQUETA (holográfico) ===== */
 .holo-badge {
     display: inline-block;
     background: var(--ink);
@@ -126,10 +344,10 @@
     padding: 8px 24px;
     border-radius: 30px;
     border: 2px solid var(--js-yellow);
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.9rem;
     font-weight: 600;
-    box-shadow: 0 0 30px rgba(240, 219, 79, 0.12);
+    box-shadow: 0 0 24px rgba(240, 219, 79, 0.15);
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
 }
@@ -141,7 +359,7 @@
 
 .holo-badge:hover {
     transform: scale(1.04);
-    box-shadow: 0 0 50px rgba(240, 219, 79, 0.2);
+    box-shadow: 0 0 40px rgba(240, 219, 79, 0.25);
 }
 
 /* ===== BOTÓN EJECUTAR ===== */
@@ -154,20 +372,20 @@
     border: 2px solid var(--js-yellow);
     padding: 14px 38px;
     border-radius: 10px;
-    font-family: 'Orbitron', sans-serif;
+    font-family: var(--font-display);
     font-weight: 700;
     font-size: 0.85rem;
     letter-spacing: 1.5px;
     cursor: pointer;
     transition: all 0.25s ease;
     text-transform: uppercase;
-    margin-top: 5px;
+    align-self: center;
 }
 
 .btn-execute:hover {
     background: var(--js-yellow);
     color: var(--ink);
-    box-shadow: 0 0 40px rgba(240, 219, 79, 0.25);
+    box-shadow: 0 0 30px rgba(240, 219, 79, 0.3);
     transform: scale(1.03);
     border-color: var(--ink);
 }
@@ -178,13 +396,12 @@
 
 /* ===== ÁREA DE SALIDA (CONSOLA) ===== */
 .output-area {
-    background: rgba(13, 12, 18, 0.8);
+    background: rgba(13, 12, 18, 0.9);
     border-radius: 10px;
     padding: 16px 22px;
-    margin-top: 22px;
     border-left: 4px solid var(--js-yellow);
     min-height: 60px;
-    font-family: 'Share Tech Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 1rem;
     color: var(--js-yellow);
     transition: all 0.4s ease;
@@ -195,7 +412,7 @@
     font-size: 0.65rem;
     text-transform: uppercase;
     letter-spacing: 2.5px;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.3);
     margin-bottom: 6px;
     display: block;
 }
@@ -209,63 +426,68 @@
     display: block;
 }
 
-/* Efecto de "flash" al ejecutar */
 .output-area.flash {
-    border-color: #f0db4f;
-    box-shadow: 0 0 40px rgba(240, 219, 79, 0.12);
+    border-color: var(--cyan);
+    box-shadow: 0 0 30px rgba(0, 194, 209, 0.2);
 }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .content-card {
-        padding: 25px 18px;
+    main {
+        padding: 30px 22px;
     }
 
-    .lesson-title {
-        font-size: 1.8rem;
+    main header h1 {
+        font-size: 1.7rem;
     }
 
-    .lesson-subtitle {
-        font-size: 0.95rem;
+    main header h2 {
+        font-size: 0.85rem;
+        padding: 12px 16px;
     }
 
     .code-box {
-        padding: 25px 18px 20px;
+        padding: 25px 18px 18px;
     }
 
     .code-box code {
-        font-size: 0.95rem;
+        font-size: 0.85rem;
     }
 
     .btn-execute {
         padding: 11px 28px;
         font-size: 0.75rem;
+        width: 100%;
+        justify-content: center;
     }
 
-    .holo-badge {
-        font-size: 0.8rem;
-        padding: 6px 18px;
+    .id-badge {
+        font-size: 0.95rem;
     }
 }
 
 @media (max-width: 480px) {
-    .content-card {
-        padding: 18px 12px;
+    body {
+        padding: 40px 12px;
     }
 
-    .lesson-title {
+    main {
+        padding: 24px 16px;
+        border-radius: 14px;
+    }
+
+    main header h1 {
         font-size: 1.4rem;
     }
 
     .code-box code {
-        font-size: 0.8rem;
+        font-size: 0.78rem;
         line-height: 1.8;
     }
+}
 
-    .btn-execute {
-        padding: 10px 20px;
-        font-size: 0.7rem;
-        width: 100%;
-        justify-content: center;
+@media (prefers-reduced-motion: reduce) {
+    html::after {
+        animation: none;
     }
 }
