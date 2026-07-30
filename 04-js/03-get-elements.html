@@ -6,6 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>03-Get-Elements</title>
     <link rel="stylesheet" href="../src/css/04-template.css">
+    <style>
+        section {
+            ul {
+                padding: 0;
+            }
+            ul li,
+            figure.animal {
+                background-color: #0006;
+                border-radius: 2px;
+                height: 25px;
+                margin: 2px auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 25px;
+                zoom: 2.5;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -21,6 +40,62 @@
             <h2>Accede y manipula elementos HTML usando JavaScript.</h2>
         </header>
         <section>
+            <h3>Get Element By Id:</h3>
+            <h4 id="year"></h4>
+            <h3>Get Elements By Tag Name:</h3>
+            <ul>
+                <li>🍎</li>
+                <li>🫐</li>
+                <li>🍊</li>
+                <li>🍒</li>
+            </ul>
+            <h4></h4>
+            <h3>Get Elements By Class Name</h3>
+            <p class="paragraph">Lorem ipsum dolor</p>
+            <p class="paragraph">Lorem ipsum dolor</p>
+            <p class="paragraph">Lorem ipsum dolor</p>
+            <h3>Query Selector & Query Selector All</h3>
+            <figure class="animal first">🦊</figure>
+            <figure class="animal">🐼</figure>
+            <figure class="animal">🐷</figure>
         </section>
     </main>
+
+    <script>
+        //Get Element By ID
+        const year = document.getElementById('year');
+        const ndate = new Date;
+        year.textContent = `Current Year:
+                            ${ndate.getFullYear()}`;
+
+        // Get Elements By Tag Name
+        const fruits = document.getElementsByTagName('li');
+        const h4s = document.getElementsByTagName('h4');
+        h4s[1].textContent = `Hay ${fruits.length} frutas`
+        h4s[1].innerHTML += ` <br> la Primera fruta es ${fruits[0].textContent}`
+        h4s[1].innerHTML += ` <br> la Ultima fruta es ${fruits[fruits.length-1].textContent}` 
+
+        //Get Elements By Class Name
+        const ps = document.getElementsByClassName('paragraph')
+        ps[1].textContent = 'New text value'
+        ps[1].style.backgroundColor = 'Crimson'
+        ps[1].style.color = 'white'
+        ps[1].style.padding = '0.4rem'
+
+        //Query Selectors & Selector All
+        const first = document.querySelector('figure.animal')
+        first.style.backgroundColor = 'orange'
+
+        const animals = document.querySelectorAll('figure.animal')
+        // Static & large way
+        // animals[0].style.borderRadius = '50%';
+        // animals[1].style.borderRadius = '50%';
+        // animals[2].style.borderRadius = '50%';
+        // Dinamic & Short way
+        animals.forEach(element => {
+            element.style.borderRadius = '50%'
+        })
+    </script>
 </body>
+
+</html>
