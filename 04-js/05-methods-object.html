@@ -109,8 +109,8 @@
         status: 'alive',
         //Methods
         render: function() {
-            pkName.innerHTML = `${this.name} <small>[${this.type}]</small>`
-            pkImage.style.backgroundImage = `url(${this.image})`
+            pkName.innerHTML = `${this.name} <small>[${this.type}]</small>`;
+            pkImage.style.backgroundImage = `url(${this.image})`;
             this.updateHp('animate__rubberBand');
             this.updateStatus();
         },
@@ -121,22 +121,25 @@
         feed: function() {
             if(this.hp < 200) {
             this.hp += 25;
-            this.status = 'feed'
-            pkImage.classList.remove('alive', 'attack', 'dead')
-            this.updateHp('animate__rubberBand')
+            this.status = 'feed';
+            pkImage.classList.remove('alive', 'attack', 'dead');
+            this.updateHp('animate__rubberBand');
+            this.updateStatus();
             }
         },
         attack: function() {
             if(this.hp > 0) {
             this.hp -= 25;
-            this.status = 'attack'
-            pkImage.classList.remove('alive', 'feed', 'dead')
-            this.updateHp('animate__rubberBand')
+            this.status = 'attack';
+            pkImage.classList.remove('alive', 'feed', 'dead');
+            this.updateHp('animate__rubberBand');
+            this.updateStatus();
             }
         },
         updateStatus: function() {
             setTimeout(() => {
                 pkImage.classList.remove('animate__rubberBand');
+                btnAttack
             }, 1200);
         }
     }
