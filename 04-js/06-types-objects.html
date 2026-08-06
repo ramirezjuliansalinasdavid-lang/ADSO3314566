@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>05-Types-Objects</title>
+    <title>06-Types-Objects</title>
     <link rel="stylesheet" href="../src/css/04-template.css">
 </head>
 
@@ -17,10 +17,42 @@
         </svg> </a>
     <main>
         <header>
-            <h1>05-Types-Objects</h1>
+            <h1>06-Types-Objects</h1>
             <h2>Comprende y trabaja con diferentes tipos de objetos.</h2>
         </header>
         <section>
+            <ul class="objects"></ul>
         </section>
     </main>
+    <script>
+
+        //Elements
+        const objs = document.querySelector('.objects');
+
+        //Objects String
+        const string = new String('Javascript 💛');
+        objs.innerHTML = `<li>${string} -> Object:  ${string.constructor.name}</li>`;
+
+        //Objects Number
+        const number = new Number(256);
+        objs.innerHTML += `<li>${number} -> Object:  ${number.constructor.name}</li>`;
+
+        //Objects Boolean
+        const bool = new Boolean(512>128);
+        objs.innerHTML += `<li>${bool} -> Object:  ${bool.constructor.name}</li>`;
+
+        //Objects Array
+        const array = new Array('🚕', '🚓', '🚑', '🚐', '🚁');
+        objs.innerHTML += `<li>${array} -> Object:  ${array.constructor.name}</li>`;
+
+        //Objects Data
+        const date = new Date('11/03/1995');
+        objs.innerHTML += `<li>${date.getFullYear()} -> Object:  ${date.constructor.name}</li>`;
+
+        //Objects Object
+        const object = new Object('Vehiculo');
+        objs.innerHTML += `<li>${object} -> Object:  ${object.constructor.name}</li>`;
+
+    </script>
 </body>
+</html>
