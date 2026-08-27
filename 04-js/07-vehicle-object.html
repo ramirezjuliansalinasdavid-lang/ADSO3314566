@@ -6,6 +6,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>07-Vehicle-Object</title>
     <link rel="stylesheet" href="../src/css/04-template.css">
+    <style>
+        div.vehicle {
+            &.dark {
+                background-color: #090F1F;
+                header {
+                    
+                    figure.logo {
+                        background: url(imgs/Vehicle/logod.png) no-repeat center /95%;
+                    }
+                    button.mode {
+                        background: url(imgs/Vehicle/btn-mode.svg) no-repeat center /cover;
+                        height: 60px;
+                        width: 60px;
+                    }
+                }
+                nav {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 20px;
+                    button {
+                        border: none;
+                        cursor: pointer;
+                        height: 60px;
+                        transition: transform 0.4s ease-in;
+                        width: 60px;
+                        &.prev {
+                            background: url(imgs/Vehicle/Prev.svg) no-repeat center;
+                            height: 60px;
+                            width: 60px;
+                        }
+                        &.next {
+                            background: url(imgs/Vehicle/Next.svg) no-repeat center;
+                            height: 60px;
+                            width: 60px;                            
+                        }
+                        &.brand {
+                            background: url(imgs/Vehicle/Rectangle.svg) no-repeat center;
+                            height: 60px;
+                            width: 200px;                              
+                        }
+                    }
+                }
+            }
+            border-radius: 8px;
+            background-color: #F5F6F9;
+            margin: 0 auto;
+            height: 680px;
+            width: 380px;
+            padding: 10px;
+
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                figure {
+                    background: url(imgs/Vehicle/logo.png) no-repeat center /cover;
+                    height: 60px;
+                    margin: 0;
+                    width: 200px;                    
+                }
+
+                button.mode {
+                    background: url(imgs/Vehicle/btn-modec.svg) no-repeat center /cover;
+                    border: none;
+                    cursor: pointer;
+                    height: 60px;
+                    transition: transform 0.4s ease-in;
+                    width: 60px;
+                    &:hover {
+                        transform: scale(1.1);
+                    }                  
+                }
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -21,11 +97,35 @@
             <h2>Crea y manipula un objeto vehículo con propiedades.</h2>
         </header>
         <section>
-            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450"
-                src="https://embed.figma.com/design/YGaxrTbKUTqctTyistN3yX/JS-Class-Vehicle?node-id=0-1&embed-host=share"
-                allowfullscreen></iframe>
+            <!-- <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="100%" height="450" 
+                src="https://embed.figma.com/design/YGaxrTbKUTqctTyistN3yX/JS-Class-Vehicle?node-id=0-1&embed-host=share" 
+                allowfullscreen></iframe>-->
+
+            <div class="vehicle">
+                <header>
+                    <figure class="logo"></figure>
+                    <button class="mode"></button>
+                </header>
+                <nav>
+                    <button class="prev"></button>
+                    <button class="brand"></button>
+                    <button class="next"></button>
+                </nav>
+            </div>
         </section>
     </main>
+    <script>
+        const vhc = document.querySelector('.vehicle');
+        const mode = document.querySelector('.mode');
+        const darkMode = window.matchMedia('(prefers-color-scheme: dark)');
+        const updateTheme = (e) => vhc.classList.toggle('dark', e.matches);
+        updateTheme(darkMode);
+
+        darkMode.addEventListener('change', updateTheme);
+        mode.addEventListener('click', function() {
+            vhc.classList.toggle('dark');
+        })        
+    </script>
 </body>
 
 </html>
